@@ -24,8 +24,8 @@ public class RobotContainer {
   /**
    * Top level commands
    */
-  public final AutoGroup cg_AutoGroup = new AutoGroup();
-  public final TeleopGroup cg_TeleopGroup = new TeleopGroup();
+  public final AutoGroup cg_AutoGroup = new AutoGroup();;
+  public final TeleopGroup cg_TeleopGroup = new TeleopGroup();;
 
   /**
    * Subsystems
@@ -43,6 +43,9 @@ public class RobotContainer {
   public RobotContainer() {
     // Configure the button bindings
     configureButtonBindings();
+
+    //set defaults
+    s_DriveTrain.setDefaultCommand(cg_TeleopGroup);
   }
 
   /**
