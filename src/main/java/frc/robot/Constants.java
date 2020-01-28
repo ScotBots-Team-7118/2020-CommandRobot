@@ -16,4 +16,32 @@ package frc.robot;
  * constants are needed, to reduce verbosity.
  */
 public final class Constants {
+
+        //Drive controlls
+        //0, joystick; 1, xbox.
+        public static int D_CONTROLS = 0;
+
+        //Drive talon imports
+        public static int TAL_FR = 0;
+        public static int TAL_BR = 0;
+        public static int TAL_FL = 0;
+        public static int TAL_BL = 0;
+
+        //Joystick Deadzone
+        public static double DEADZONE = 0.1;
+    
+        //Intake talon
+        public static int TAL_IN = 0;
+
+        //indexer talon
+        public static int TAL_ID = 0;
+    
+        //Climber motor(s)
+        public static int TAL_CL = 0;  
+        public static int TAL_CR = 0; 
+        
+        //Controllers
+        public static int XBOX = 0;
+        public static int JOYL = 0;
+        public static int JOYR = 0;
 }
