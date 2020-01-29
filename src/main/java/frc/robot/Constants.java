@@ -15,17 +15,16 @@ package frc.robot;
  * <p>It is advised to statically import this class (or one of its inner classes) wherever the
  * constants are needed, to reduce verbosity.
  */
-public final class Constants {
-
-        //Drive controlls
-        //0, joystick; 1, xbox.
-        public static int D_CONTROLS = 0;
+public final class Constants
+{
+        public static enum ControlsConfig {JOYSTICKS, XBOX};
+        public static ControlsConfig controls = ControlsConfig.XBOX;
 
         //Drive talon imports
-        public static int TAL_FR = 0;
-        public static int TAL_BR = 0;
-        public static int TAL_FL = 0;
-        public static int TAL_BL = 0;
+        public static int TAL_RM = 0;
+        public static int TAL_RF = 0;
+        public static int TAL_LM = 0;
+        public static int TAL_LF = 0;
 
         //Joystick Deadzone
         public static double DEADZONE = 0.1;
