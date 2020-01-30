@@ -82,7 +82,15 @@ public class Robot extends TimedRobot
   @Override
   public void teleopInit()
   {
-    cg_AutoGroup.cancel();
+    try
+    {
+      cg_AutoGroup.cancel();
+    }
+    catch (NullPointerException npe)
+    {
+      //TODO: handle exception
+      System.out.println("Cannot cancel AutoGroup commands: none are scheduled.");
+    }
 
     cg_TeleopGroup = rContainer.getTeleopCommand();
     cg_TeleopGroup.schedule();

@@ -20,9 +20,22 @@ public class OI {
         JoyMap = new HashMap<>();
         buttons = new HashMap<>();
 
-        JoyMap.put("JoyL", new Joystick(Constants.JOYL));
-        JoyMap.put("JoyR", new Joystick(Constants.JOYR));
-        JoyMap.put("Xbox", new Joystick(Constants.XBOX));
+        switch (Constants.controls)
+        {
+            case XBOX:
+            JoyMap.put("Xbox", new Joystick(Constants.XBOX));
+            break;
+
+            case JOYSTICKS:
+            JoyMap.put("JoyL", new Joystick(Constants.JOYL));
+            JoyMap.put("JoyR", new Joystick(Constants.JOYR));
+            break;
+
+            default:
+            System.out.println("No Control Configuration Selected");
+            break;
+        }
+        
 
         //Subscribe buttons
     }

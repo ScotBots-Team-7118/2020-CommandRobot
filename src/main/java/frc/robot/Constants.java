@@ -21,10 +21,10 @@ public final class Constants
         public static ControlsConfig controls = ControlsConfig.XBOX;
 
         //Drive talon imports
-        public static int TAL_RM = 0;
-        public static int TAL_RF = 0;
-        public static int TAL_LM = 0;
-        public static int TAL_LF = 0;
+        public static int TAL_RM = 5;
+        public static int TAL_RF = 4;
+        public static int TAL_LM = 3;
+        public static int TAL_LF = 2;
 
         //Joystick Deadzone
         public static double DEADZONE = 0.1;
@@ -42,5 +42,5 @@ public final class Constants
         //Controllers
         public static int XBOX = 0;
         public static int JOYL = 0;
-        public static int JOYR = 0;
+        public static int JOYR = 1;
 }

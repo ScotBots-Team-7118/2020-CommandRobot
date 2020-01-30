@@ -44,8 +44,8 @@ public class RobotContainer {
     // Configure the button bindings
     configureButtonBindings();
 
-    //set defaults
-    s_DriveTrain.setDefaultCommand(cg_TeleopGroup);
+    // //set defaults
+    // s_DriveTrain.setDefaultCommand(cg_TeleopGroup);
   }
 
   /**
