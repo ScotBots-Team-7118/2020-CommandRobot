@@ -17,7 +17,8 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  * the package after creating this project, you must also update the build.gradle file in the
  * project.
  */
-public class Robot extends TimedRobot {
+public class Robot extends TimedRobot
+{
   private Command cg_AutoGroup;
   private Command cg_TeleopGroup;
 
@@ -29,7 +30,8 @@ public class Robot extends TimedRobot {
    * initialization code.
    */
   @Override
-  public void robotInit() {
+  public void robotInit()
+  {
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     rContainer = new RobotContainer();
@@ -44,7 +46,8 @@ public class Robot extends TimedRobot {
    * LiveWindow and SmartDashboard integrated updating.
    */
   @Override
-  public void robotPeriodic() {
+  public void robotPeriodic()
+  {
     CommandScheduler.getInstance().run();
   }
 
@@ -52,55 +55,59 @@ public class Robot extends TimedRobot {
    * This function is called once each time the robot enters Disabled mode.
    */
   @Override
-  public void disabledInit() {
-  }
+  public void disabledInit()
+  {
 
-  @Override
-  public void disabledPeriodic() {
   }
 
   /**
    * This autonomous runs the autonomous command selected by your {@link RobotContainer} class.
    */
   @Override
-  public void autonomousInit() {
-    cg_AutoGroup = rContainer.getAutonomousCommand();
-
-    // schedule the autonomous command (example)
-    if (cg_AutoGroup != null) {
+  public void autonomousInit()
+  {
+      cg_AutoGroup = rContainer.getAutonomousCommand();
       cg_AutoGroup.schedule();
-    }
   }
 
   /**
    * This function is called periodically during autonomous.
    */
   @Override
-  public void autonomousPeriodic() {
+  public void autonomousPeriodic()
+  {
+
   }
 
   @Override
-  public void teleopInit() {
-
-  cg_TeleopGroup = rContainer.getTeleopCommand();
-    
-    if(cg_TeleopGroup != null){
-      cg_TeleopGroup.schedule();
-    }
-    if (cg_AutoGroup != null) {
+  public void teleopInit()
+  {
+    try
+    {
       cg_AutoGroup.cancel();
     }
+    catch (NullPointerException npe)
+    {
+      //TODO: handle exception
+      System.out.println("Cannot cancel AutoGroup commands: none are scheduled.");
+    }
+
+    cg_TeleopGroup = rContainer.getTeleopCommand();
+    cg_TeleopGroup.schedule();
   }
 
   /**
    * This function is called periodically during operator control.
    */
   @Override
-  public void teleopPeriodic() {
+  public void teleopPeriodic()
+  {
+
   }
 
   @Override
-  public void testInit() {
+  public void testInit()
+  {
     // Cancels all running commands at the start of test mode.
     CommandScheduler.getInstance().cancelAll();
   }
@@ -109,6 +116,8 @@ public class Robot extends TimedRobot {
    * This function is called periodically during test mode.
    */
   @Override
-  public void testPeriodic() {
+  public void testPeriodic()
+  {
+
   }
 }

@@ -6,41 +6,34 @@ import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 import frc.robot.Constants;
 import frc.robot.commands.teleop.*;
 
-public class TeleopGroup extends ParallelCommandGroup{
+public class TeleopGroup extends ParallelCommandGroup
+{
 
-    public TeleopGroup(){
-        
-        //Choose control scheme
-        ChooseControl(Constants.D_CONTROLS);
+    /**
+     * Constructs a new TeleopGroup.
+     */
+    public TeleopGroup()
+    {
+        setControls(Constants.controls);
     }
 
     /**
-     * Types of controls
+     * Configure the teleop commands based on the chosen controls configuration.
      */
-    public enum ControlType{
-        XBOX,
-        JOYSTICK
-    }
-    ControlType controlType;
-
-    /**
-     * Decide controls to use.
-     */
-    public void ChooseControl(int type){
-        if(type == 0){
-            controlType = ControlType.JOYSTICK;
-        }else if(type == 1){
-            controlType = ControlType.XBOX;
-        }else{
-            controlType = ControlType.JOYSTICK;
-        }
-
-        switch(controlType){
+    public void setControls(Constants.ControlsConfig type)
+    {
+        switch (type)
+        {
             case XBOX:
                 addCommands(new TeleXboxDrive());
                 break;
-            case JOYSTICK:
+            
+            case JOYSTICKS:
                 addCommands(new TeleJoyDrive());
+                break;
+            
+            default:
+                System.out.println("No control set selected.");
                 break;
         }
     }
