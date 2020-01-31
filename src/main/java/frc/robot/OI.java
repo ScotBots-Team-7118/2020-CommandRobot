@@ -1,15 +1,16 @@
 package frc.robot;
 
-//imports
+// Imports
 import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
-import java.util.HashMap;
-
 import frc.robot.Constants;
 
-public class OI {
+import java.util.HashMap;
+
+public class OI
+{
     //Declare Joystick map
     HashMap<String, Joystick> JoyMap;
     HashMap<String, JoystickButton> buttons;

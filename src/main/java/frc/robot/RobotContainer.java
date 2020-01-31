@@ -7,9 +7,11 @@
 
 package frc.robot;
 
+// Imports
 import edu.wpi.first.wpilibj.GenericHID;
 import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
+
 import frc.robot.commands.startgame.AutoGroup;
 import frc.robot.commands.startgame.TeleopGroup;
 import frc.robot.subsystems.*;
@@ -20,7 +22,8 @@ import frc.robot.subsystems.*;
  * periodic methods (other than the scheduler calls).  Instead, the structure of the robot
  * (including subsystems, commands, and button mappings) should be declared here.
  */
-public class RobotContainer {
+public class RobotContainer
+{
   /**
    * Top level commands
    */
@@ -40,7 +43,8 @@ public class RobotContainer {
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
-  public RobotContainer() {
+  public RobotContainer()
+  {
     // Configure the button bindings
     configureButtonBindings();
 
@@ -54,7 +58,9 @@ public class RobotContainer {
    * edu.wpi.first.wpilibj.Joystick} or {@link XboxController}), and then passing it to a
    * {@link edu.wpi.first.wpilibj2.command.button.JoystickButton}.
    */
-  private void configureButtonBindings() {
+  private void configureButtonBindings()
+  {
+
   }
 
   /**
@@ -62,7 +68,8 @@ public class RobotContainer {
    * 
    * @return the command to run in teleop
    */
-  public Command getTeleopCommand(){
+  public Command getTeleopCommand()
+  {
     return cg_TeleopGroup;
   }
 
@@ -71,7 +78,8 @@ public class RobotContainer {
    *
    * @return the command to run in autonomous
    */
-  public Command getAutonomousCommand() {
+  public Command getAutonomousCommand()
+  {
     return cg_AutoGroup;
   }
 }
