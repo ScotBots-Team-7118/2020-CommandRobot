@@ -1,10 +1,12 @@
 package frc.robot.commands.auto;
 
-//imports
+// Imports
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 
-public class AutoCenterGroup extends SequentialCommandGroup{
-    public AutoCenterGroup(){
+public class AutoCenterGroup extends SequentialCommandGroup
+{
+    public AutoCenterGroup()
+    {
         
     }
 }

@@ -1,18 +1,17 @@
 package frc.robot.subsystems;
 
-/**
- * Imports
- */
-import edu.wpi.first.wpilibj2.command.SubsystemBase;
+// Imports
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import com.ctre.phoenix.motorcontrol.ControlMode;
+
+import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Constants;
 
 public class DriveTrain extends SubsystemBase
 {
 
-    //declare drive talons.
+    // Declare drive talons.
     TalonSRX TAL_LM, TAL_LF, TAL_RM, TAL_RF;
 
     public DriveTrain()
