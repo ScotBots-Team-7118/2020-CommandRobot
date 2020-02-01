@@ -31,13 +31,23 @@ public final class Constants
     
         //Intake talon
         public static int TAL_IN = 0;
+        public static double IN_SPEEDF = 0.1;
+        public static double IN_SPEEDR = 0.1;
 
         //indexer talon
         public static int TAL_ID = 0;
+        public static double INDEX_SPEEDF = 0.1;
+        public static double INDEX_SPEEDR = -0.1;
     
         //Climber motor(s)
         public static int TAL_CL = 0;  
         public static int TAL_CR = 0; 
+        
+        //Shooter talon
+        public static int TAL_SH =0;
+
+        //Turret talon
+        public static int TAL_TUR = 0;
         
         //Controllers
         public static int XBOX = 0;
