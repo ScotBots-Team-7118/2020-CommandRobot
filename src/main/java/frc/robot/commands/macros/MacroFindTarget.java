@@ -9,6 +9,6 @@ public class MacroFindTarget extends CommandBase
 {
     public MacroFindTarget()
     {
-
+        
     }
 }

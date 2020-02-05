@@ -1,14 +1,12 @@
 package frc.robot.commands.macros;
 
-// Imports
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
-import frc.robot.Constants;
+//imports
 
-public class MacroClimb extends CommandBase
-{
-    public MacroClimb()
-    {
+public class MacroClimb extends CommandBase{
 
+    public MacroClimb(){
+        
     }
 }
