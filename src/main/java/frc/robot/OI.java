@@ -6,6 +6,7 @@ import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import frc.robot.Constants;
+import frc.robot.gyro.Gyroscope;
 
 import java.util.HashMap;
 
@@ -15,8 +16,12 @@ public class OI
     HashMap<String, Joystick> joyMap;
     HashMap<String, JoystickButton> buttons;
 
+    public Gyroscope gyro;
+
     public OI()
     {
+        gyro = new Gyroscope();
+
         //Initialize Joystick map
         joyMap = new HashMap<>();
         buttons = new HashMap<>();
