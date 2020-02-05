@@ -23,6 +23,6 @@ public class Turret extends SubsystemBase
     }
 
     public double findAngle(double angle){
-        
+        return 0.0;
     }
 }
