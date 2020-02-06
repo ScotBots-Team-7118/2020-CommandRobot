@@ -77,8 +77,8 @@ public class RobotContainer
         oi.getButton("btnxB").whenPressed(/* Intake Out */ new MacroIntakeR());
         oi.getButton("btnxY").whenPressed(/* Indexer F */new MacroIndexerF());
         oi.getButton("btnxback").whenPressed(/* Indexer R */new MacroIndexerR());
-        oi.getButton("btnxRB").whenPressed(/* Climbing up*/new MacroClimb());
-        oi.getButton("btnxLB").whenPressed(/* Climbing down */new MacroClimb());
+        oi.getButton("btnxRB").whenPressed(/* Climbing up*/new MacroClimbUp());
+        oi.getButton("btnxLB").whenPressed(/* Climbing down */new MacroClimbDown());
       break;
 
       //Left and right joystick controllers, assigning numbers on drive station to buttons on the controller
@@ -99,8 +99,8 @@ public class RobotContainer
         oi.getButton("btn2").whenPressed(/* Intake Out */ new MacroIntakeR());
         oi.getButton("btn3").whenPressed(/* Indexer F */new MacroIndexerF());
         oi.getButton("btn2").whenPressed(/* Indexer R */new MacroIndexerR());
-        oi.getButton("btn4").whenPressed(/* Climbing down !!! need an up/down climb!!*/new MacroClimb());
-        oi.getButton("btn5").whenPressed(/* Climbing up -!!! need an up/down climb!! */new MacroClimb());
+        oi.getButton("btn4").whenPressed(/* Climbing down !!! need an up/down climb!!*/new MacroClimbDown());
+        oi.getButton("btn5").whenPressed(/* Climbing up -!!! need an up/down climb!! */new MacroClimbUp());
       break;
 
       default:

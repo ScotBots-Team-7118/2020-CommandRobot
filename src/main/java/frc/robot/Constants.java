@@ -40,8 +40,7 @@ public final class Constants
         public static double INDEX_SPEEDR = -0.1;
     
         //Climber motor(s)
-        public static int TAL_CL = 0;  
-        public static int TAL_CR = 0; 
+        public static int TAL_C = 0; 
         
         //Shooter talon
         public static int TAL_SH = 0;

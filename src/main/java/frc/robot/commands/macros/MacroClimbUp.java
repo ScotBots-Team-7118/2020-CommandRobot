@@ -4,9 +4,10 @@ import edu.wpi.first.wpilibj2.command.CommandBase;
 
 //imports
 
-public class MacroClimb extends CommandBase{
+public class MacroClimbUp extends CommandBase{
 
-    public MacroClimb(){
+    public MacroClimbUp()
+    {
         
     }
 }
