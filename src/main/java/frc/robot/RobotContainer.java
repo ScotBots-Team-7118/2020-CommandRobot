@@ -39,6 +39,7 @@ public class RobotContainer
   public static Intake s_Intake = new Intake();
   public static Shooter s_Shooter = new Shooter();
   public static Vision s_Vision = new Vision();
+  public static Turret s_Turret = new Turret();
 
   private OI oi;
   
@@ -63,7 +64,7 @@ public class RobotContainer
       //oi.addButton(name, joy, num);
       //Xbox controller, assigning numbers on drive station to buttons on the controller
       case XBOX:
-        oi.addButton("btnxA", "Xbox", 0);
+        oi.addButton("btnxA", "Xbox", 1);
         oi.addButton("btnxB", "Xbox", 1);
         oi.addButton("btnxX", "Xbox", 2);
         oi.addButton("btnxY", "Xbox", 3);
@@ -72,13 +73,14 @@ public class RobotContainer
         oi.addButton("btnxback","Xbox", 6);
         
         //Referencing the added buttons for when pressed
-        oi.getButton("btnxA").whenPressed(/* Run the shooter */ new MacroRunShooter());
-        oi.getButton("btnxX").whenPressed(/* Intake In */new MacroIntakeF());
+        oi.getButton("btnxRB").whenPressed(/* Run the shooter */ new MacroRunShooter());
+        oi.getButton("btnxLB").whenPressed(new MacroRunShooterReverse());
+        oi.getButton("btnxX").whenPressed(/* Intake In */new MacroTestTurn());
         oi.getButton("btnxB").whenPressed(/* Intake Out */ new MacroIntakeR());
         oi.getButton("btnxY").whenPressed(/* Indexer F */new MacroIndexerF());
         oi.getButton("btnxback").whenPressed(/* Indexer R */new MacroIndexerR());
-        oi.getButton("btnxRB").whenPressed(/* Climbing up*/new MacroClimbUp());
-        oi.getButton("btnxLB").whenPressed(/* Climbing down */new MacroClimbDown());
+        oi.getButton("btnxX").whenPressed(/* Climbing up*/new MacroClimbUp());
+        oi.getButton("btnxA").whenPressed(/* Climbing down */new MacroClimbDown());
       break;
 
       //Left and right joystick controllers, assigning numbers on drive station to buttons on the controller
