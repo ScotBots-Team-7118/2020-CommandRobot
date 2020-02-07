@@ -43,7 +43,7 @@ public final class Constants
         public static int TAL_C = 0; 
         
         //Shooter talon
-        public static int TAL_SH = 0;
+        public static int TAL_SH = 2;
         public static double SHOOTER_SPEED = 0.5;
 
         //Turret talon

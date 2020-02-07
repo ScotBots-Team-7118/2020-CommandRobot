@@ -21,9 +21,9 @@ public class Robot extends TimedRobot
 {
   private Command cg_AutoGroup;
   private Command cg_TeleopGroup;
-
-  public static RobotContainer rContainer;
   public static OI oi;
+  public static RobotContainer rContainer;
+ 
 
   /**
    * This function is run when the robot is first started up and should be used for any
