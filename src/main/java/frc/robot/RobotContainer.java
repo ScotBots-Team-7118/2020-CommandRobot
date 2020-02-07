@@ -63,44 +63,46 @@ public class RobotContainer
       //oi.addButton(name, joy, num);
       //Xbox controller, assigning numbers on drive station to buttons on the controller
       case XBOX:
-        oi.addButton("btnxA", "Xbox", 0);
-        oi.addButton("btnxB", "Xbox", 1);
-        oi.addButton("btnxX", "Xbox", 2);
-        oi.addButton("btnxY", "Xbox", 3);
-        oi.addButton("btnxLB","Xbox", 4);
-        oi.addButton("btnxRB","Xbox", 5);
-        oi.addButton("btnxback","Xbox", 6);
+        oi.addButton("btnxA", "Xbox", 1);
+        oi.addButton("btnxB", "Xbox", 2);
+        oi.addButton("btnxX", "Xbox", 3);
+        oi.addButton("btnxY", "Xbox", 4);
+        oi.addButton("btnxLB","Xbox", 5);
+        oi.addButton("btnxRB","Xbox", 6);
+        oi.addButton("btnxback","Xbox", 7);
         
         //Referencing the added buttons for when pressed
-        oi.getButton("btnxA").whenPressed(/* Run the shooter */ new MacroRunShooter());
-        oi.getButton("btnxX").whenPressed(/* Intake In */new MacroIntakeF());
-        oi.getButton("btnxB").whenPressed(/* Intake Out */ new MacroIntakeR());
+        oi.getButton("btnxA").whileHeld(/* Run the shooter */ new MacroRunShooter());
+        oi.getButton("btnxX").toggleWhenPressed(/* Intake In */new MacroIntakeF());
+        oi.getButton("btnxB").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
         oi.getButton("btnxY").whenPressed(/* Indexer F */new MacroIndexerF());
         oi.getButton("btnxback").whenPressed(/* Indexer R */new MacroIndexerR());
-        oi.getButton("btnxRB").whenPressed(/* Climbing up*/new MacroClimbUp());
-        oi.getButton("btnxLB").whenPressed(/* Climbing down */new MacroClimbDown());
+        oi.getButton("btnxRB").whileHeld(/* Climbing up*/new MacroClimbUp());
+        oi.getButton("btnxLB").whileHeld(/* Climbing down */new MacroClimbDown());
       break;
 
       //Left and right joystick controllers, assigning numbers on drive station to buttons on the controller
 
       case JOYSTICKS:
-        oi.addButton("btn1","JoyR", 0);
-        oi.addButton("btn3","JoyR", 2);
-        oi.addButton("btn2","JoyR", 1);
-        oi.addButton("btn3","JoyL", 2);
-        oi.addButton("btn2","JoyL", 1);
-        oi.addButton("btn4","JoyR", 3);
-        oi.addButton("btn5","JoyR", 4);
+        //right joystick
+        oi.addButton("btn1","JoyR", 1);
+        oi.addButton("btn3","JoyR", 3);
+        oi.addButton("btn2","JoyR", 2);
+        oi.addButton("btn4","JoyR", 4);
+        oi.addButton("btn5","JoyR", 5);
+        //left joystick
+        oi.addButton("btn3","JoyL", 3);
+        oi.addButton("btn2","JoyL", 2);
 
         //Referencing the added buttons when pressed
 
-        oi.getButton("btn1").whenPressed(/* Run the shooter */ new MacroRunShooter());
-        oi.getButton("btn3").whenPressed(/* Intake In */new MacroIntakeF());
-        oi.getButton("btn2").whenPressed(/* Intake Out */ new MacroIntakeR());
+        oi.getButton("btn1").whileHeld(/* Run the shooter */ new MacroRunShooter());
+        oi.getButton("btn3").toggleWhenPressed(/* Intake In */new MacroIntakeF());
+        oi.getButton("btn2").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
         oi.getButton("btn3").whenPressed(/* Indexer F */new MacroIndexerF());
         oi.getButton("btn2").whenPressed(/* Indexer R */new MacroIndexerR());
-        oi.getButton("btn4").whenPressed(/* Climbing down !!! need an up/down climb!!*/new MacroClimbDown());
-        oi.getButton("btn5").whenPressed(/* Climbing up -!!! need an up/down climb!! */new MacroClimbUp());
+        oi.getButton("btn4").whileHeld(/* Climbing down !!! need an up/down climb!!*/new MacroClimbDown());
+        oi.getButton("btn5").whileHeld(/* Climbing up -!!! need an up/down climb!! */new MacroClimbUp());
       break;
 
       default:
