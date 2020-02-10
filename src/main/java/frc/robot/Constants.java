@@ -41,6 +41,8 @@ public final class Constants
     
         //Climber motor(s)
         public static int TAL_C = 0; 
+        public static double CLIMBER_SPEEDU = 0.1;
+        public static double CLIMBER_SPEEDD = -0.1;
         
         //Shooter talon
         public static int TAL_SH = 2;
