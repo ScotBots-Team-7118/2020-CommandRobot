@@ -7,11 +7,11 @@ import frc.robot.subsystems.Shooter;
 
 //imports
 
-public class MacroRunShooter extends CommandBase{
+public class MacroRunShooterReverse extends CommandBase{
 
     Shooter shoot;
 
-    public MacroRunShooter(){
+    public MacroRunShooterReverse(){
         shoot = RobotContainer.s_Shooter;
         addRequirements(shoot);    
     }
