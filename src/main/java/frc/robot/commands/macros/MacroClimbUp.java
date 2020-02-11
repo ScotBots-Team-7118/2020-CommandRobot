@@ -1,23 +1,35 @@
 package frc.robot.commands.macros;
 
-//imports
+// Imports
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.RobotContainer;
+
+import frc.robot.*;
 import frc.robot.subsystems.Climber;
-import frc.robot.Constants;
 
-public class MacroClimbUp extends CommandBase{
+/**
+ * Command for the robot to climb up.
+ * 
+ * Requires the Climber subsystem.
+ */
+public class MacroClimbUp extends CommandBase
+{
+    /* TODO: Untested Code */
 
-    Climber climbUp;
+    /* Instance Variable Declaration */
+    Climber _climber;
 
+    /**
+     * Constructs a new MacroClimbUp command with a Climber requirement.
+     */
     public MacroClimbUp()
     {
-        climbUp = RobotContainer.s_Climber;
-        addRequirements(climbUp);
+        _climber = RobotContainer.s_Climber;
+        addRequirements(_climber);
     }
 
+    @Override
     public void execute()
     {
-        climbUp.update(Constants.CLIMBER_SPEEDU);
+        _climber.update(Constants.CLIMBER_VELOCITY_U);
     }
 }

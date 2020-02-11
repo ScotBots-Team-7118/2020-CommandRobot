@@ -1,22 +1,34 @@
 package frc.robot.commands.macros;
 
-// Imports
+/* Imports */
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.RobotContainer;
-import frc.robot.subsystems.Indexer;
-import frc.robot.Constants;
 
+import frc.robot.*;
+import frc.robot.subsystems.Indexer;
+
+/**
+ * Command to run the indexer backwards.
+ * 
+ * Requires the indexer subsystem.
+ */
 public class MacroIndexerR extends CommandBase
 {
-    Indexer index;
+    /* TODO: Untested Code */
+
+    /* Instance Variable Declaration */
+    Indexer _indexer;
+
+    /**
+     * Constructs a new MacroIndexerR command with Indexer requirement.
+     */
     public MacroIndexerR()
     {
-       index =  RobotContainer.s_Indexer;
-       addRequirements(index);
+       _indexer =  RobotContainer.s_Indexer;
+       addRequirements(_indexer);
     }
 
     @Override
     public void execute() {
-        index.update(Constants.INDEX_SPEEDR);
+        _indexer.update(Constants.INDEX_VELOCITY_R);
     }
 }

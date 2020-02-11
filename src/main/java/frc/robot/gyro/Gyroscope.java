@@ -12,7 +12,8 @@ package frc.robot.gyro;
 /**
  * Framework for an object that manages input from a BNO055 Gyroscope.
  */
-public class Gyroscope {
+public class Gyroscope
+{
 	// Defines the variable imu from the class BNO055
 	public static BNO055 imu = BNO055.getInstance(BNO055.opmode_t.OPERATION_MODE_IMUPLUS, BNO055.vector_type_t.VECTOR_EULER);
 
@@ -30,13 +31,12 @@ public class Gyroscope {
 	}
 
 	/**
-	 * Returns the heading in relation to the offset.
-	 * @return
+	 * @return The heading in relation to the offset.
 	 */
 	public double getNormalizedHeading()
 	{
 		// Returns the remainder of the current angle divided by 180
-		return normalizeHeadingVal(getRawHeading() - angleOffset);
+		return normalizedHeadingVal(getRawHeading() - angleOffset);
 	}
 
 	/**
@@ -56,17 +56,15 @@ public class Gyroscope {
 	}
 
 	/**
-	 * Gets the normalized heading of the gyroscope without taking the angle offset into account.
-	 * @return
+	 * @return The normalized heading of the gyroscope without taking the angle offset into account.
 	 */
 	public double getRawHeading()
 	{
-		return normalizeHeadingVal(imu.getVector()[0]);
+		return normalizedHeadingVal(imu.getVector()[0]);
 	}
 	
 	/**
-	 * Returns the angle offset.
-	 * @return
+	 * @return The current angle offset of the gyroscope.
 	 */
 	public double getOffset()
 	{
@@ -74,12 +72,13 @@ public class Gyroscope {
 	}
 
 	/**
-	 * Normalizes a heading value to the range of (-180, 180) degrees.
-	 * @return
+	 * Normalizes a heading value to the range of (-180, 180] degrees.
+	 * @return The normalized heading.
 	 */
-	private double normalizeHeadingVal(double heading)
+	public double normalizedHeadingVal(double heading)
 	{
-		heading = heading%360;
+		heading = heading % 360;
+
 		// Checks if the remainder of the given heading and 360 is greater than 180
 		if (heading > 180.0) {
 			// If so, set the heading to a negative value greater than -180

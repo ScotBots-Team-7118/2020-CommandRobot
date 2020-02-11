@@ -1,13 +1,20 @@
 package frc.robot.commands.startgame;
 
-//Imports
+/* Imports */
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 
 import frc.robot.Constants;
+import frc.robot.commands.macros.MacroRunShooter;
 import frc.robot.commands.teleop.*;
 
+/**
+ * CommandGroup for scheduling and executing commands in teleop.
+ */
 public class TeleopGroup extends ParallelCommandGroup
 {
+    /* TODO: Finish implementing me! */
+    // Add functionality for this year's controls configuration
+    // List & schedule the commands to be run in teleop
 
     /**
      * Constructs a new TeleopGroup.
@@ -25,7 +32,8 @@ public class TeleopGroup extends ParallelCommandGroup
         switch (type)
         {
             case XBOX:
-                addCommands(new TeleXboxDrive());
+                // addCommands(new TeleXboxDrive());
+                addCommands(new MacroRunShooter());
                 break;
             
             case JOYSTICKS:

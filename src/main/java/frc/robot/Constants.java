@@ -17,45 +17,75 @@ package frc.robot;
  */
 public final class Constants
 {
-        public static enum ControlsConfig {JOYSTICKS, XBOX};
+        /* Climber */
+        // Talon Port Number
+        public static int p_TAL_C = 0;
+
+        // Velocities (% fraction of full speed)
+        public static double CLIMBER_VELOCITY_U = 0.1;
+        public static double CLIMBER_VELOCITY_D = -0.1;
+
+        
+        /* Controls/OI */
+        // Enum for controls configurations and associated variable
+        public static enum ControlsConfig {JOYSTICKS, XBOX, DUALDRIVERS};
         public static ControlsConfig controls = ControlsConfig.XBOX;
 
-        //Drive talon imports
-        public static int TAL_RM = 5;
-        public static int TAL_RF = 4;
-        public static int TAL_LM = 3;
-        public static int TAL_LF = 2;
+        // Controller Ports for various values of ControlsConfig
+        public static int p_XBOX = 0;
+        public static int p_JOYL = 0;
+        public static int p_JOYR = 1;
+        public static int[] p_DUALDRIVERS = {0, 1, 2};
 
-        //Joystick Deadzone
+        // // Turret controller || TODO: Confirm that reformatting is good with Nathaniel
+        // public static int TURC = 1;
+
+        // Joystick deadzone
         public static double DEADZONE = 0.1;
-    
-        //Intake talon
-        public static int TAL_IN = 0;
-        public static double IN_SPEEDF = 0.1;
-        public static double IN_SPEEDR = 0.1;
 
-        //indexer talon
-        public static int TAL_ID = 0;
-        public static double INDEX_SPEEDF = 0.1;
-        public static double INDEX_SPEEDR = -0.1;
-    
-        //Climber motor(s)
-        public static int TAL_C = 0; 
-        public static double CLIMBER_SPEEDU = 0.1;
-        public static double CLIMBER_SPEEDD = -0.1;
+
+        /* DriveTrain */
+        // Talon Port Numbers
+        public static int p_TAL_RM = 5;
+        public static int p_TAL_RF = 4;
+        public static int p_TAL_LM = 3;
+        public static int p_TAL_LF = 2;
         
-        //Shooter talon
+
+        /* Indexer */
+        // Talon Port Number
+        public static int p_TAL_ID = 0;
+
+        // Velocities (% fraction of full speed)
+        public static double INDEX_VELOCITY_F = 0.1;
+        public static double INDEX_VELOCITY_R = -0.1;
+        
+
+        /* Intake */
+        // Talon Port Number
+        public static int p_TAL_IN = 0;
+
+        // Velocities (% fraction of full speed)
+        public static double IN_VELOCITY_F = 0.1;
+        public static double IN_VELOCITY_R = -0.1;
+        
+
+        /* Shooter */
+        // Talon Port Number
         public static int TAL_SH = 5;
+
+        // Target Speed (% fraction of full speed)
         public static double SHOOTER_SPEED = 1;
 
-        //Turret talon
-        public static int TAL_TUR = 3;
-        public static double TUR_SPEED = 1;
-        //turret controller
-        public static int TURC = 1;
 
-        //Controllers
-        public static int XBOX = 0;
-        public static int JOYL = 0;
-        public static int JOYR = 1;
+        /* Turret */
+        // Talon Port Number
+        public static int p_TAL_TUR = 3;
+
+        // Turret Rotating Speed
+        public static double TURRET_SPEED = 1;
+
+        // Variables Representing Ideal Inputs for MacroRotateTurret
+        public static int LEFT = -1;
+        public static int RIGHT = 1;
 }

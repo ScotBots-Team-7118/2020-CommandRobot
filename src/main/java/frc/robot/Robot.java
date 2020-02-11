@@ -7,6 +7,7 @@
 
 package frc.robot;
 
+/* Imports */
 import edu.wpi.first.wpilibj.TimedRobot;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
@@ -19,6 +20,7 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
  */
 public class Robot extends TimedRobot
 {
+  /* Class Variable Declaration */
   private Command cg_AutoGroup;
   private Command cg_TeleopGroup;
   public static OI oi;
@@ -48,6 +50,7 @@ public class Robot extends TimedRobot
   @Override
   public void robotPeriodic()
   {
+    // TODO: Can we maybe not use robotPeriodic? This runs when the robot is disabled too, which could be unsafe.
     CommandScheduler.getInstance().run();
   }
 
@@ -57,7 +60,7 @@ public class Robot extends TimedRobot
   @Override
   public void disabledInit()
   {
-
+    // TODO: Why does this not cancel all commands?
   }
 
   /**
@@ -82,6 +85,7 @@ public class Robot extends TimedRobot
   @Override
   public void teleopInit()
   {
+    // TODO: Pretty sure this is unnecessary but we should double-check
     try
     {
       cg_AutoGroup.cancel();
@@ -101,7 +105,7 @@ public class Robot extends TimedRobot
   @Override
   public void teleopPeriodic()
   {
-
+    System.out.println("joy = " + oi.getController("Xbox").getRawAxis(1));
   }
 
   @Override
