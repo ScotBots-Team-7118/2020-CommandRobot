@@ -12,14 +12,14 @@ import frc.robot.Constants;
 public class Climber extends SubsystemBase
 {
 
-    TalonSRX TAL_C;
+    TalonSRX talC;
 
     public Climber()
     {
-        TAL_C = new TalonSRX(Constants.TAL_C);
+        talC = new TalonSRX(Constants.TAL_C);
     }
 
     public void update(double speed) {
-        TAL_C.set(ControlMode.PercentOutput, speed);
+        talC.set(ControlMode.PercentOutput, speed);
     }
 }

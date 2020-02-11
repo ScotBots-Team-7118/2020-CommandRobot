@@ -13,9 +13,9 @@ public class MacroRunShooter extends CommandBase{
 
     public MacroRunShooter(){
         shoot = RobotContainer.s_Shooter;
-        addRequirements(shoot);    
+       addRequirements(shoot);    // Add the shooter subsystem as a requirement for this command
     }
-
+// Constantly updating shoot
     @Override
     public void execute() {
         shoot.update(-Constants.SHOOTER_SPEED);

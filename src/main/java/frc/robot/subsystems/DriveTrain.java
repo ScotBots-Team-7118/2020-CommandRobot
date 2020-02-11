@@ -12,18 +12,18 @@ public class DriveTrain extends SubsystemBase
 {
 
     // Declare drive talons.
-    TalonSRX TAL_LM, TAL_LF, TAL_RM, TAL_RF;
+    TalonSRX talLM, talLF, talRM, talRF;
 
     public DriveTrain()
     {
         // Initialize talons
-        TAL_LM = new TalonSRX(Constants.TAL_LM);
-        TAL_LF = new TalonSRX(Constants.TAL_LF);
-        TAL_RM = new TalonSRX(Constants.TAL_RM);
-        TAL_RF = new TalonSRX(Constants.TAL_RF);
+        talLM = new TalonSRX(Constants.TAL_LM);
+        talLF = new TalonSRX(Constants.TAL_LF);
+        talRM = new TalonSRX(Constants.TAL_RM);
+        talRF = new TalonSRX(Constants.TAL_RF);
 
-        invertController(TAL_RM);
-        invertController(TAL_RF);
+        invertController(talRM);
+        invertController(talRF);
     }
 
     /**
@@ -33,11 +33,11 @@ public class DriveTrain extends SubsystemBase
      */
     public void update(double speedL, double speedR)
     {
-        TAL_LM.set(ControlMode.PercentOutput, speedL);
-        TAL_LF.set(ControlMode.Follower, Constants.TAL_LM);
+        talLM.set(ControlMode.PercentOutput, speedL);
+        talLF.set(ControlMode.Follower, Constants.TAL_LM);
 
-        TAL_RM.set(ControlMode.PercentOutput, speedR);
-        TAL_RF.set(ControlMode.Follower, Constants.TAL_RM);
+        talRM.set(ControlMode.PercentOutput, speedR);
+        talRF.set(ControlMode.Follower, Constants.TAL_RM);
     }
 
     /**

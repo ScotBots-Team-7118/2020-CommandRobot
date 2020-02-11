@@ -9,14 +9,14 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 public class Shooter extends SubsystemBase
 {
 
-    TalonSRX TAL_SH;
+    TalonSRX talSH;
 
     public Shooter()
     {
-        TAL_SH = new TalonSRX(Constants.TAL_SH);
+        talSH = new TalonSRX(Constants.TAL_SH);
     }
 
     public void update(double speed) {
-        TAL_SH.set(ControlMode.PercentOutput, speed);
+        talSH.set(ControlMode.PercentOutput, speed);
     }
 }
