@@ -9,16 +9,16 @@ import frc.robot.Constants;
 
 public class Intake extends SubsystemBase
 {
-    TalonSRX TAL_IN;
+    TalonSRX talIN;
 
     public Intake()
     {
-        TAL_IN = new TalonSRX(Constants.TAL_IN);
+        talIN = new TalonSRX(Constants.TAL_IN);
     }
 
     public void update(double speed)
     {
-        TAL_IN.set(ControlMode.PercentOutput, speed);
+        talIN.set(ControlMode.PercentOutput, speed);
     }
 
 }

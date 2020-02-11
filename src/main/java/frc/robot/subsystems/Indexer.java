@@ -9,15 +9,15 @@ import frc.robot.Constants;
 
 public class Indexer extends SubsystemBase
 {
-    TalonSRX TalID;
+    TalonSRX talID;
     public Indexer()
     {
-        TalID = new TalonSRX(Constants.TAL_ID);
+        talID = new TalonSRX(Constants.TAL_ID);
     }
 
     public void update(double speed)
     {
-        TalID.set(ControlMode.PercentOutput, speed);
+        talID.set(ControlMode.PercentOutput, speed);
     }
 
 }

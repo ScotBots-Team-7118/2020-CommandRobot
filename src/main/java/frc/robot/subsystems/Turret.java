@@ -11,15 +11,15 @@ import frc.robot.Constants;
 public class Turret extends SubsystemBase
 {
 
-    TalonSRX TAL_TUR;
+    TalonSRX talTUR;
 
     public Turret()
     {
-        TAL_TUR = new TalonSRX(Constants.TAL_TUR);
+        talTUR = new TalonSRX(Constants.TAL_TUR);
     }
     public void update(double angle)
     {
-        TAL_TUR.set(ControlMode.PercentOutput, findAngle(angle));
+        talTUR.set(ControlMode.PercentOutput, findAngle(angle));
     }
 
     public double findAngle(double angle){

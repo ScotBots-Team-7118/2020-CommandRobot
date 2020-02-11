@@ -11,12 +11,14 @@ public class MacroIntakeR extends CommandBase
     Intake intake;
     public MacroIntakeR()
     {
+        // Assigns the intake to RobotContainer.s_Intake
         intake = RobotContainer.s_Intake;
         addRequirements(intake);
     }
 
     public void execute()
     {
+        // Updates intake constantly
         intake.update(Constants.INDEX_SPEEDR);
     }
 }
