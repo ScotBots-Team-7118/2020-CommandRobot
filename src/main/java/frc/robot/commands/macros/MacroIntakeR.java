@@ -1,24 +1,34 @@
 package frc.robot.commands.macros;
 
-// Imports
+/* Imports */
 import edu.wpi.first.wpilibj2.command.CommandBase;
-import frc.robot.Constants;
-import frc.robot.RobotContainer;
+
+import frc.robot.*;
 import frc.robot.subsystems.Intake;
 
+/**
+ * Command to run the intake in reverse (away from the robot). Requires the intake subsystem.
+ */
 public class MacroIntakeR extends CommandBase
 {
-    Intake intake;
+    /* Instance Variable Declaration */
+    Intake _intake;
+
+    /**
+     * Constructs a new MacroIntakeR command with an Intake requirement.
+     */
     public MacroIntakeR()
     {
         // Assigns the intake to RobotContainer.s_Intake
-        intake = RobotContainer.s_Intake;
-        addRequirements(intake);
+        _intake = RobotContainer.s_Intake;
+        addRequirements(_intake);
     }
 
+    @Override
     public void execute()
     {
-        // Updates intake constantly
-        intake.update(Constants.INDEX_SPEEDR);
+        // TODO: Finish implementation
+        // Intake should not run if the indexer is full (this should be considered here).
+        _intake.update(Constants.INDEX_VELOCITY_R);
     }
 }

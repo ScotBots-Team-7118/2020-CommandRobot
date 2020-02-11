@@ -7,13 +7,12 @@
 
 package frc.robot;
 
-// Imports
+/* Imports */
 import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.*;
 import frc.robot.commands.macros.*;
 import frc.robot.commands.startgame.*;
-import frc.robot.gyro.*;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -23,6 +22,8 @@ import frc.robot.gyro.*;
  */
 public class RobotContainer
 {
+  /* Class Variable Declaration */
+
   /**
    * Top level commands
    */
@@ -41,69 +42,67 @@ public class RobotContainer
   public static Turret s_Turret = new Turret();
 
   private OI oi;
-  Gyroscope gyro;
 
   /**
+   * Constructs the RobotContainer.
    * The container for the robot.  Contains subsystems, OI devices, and commands.
    */
   public RobotContainer()
   {
-    oi=Robot.oi;
-    gyro = new Gyroscope();
-    // Configure the button bindings
-    addButtons();
+    /* Class Variable Instantiation */
+    oi = Robot.oi;
 
+    // Configure the button bindings
+    configureButtonBindings();
+
+    // TODO: Nathaniel, is this necessary or not?
     // //set defaults
     // s_DriveTrain.setDefaultCommand(cg_TeleopGroup);
   }
 
-  public void addButtons()
+  /**
+   * Configure the command-button bindings according to the controls configuration stated in Constants.
+   */
+  public void configureButtonBindings()
   {
-    //add buttons for secondary driver
-    oi.addButton("Left", "TurC", 5);
-    oi.addButton("Right", "TurC", 6);
-    //bind buttons for secondary driver
-    oi.getButton("Left").whileHeld(new MacroTurLeft());
-    oi.getButton("Right").whileHeld(new MacroTurRight());
-
+    // Configure button bindings as dictated by the controls configuration from Constants
     switch(Constants.controls)
     { 
-      //oi.addButton(name, joy, num);
-      //Xbox controller, assigning numbers on drive station to buttons on the controller
+      // Xbox controller, assigning numbers on drive station to buttons on the controller
       case XBOX:
-        oi.addButton("btnxA", "Xbox", 1);
-        oi.addButton("btnxB", "Xbox", 2);
-        oi.addButton("btnxX", "Xbox", 3);
-        oi.addButton("btnxY", "Xbox", 4);
-        oi.addButton("btnxLB","Xbox", 5);
-        oi.addButton("btnxRB","Xbox", 6);
-        oi.addButton("btnxback","Xbox", 7);
+        // TODO: This section is currently commented out for testing purposes
+
+        // oi.addButton("btnxA", "Xbox", 1);
+        // oi.addButton("btnxB", "Xbox", 2);
+        // oi.addButton("btnxX", "Xbox", 3);
+        // oi.addButton("btnxY", "Xbox", 4);
+        // oi.addButton("btnxLB","Xbox", 5);
+        // oi.addButton("btnxRB","Xbox", 6);
+        // oi.addButton("btnxback","Xbox", 7);
         
-        //Referencing the added buttons for when pressed
-        oi.getButton("btnxA").whileHeld(/* Run the shooter */ new MacroRunShooter());
-        oi.getButton("btnxX").toggleWhenPressed(/* Intake In */new MacroIntakeF());
-        oi.getButton("btnxB").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
-        oi.getButton("btnxY").whenPressed(/* Indexer F */new MacroIndexerF());
-        oi.getButton("btnxback").whenPressed(/* Indexer R */new MacroIndexerR());
-        oi.getButton("btnxRB").whileHeld(/* Climbing up*/new MacroClimbDown());
-        oi.getButton("btnxLB").whileHeld(/* Climbing down */new MacroClimbUp());
+        // Referencing the added buttons for when pressed
+        // oi.getButton("btnxA").whileHeld(/* Run the shooter */ new MacroRunShooter());
+        // oi.getButton("btnxX").toggleWhenPressed(/* Intake In */new MacroIntakeF());
+        // oi.getButton("btnxB").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
+        // oi.getButton("btnxY").whenPressed(/* Indexer F */new MacroIndexerF());
+        // oi.getButton("btnxback").whenPressed(/* Indexer R */new MacroIndexerR());
+        // oi.getButton("btnxRB").whileHeld(/* Climbing up*/new MacroClimbDown());
+        // oi.getButton("btnxLB").whileHeld(/* Climbing down */new MacroClimbUp());
       break;
 
-      //Left and right joystick controllers, assigning numbers on drive station to buttons on the controller
-
+      // Left and right joystick controllers, assigning numbers on drive station to buttons on the controller
       case JOYSTICKS:
-        //right joystick
+        // Right joystick
         oi.addButton("btn1","JoyR", 1);
         oi.addButton("btn3","JoyR", 3);
         oi.addButton("btn2","JoyR", 2);
         oi.addButton("btn4","JoyR", 4);
         oi.addButton("btn5","JoyR", 5);
-        //left joystick
+        // Left joystick
         oi.addButton("btn3","JoyL", 3);
         oi.addButton("btn2","JoyL", 2);
 
-        //Referencing the added buttons when pressed
-
+        // Referencing the added buttons when pressed
         oi.getButton("btn1").whileHeld(/* Run the shooter */ new MacroRunShooter());
         oi.getButton("btn3").toggleWhenPressed(/* Intake In */new MacroIntakeF());
         oi.getButton("btn2").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
@@ -111,6 +110,15 @@ public class RobotContainer
         oi.getButton("btn2").whenPressed(/* Indexer R */new MacroIndexerR());
         oi.getButton("btn4").whileHeld(/* Climbing down !!! need an up/down climb!!*/new MacroClimbDown());
         oi.getButton("btn5").whileHeld(/* Climbing up -!!! need an up/down climb!! */new MacroClimbUp());
+      break;
+
+      case DUALDRIVERS:
+        // TODO: Review these button bindings as a programming subteam, add additional button bindings for DUALDRIVERS
+        oi.addButton("Left", "TurC", 5);
+        oi.addButton("Right", "TurC", 6);
+
+        oi.getButton("Left").whileHeld(new MacroRotateTurret(Constants.LEFT));
+        oi.getButton("Right").whileHeld(new MacroRotateTurret(Constants.RIGHT));
       break;
 
       default:
