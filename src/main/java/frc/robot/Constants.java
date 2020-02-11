@@ -45,12 +45,15 @@ public final class Constants
         public static double CLIMBER_SPEEDD = -0.1;
         
         //Shooter talon
-        public static int TAL_SH = 2;
-        public static double SHOOTER_SPEED = 0.5;
+        public static int TAL_SH = 5;
+        public static double SHOOTER_SPEED = 1;
 
         //Turret talon
-        public static int TAL_TUR = 0;
-        
+        public static int TAL_TUR = 3;
+        public static double TUR_SPEED = 1;
+        //turret controller
+        public static int TURC = 1;
+
         //Controllers
         public static int XBOX = 0;
         public static int JOYL = 0;

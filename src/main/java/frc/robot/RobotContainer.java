@@ -8,13 +8,12 @@
 package frc.robot;
 
 // Imports
-import edu.wpi.first.wpilibj.GenericHID;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.*;
 import frc.robot.commands.macros.*;
 import frc.robot.commands.startgame.*;
+import frc.robot.gyro.*;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -42,7 +41,7 @@ public class RobotContainer
   public static Turret s_Turret = new Turret();
 
   private OI oi;
-  
+  Gyroscope gyro;
 
   /**
    * The container for the robot.  Contains subsystems, OI devices, and commands.
@@ -50,6 +49,7 @@ public class RobotContainer
   public RobotContainer()
   {
     oi=Robot.oi;
+    gyro = new Gyroscope();
     // Configure the button bindings
     addButtons();
 
@@ -59,6 +59,13 @@ public class RobotContainer
 
   public void addButtons()
   {
+    //add buttons for secondary driver
+    oi.addButton("Left", "TurC", 5);
+    oi.addButton("Right", "TurC", 6);
+    //bind buttons for secondary driver
+    oi.getButton("Left").whileHeld(new MacroTurLeft());
+    oi.getButton("Right").whileHeld(new MacroTurRight());
+
     switch(Constants.controls)
     { 
       //oi.addButton(name, joy, num);
@@ -78,8 +85,8 @@ public class RobotContainer
         oi.getButton("btnxB").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
         oi.getButton("btnxY").whenPressed(/* Indexer F */new MacroIndexerF());
         oi.getButton("btnxback").whenPressed(/* Indexer R */new MacroIndexerR());
-        oi.getButton("btnxRB").whileHeld(/* Climbing up*/new MacroClimbUp());
-        oi.getButton("btnxLB").whileHeld(/* Climbing down */new MacroClimbDown());
+        oi.getButton("btnxRB").whileHeld(/* Climbing up*/new MacroClimbDown());
+        oi.getButton("btnxLB").whileHeld(/* Climbing down */new MacroClimbUp());
       break;
 
       //Left and right joystick controllers, assigning numbers on drive station to buttons on the controller

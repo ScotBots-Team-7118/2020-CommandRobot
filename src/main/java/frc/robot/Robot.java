@@ -22,7 +22,7 @@ public class Robot extends TimedRobot
   private Command cg_AutoGroup;
   private Command cg_TeleopGroup;
   public static OI oi;
-  public static RobotContainer rContainer;
+  public static RobotContainer rC;
  
 
   /**
@@ -35,7 +35,7 @@ public class Robot extends TimedRobot
     // Instantiate our RobotContainer.  This will perform all our button bindings, and put our
     // autonomous chooser on the dashboard.
     oi = new OI();
-    rContainer = new RobotContainer();
+    rC = new RobotContainer();
   }
 
   /**
@@ -66,7 +66,7 @@ public class Robot extends TimedRobot
   @Override
   public void autonomousInit()
   {
-      cg_AutoGroup = rContainer.getAutonomousCommand();
+      cg_AutoGroup = rC.getAutonomousCommand();
       cg_AutoGroup.schedule();
   }
 
@@ -88,11 +88,10 @@ public class Robot extends TimedRobot
     }
     catch (NullPointerException npe)
     {
-      //TODO: handle exception
       System.out.println("Cannot cancel AutoGroup commands: none are scheduled.");
     }
 
-    cg_TeleopGroup = rContainer.getTeleopCommand();
+    cg_TeleopGroup = rC.getTeleopCommand();
     cg_TeleopGroup.schedule();
   }
 
