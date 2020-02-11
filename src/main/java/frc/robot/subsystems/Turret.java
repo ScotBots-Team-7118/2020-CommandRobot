@@ -17,12 +17,8 @@ public class Turret extends SubsystemBase
     {
         talTUR = new TalonSRX(Constants.TAL_TUR);
     }
-    public void update(double angle)
+    public void update(double speed)
     {
-        talTUR.set(ControlMode.PercentOutput, findAngle(angle));
-    }
-
-    public double findAngle(double angle){
-        return 0.1;
+        talTUR.set(ControlMode.PercentOutput, speed);
     }
 }

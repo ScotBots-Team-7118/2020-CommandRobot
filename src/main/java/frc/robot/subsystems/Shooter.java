@@ -17,6 +17,6 @@ public class Shooter extends SubsystemBase
     }
 
     public void update(double speed) {
-        talSH.set(ControlMode.PercentOutput, speed);
+        talSH.set(ControlMode.PercentOutput, -speed);
     }
 }

@@ -7,17 +7,17 @@ import frc.robot.subsystems.Turret;
 
 //imports
 
-public class MacroTestTurn extends CommandBase{
+public class MacroTurRight extends CommandBase{
 
     Turret turret;
 
-    public MacroTestTurn(){
+    public MacroTurRight(){
         turret = RobotContainer.s_Turret;
         addRequirements(turret);    
     }
 
     @Override
     public void execute() {
-        turret.update(-Constants.SHOOTER_SPEED);
+        turret.update(Constants.SHOOTER_SPEED);
     }
 }

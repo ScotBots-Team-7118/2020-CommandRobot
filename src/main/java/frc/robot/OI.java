@@ -2,7 +2,6 @@ package frc.robot;
 
 // Imports
 import edu.wpi.first.wpilibj.Joystick;
-import edu.wpi.first.wpilibj.XboxController;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import frc.robot.Constants;
@@ -20,12 +19,13 @@ public class OI
 
     public OI()
     {
+        //New instance of gyroscope
         gyro = new Gyroscope();
 
         //Initialize Joystick map
         joyMap = new HashMap<>();
         buttons = new HashMap<>();
-
+        joyMap.put("TurC", new Joystick(Constants.TURC));
         switch (Constants.controls)
         {
             case XBOX:
