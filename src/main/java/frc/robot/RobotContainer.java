@@ -114,12 +114,24 @@ public class RobotContainer
 
       case DUALDRIVERS:
         // TODO: Review these button bindings as a programming subteam, add additional button bindings for DUALDRIVERS
-        oi.addButton("Left", "TurC", 5);
-        oi.addButton("Right", "TurC", 6);
 
-        oi.getButton("Left").whileHeld(new MacroRotateTurret(Constants.LEFT));
-        oi.getButton("Right").whileHeld(new MacroRotateTurret(Constants.RIGHT));
-      break;
+        // //adding turret buttons
+        // oi.addButton("Left", "TurC", 5);
+        // oi.addButton("Right", "TurC", 6);
+
+        // oi.getButton("Left").whileHeld(new MacroRotateTurret(Constants.LEFT));
+        // oi.getButton("Right").whileHeld(new MacroRotateTurret(Constants.RIGHT));
+
+        /* Intake buttons */
+        oi.addButton("R1", "JoyR", 1);
+        oi.addButton("L1", "JoyL", 1);
+
+        // Referencing the added buttons when pressed
+        oi.getButton("R1").toggleWhenPressed(/* Intake In */ new MacroIntakeF());
+        oi.getButton("L1").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
+
+        break;
+
 
       default:
         System.out.println("Controls configuration not selected");
