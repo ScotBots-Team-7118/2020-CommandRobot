@@ -56,9 +56,20 @@ public final class Constants
         // Talon Port Number
         public static int p_TAL_ID = 0;
 
+        // Ultrasonic (AnalogOutput) Channel #s
+        public static int p_US1 = 0;
+        public static int p_US2 = 0;
+
         // Velocities (% fraction of full speed)
         public static double INDEX_VELOCITY_F = 0.1;
         public static double INDEX_VELOCITY_R = -0.1;
+
+        // Power Cell Capacity of the Indexer
+        public static int PC_CAPACITY = 4;
+
+        // Voltage Threshold for the Ultrasonic Sensors (AnalogInputs)
+        // TODO: Update this with tested value
+        public static double PC_DETECTION_VOLTAGE = 0;
         
 
         /* Intake */
