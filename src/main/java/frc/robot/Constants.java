@@ -17,6 +17,13 @@ package frc.robot;
  */
 public final class Constants
 {
+        /* AutoCommands */
+        // AutoTurn Drive Full Speed
+        public static double FULL_TURN_SPEED = 0.7;
+        // AutoTurn allowed margin of error in degrees
+        public static double TURN_DEADZONE = 0.5;
+
+
         /* Climber */
         // Talon Port Number
         public static int p_TAL_C = 0;
