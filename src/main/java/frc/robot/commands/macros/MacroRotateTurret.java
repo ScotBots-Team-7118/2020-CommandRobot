@@ -34,9 +34,8 @@ public class MacroRotateTurret extends CommandBase
     @Override
     public void execute()
     {
-        // TODO: Finish implementing me!
         // Should stop the turret upon terminating the command
         // Tests needed to confirm the correct direction of the shooter
-        _turret.update(Constants.SHOOTER_SPEED * _sign);
+        _turret.update(_sign);
     }
 }
