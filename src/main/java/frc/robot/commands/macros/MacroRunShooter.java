@@ -30,8 +30,7 @@ public class MacroRunShooter extends CommandBase
     {
         // TODO: Finish implementing me!
         // Shouldn't shoot if the indexer is empty.
-
         // TODO: Nathaniel, if this needs to be negative to run the shooter out, we should just invert the shooter talon.
-        _shooter.update(-Constants.SHOOTER_SPEED);
+        _shooter.update(Constants.SHOOTER_SPEED);
     }
 }
