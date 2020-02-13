@@ -17,6 +17,13 @@ package frc.robot;
  */
 public final class Constants
 {
+        /* AutoCommands */
+        // AutoTurn Drive Full Speed
+        public static double FULL_TURN_SPEED = 0.7;
+        // AutoTurn allowed margin of error in degrees
+        public static double TURN_DEADZONE = 0.5;
+
+
         /* Climber */
         // Talon Port Number
         public static int p_TAL_C = 0;
@@ -50,15 +57,32 @@ public final class Constants
         public static int p_TAL_RF = 4;
         public static int p_TAL_LM = 3;
         public static int p_TAL_LF = 2;
+
+        //Auto drive speeds
+        public static double ADJUSTED_SPEED = 0.4;
+        public static double BASIC_SPEED = 0.3;
         
+        
+        public static int AUTO_LINE_DIST = 0;
 
         /* Indexer */
         // Talon Port Number
         public static int p_TAL_ID = 0;
 
+        // Ultrasonic (AnalogOutput) Channel #s
+        public static int p_US1 = 0;
+        public static int p_US2 = 0;
+
         // Velocities (% fraction of full speed)
         public static double INDEX_VELOCITY_F = 0.1;
         public static double INDEX_VELOCITY_R = -0.1;
+
+        // Power Cell Capacity of the Indexer
+        public static int PC_CAPACITY = 4;
+
+        // Voltage Threshold for the Ultrasonic Sensors (AnalogInputs)
+        // TODO: Update this with tested value
+        public static double PC_DETECTION_VOLTAGE = 0;
         
 
         /* Intake */

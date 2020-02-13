@@ -105,7 +105,7 @@ public class Robot extends TimedRobot
   @Override
   public void teleopPeriodic()
   {
-    System.out.println("joy = " + oi.getController("Xbox").getRawAxis(1));
+    //System.out.println("joy = " + oi.getController("Xbox").getRawAxis(1));
   }
 
   @Override
