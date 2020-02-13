@@ -57,7 +57,13 @@ public final class Constants
         public static int p_TAL_RF = 4;
         public static int p_TAL_LM = 3;
         public static int p_TAL_LF = 2;
+
+        //Auto drive speeds
+        public static double ADJUSTED_SPEED = 0.4;
+        public static double BASIC_SPEED = 0.3;
         
+        
+        public static int AUTO_LINE_DIST = 0;
 
         /* Indexer */
         // Talon Port Number
