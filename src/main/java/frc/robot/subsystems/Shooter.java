@@ -21,10 +21,14 @@ public class Shooter extends SubsystemBase
     /**
      * Constructs the Shooter subsystem.
      */
+
+    double currentDeg;
+    double velocity;
     public Shooter()
     {
         talSH = new TalonSRX(Constants.TAL_SH);
-        enc = new Encoder(2, 1, 0);
+        enc = new Encoder(1,2,3);
+        talSH.setInverted(true);
     }
 
     /**
@@ -33,9 +37,26 @@ public class Shooter extends SubsystemBase
      */
     public void update(double speed) {
         // TODO: This implementation is currently being used for bugfixing with the ctre mag encoders
-        System.out.println("Enc val = " + enc.get());
+        System.out.println("Enc val = " + currentDeg);
+        System.out.println(velocity);
+
         
         // TODO: If the talon is inverted for the shooter, we should really just be inverting the talon
-        // talSH.set(ControlMode.PercentOutput, -speed);
+        talSH.set(ControlMode.PercentOutput, speed);
     }
+
+    public double getDeg(){
+        return currentDeg;
+    }
+
+    public double getVelocity(){
+        return velocity;
+    }
+
+    @Override
+    public void periodic() {
+        currentDeg = enc.get()*360/2000;
+        velocity = enc.getRate()/2000;
+    }
+
 }
