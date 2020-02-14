@@ -13,11 +13,10 @@ import frc.robot.subsystems.Turret;
  * 
  * Requries the Turret subsystem.
  */
-public class MacroRotateTurret extends CommandBase
+public class MacroAim extends CommandBase
 {
     /* Instance Variable Declaration */
     Turret _turret;
-    int _sign = 0;
 
 
     /**
@@ -25,11 +24,10 @@ public class MacroRotateTurret extends CommandBase
      * @param direction of rotation.
      * direction = 1 for rightward rotation, direction = -1 for leftward rotation.
      */
-    public MacroRotateTurret(int direction)
+    public MacroAim()
     {
         
         _turret = RobotContainer.s_Turret;
-        _sign = direction / Math.abs(direction);
         addRequirements(_turret);    
     }
 
@@ -38,6 +36,7 @@ public class MacroRotateTurret extends CommandBase
     {
         // Should stop the turret upon terminating the command
         // Tests needed to confirm the correct direction of the shooter
-        _turret.update(_sign);
+        _turret.pid.updateVis(_turret.vis.getError());
+        _turret.update(_turret.pid.getTur());
     }
 }

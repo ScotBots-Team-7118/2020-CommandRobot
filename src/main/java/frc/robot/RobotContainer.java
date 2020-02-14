@@ -125,10 +125,14 @@ public class RobotContainer
         /* Intake buttons */
         oi.addButton("R1", "JoyR", 1);
         oi.addButton("L1", "JoyL", 1);
+        oi.addButton("LB", "Xbox", 5);
+        oi.addButton("RB", "Xbox", 6);
 
         // Referencing the added buttons when pressed
         oi.getButton("R1").toggleWhenPressed(/* Intake In */ new MacroIntakeF());
         oi.getButton("L1").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
+        oi.getButton("LB").whileHeld(new MacroRotateTurret(1));
+        oi.getButton("RB").whileHeld(new MacroRotateTurret(-1));
 
         break;
 

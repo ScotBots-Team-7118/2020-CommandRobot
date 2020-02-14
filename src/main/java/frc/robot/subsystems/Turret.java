@@ -6,6 +6,8 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
+import frc.robot.PID;
+import frc.robot.Vision.VisionHandler;
 import frc.robot.Constants;
 
 /**
@@ -15,12 +17,16 @@ public class Turret extends SubsystemBase
 {
     /* Class Variable Declaration */
     TalonSRX talTUR;
+    public PID pid;
+    public VisionHandler vis;
 
     /**
      * Constructs the Turret subsystem.
      */
     public Turret()
     {
+        pid = new PID(0,0,0, true, false, false); //gimme some constatnts
+        vis = new VisionHandler();
         talTUR = new TalonSRX(Constants.p_TAL_TUR);
     }
 
@@ -31,5 +37,10 @@ public class Turret extends SubsystemBase
     public void update(double velocity)
     {
         talTUR.set(ControlMode.PercentOutput, velocity);
+    }
+
+    @Override
+    public void periodic() {
+        vis.update();
     }
 }
