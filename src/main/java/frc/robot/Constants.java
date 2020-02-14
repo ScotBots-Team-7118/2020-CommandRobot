@@ -48,7 +48,7 @@ public final class Constants {
 
         /* Shooter */
         // Talon Port Number
-        public static int TAL_SH = 0;
+        public static int p_TAL_SH = 0;
 
         /* Turret */
         // Talon Port Number
@@ -59,6 +59,8 @@ public final class Constants {
 
         // CONSTANTS
 
+        /*Auto*/
+       
         /* AutoCommands */
         // AutoTurn Drive Full Speed
         public static double FULL_TURN_SPEED = 0.7;
@@ -66,9 +68,23 @@ public final class Constants {
         // AutoTurn allowed margin of error in degrees
         public static double TURN_DEADZONE = 0.5;
 
+        // Auto drive speeds
+        public static double BASIC_SPEED = 0.3;
+        public static double BRAKE_SPEED = .5;
+
+        public static int AUTO_LINE_DIST = 0;
+
+
+        /*Climber*/
+
         // Velocities (% fraction of full speed)
         public static double CLIMBER_VELOCITY_U = 0.1;
         public static double CLIMBER_VELOCITY_D = -0.1;
+
+
+        /*Shooter*/
+
+
 
         /* Controls/OI */
         // Enum for controls configurations and associated variable
@@ -78,22 +94,20 @@ public final class Constants {
 
         public static ControlsConfig controls = ControlsConfig.XBOX;
 
-        // Turret controller || TODO: Confirm that reformatting is good with
-        // Nathaniel
+        // Turret controller || TODO: Confirm that reformatting is good with Nathaniel
         // public static int TURC = 1;
 
         // Joystick deadzone
         public static double DEADZONE = 0.1;
 
+       
+       
         // Distance traveled per rotation of the wheel
         public static int D_PER_ROTATION = 0;
 
-        // Auto drive speeds
-        public static double ADJUSTED_SPEED = 0.4;
-        public static double BASIC_SPEED = 0.3;
-        public static double BRAKE_SPEED = .5;
+        
 
-        public static int AUTO_LINE_DIST = 0;
+        
 
         // Ultrasonic (AnalogOutput) Channel #s
         public static int p_US1 = 0;

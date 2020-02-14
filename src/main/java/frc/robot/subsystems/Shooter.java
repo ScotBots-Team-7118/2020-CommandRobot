@@ -26,7 +26,7 @@ public class Shooter extends SubsystemBase
     double velocity;
     public Shooter()
     {
-        talSH = new TalonSRX(Constants.TAL_SH);
+        talSH = new TalonSRX(Constants.p_TAL_SH);
         enc = new Encoder(1,2,3);
         talSH.setInverted(true);
     }
