@@ -17,7 +17,8 @@ public class MacroAim extends CommandBase
 {
     /* Instance Variable Declaration */
     Turret _turret;
-
+    double rAngle;
+    double tAngle;
 
     /**
      * Constructs a new MacroRotateTurret command with a Turret requirement.
@@ -36,6 +37,10 @@ public class MacroAim extends CommandBase
     {
         // Should stop the turret upon terminating the command
         // Tests needed to confirm the correct direction of the shooter
+        rAngle = Robot.rC.Rgyro.getRawHeading();
+        tAngle = 0;
+
+
         _turret.pid.updateVis(_turret.vis.getError());
         _turret.update(_turret.pid.getTur());
     }

@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.*;
 import frc.robot.commands.macros.*;
 import frc.robot.commands.startgame.*;
+import frc.robot.gyro.Gyroscope;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -30,7 +31,8 @@ public class RobotContainer
   public final AutoGroup cg_AutoGroup = new AutoGroup();
   public final TeleopGroup cg_TeleopGroup = new TeleopGroup();
 
-
+  public Gyroscope Rgyro;
+  
   private OI oi;
 
   /**
@@ -54,7 +56,7 @@ public class RobotContainer
   {
     /* Class Variable Instantiation */
     oi = Robot.oi;
-
+    Rgyro = new Gyroscope();
     // Configure the button bindings
     configureButtonBindings();
 

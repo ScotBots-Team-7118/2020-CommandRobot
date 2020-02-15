@@ -1,5 +1,7 @@
 package frc.robot.Vision;
 
+import frc.robot.RobotContainer;
+
 public class VisionHandler {
 
     double _pxOffset;
@@ -10,6 +12,7 @@ public class VisionHandler {
     }
 
     public void update() {
+        _pxOffset = RobotContainer.s_Turret.getHeading();
         _degOffset = 0.43 * (_pxOffset - 80 /* center 0 */) - 1.46;
     }
 

@@ -26,7 +26,7 @@ public class AutoTurn extends CommandBase
     public AutoTurn(double angle)
     {
         _drive = RobotContainer.s_DriveTrain;
-        _gyro = Robot.oi.gyro;
+        _gyro = Robot.rC.Rgyro;
         _gyro.reset();
 
         // Scales the given angle to the interval (-180, 180]
