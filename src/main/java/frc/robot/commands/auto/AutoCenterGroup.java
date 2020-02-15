@@ -20,6 +20,8 @@ public class AutoCenterGroup extends SequentialCommandGroup
      */
     public AutoCenterGroup()
     {
+         //For robot placed directly in front of power port
+         //Robot will shoot from the initiation line, and then reverse four feet
         addCommands(new AutoShoot());
         addCommands(new AutoDriveStraight(Constants.AUTO_CENTER_DIST));
     }

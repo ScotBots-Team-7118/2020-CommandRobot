@@ -41,28 +41,28 @@ public class AutoTurn extends CommandBase
         // Stop the robot and the command if the angle is 0 (since the robot is already in the correct position).
         if (_angle == 0)
         {
-            _drive.update(0, 0);
+            _drive.set(0, 0);
             cancel();
         }
 
         // If the robot is too far left, turn to the right at a decreasing speed
         if (_gyro.getNormalizedHeading() < _angle - Constants.TURN_DEADZONE)
         {
-            _drive.update(-(_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
+            _drive.set(-(_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
                             (_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED);
         }
 
         // If the robot is too far right, turn to the left at a decreasing speed
         else if (_gyro.getNormalizedHeading() > _angle + Constants.TURN_DEADZONE)
         {
-            _drive.update((_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
+            _drive.set((_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
                             (_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED);
         }
 
         // If the robot isn't too far to the right or too far to the left, stop the robot and end the command.
         else
         {
-            _drive.update(0, 0);
+            _drive.set(0, 0);
             cancel();
         }                                                                                                                                                                                
     }

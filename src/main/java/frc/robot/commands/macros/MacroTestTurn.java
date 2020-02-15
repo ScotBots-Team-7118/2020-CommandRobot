@@ -18,6 +18,6 @@ public class MacroTestTurn extends CommandBase{
 
     @Override
     public void execute() {
-        turret.update(-Constants.SHOOTER_SPEED);
+        turret.set(-Constants.SHOOTER_SPEED);
     }
 }

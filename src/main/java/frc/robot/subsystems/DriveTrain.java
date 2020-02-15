@@ -50,7 +50,7 @@ public class DriveTrain extends SubsystemBase
      * @param velocityL
      * @param velocityR
      */
-    public void update(double velocityL, double velocityR)
+    public void set(double velocityL, double velocityR)
     {
         talLM.set(ControlMode.PercentOutput, velocityL);
         talLF.set(ControlMode.Follower, Constants.p_TAL_LM);

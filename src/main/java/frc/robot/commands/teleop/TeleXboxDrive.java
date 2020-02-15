@@ -37,7 +37,7 @@ public class TeleXboxDrive extends CommandBase
     public void execute()
     {
         // Set drive subsystem to calculated speeds.
-        _drive.update(calculateSpeeds()[0], calculateSpeeds()[1]);
+        _drive.set(calculateSpeeds()[0], calculateSpeeds()[1]);
     }
 
     /**

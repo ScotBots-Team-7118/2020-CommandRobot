@@ -76,7 +76,7 @@ public class Turret extends SubsystemBase
      * Updates the turret by rotating it at a given velocity.
      * @param velocity
      */
-    public void update(double velocity)
+    public void set(double velocity)
     {
         rAngle = Robot.rC.Rgyro.getRawHeading();
         tAngle = Gyroscope.normalizedHeadingVal(getHeading());

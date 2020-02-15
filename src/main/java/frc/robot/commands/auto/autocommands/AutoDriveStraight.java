@@ -40,10 +40,10 @@ public class AutoDriveStraight extends CommandBase {
         
         if (_drive.getLeftDist() == 0 || _drive.getRightDist() == 0)
         {
-            _drive.update(_sign * Constants.BASIC_SPEED, _sign * Constants.BASIC_SPEED);
+            _drive.set(_sign * Constants.BASIC_SPEED, _sign * Constants.BASIC_SPEED);
         }
 
-        else if (Math.abs(_remainder) > 1)
+        else if (Math.abs(_remainder) > 2)
         {
             //A ratio between the two sides of the robot that keeps it driving straight
 
@@ -53,21 +53,21 @@ public class AutoDriveStraight extends CommandBase {
             double vL = (Math.abs(_drive.getRightDist() / _drive.getLeftDist() * Constants.BASIC_SPEED) > 1) ?
             1 : (_sign * _drive.getRightDist() / _drive.getLeftDist() * Constants.BASIC_SPEED);
 
-            _drive.update(vL, vR);                        
+            _drive.set(vL, vR);                        
         }
 
-        else if (Math.abs(_remainder) < 1)
+        else if (Math.abs(_remainder) < 2)
         {
             //Makes the robot slow down before reaching the desired distance
 
-            _drive.update(_sign * Constants.BRAKE_SPEED * _remainder, _sign * Constants.BRAKE_SPEED * _remainder);
+            _drive.set(_sign * Constants.BRAKE_SPEED * _remainder, _sign * Constants.BRAKE_SPEED * _remainder);
         }
 
         else
         {
            //Stops the robot when it reaches the desired distance
 
-           _drive.update(0, 0);
+           _drive.set(0, 0);
            cancel();
         }
     }

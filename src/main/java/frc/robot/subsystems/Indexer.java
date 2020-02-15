@@ -39,7 +39,7 @@ public class Indexer extends SubsystemBase
      * and track if a power cell enters or leaves the indexer.
      * @param velocity
      */
-    public void update(double velocity)
+    public void set(double velocity)
     {
         talID.set(ControlMode.PercentOutput, velocity);
 

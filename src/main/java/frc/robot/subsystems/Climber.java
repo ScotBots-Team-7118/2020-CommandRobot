@@ -30,7 +30,7 @@ public class Climber extends SubsystemBase
      * Update the climber to run at a given velocity.
      * @param velocity of the climber.
      */
-    public void update(double velocity) {
+    public void set(double velocity) {
         talC.set(ControlMode.PercentOutput, velocity);
     }
 }
