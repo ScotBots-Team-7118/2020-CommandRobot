@@ -121,8 +121,8 @@ public final class Constants {
         public static double TURRET_SPEED = 1;
 
         // Variables Representing Ideal Inputs for MacroRotateTurret
-        public static int LEFT = -1;
-        public static int RIGHT = 1;
+        public static int TUR_LEFT = -1;
+        public static int TUR_RIGHT = 1;
 
         public static double B_ROTATION_SPD = 1;
 }

@@ -2,7 +2,7 @@ package frc.robot;
 
 public class PID{
 
-    double total;
+    double turTotal;
 
     double _error;
     double _p;
@@ -22,31 +22,31 @@ public class PID{
         useI = ui;
         useD = ud;
 
-        total = 1;
+        turTotal = 1;
     }
 
     public void updateVis(double error){
         _error = error;
 
-        total = sumChange();
+        turTotal = sumTurChange();
        
     }
 
-    public double getKp(){
+    public double getTurKp(){
         if(_error > 20){
-            return 0; //gimme a constant
+            return Constants.TUR_LEFT; //gimme a constant
         } else if (_error < -20){
-            return -0; //gimme a constant
+            return Constants.TUR_RIGHT; //gimme a constant
         } else {
             return -_error*_p;
         }
     }
 
     public double getTur(){
-        return total/35; 
+        return turTotal/35; 
     }
 
-    public double sumChange(){
-        return getKp();
+    public double sumTurChange(){
+        return getTurKp();
     }
 }
