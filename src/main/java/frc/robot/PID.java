@@ -2,25 +2,26 @@ package frc.robot;
 
 public class PID{
 
+    //Sum turret corrections
     double turTotal;
 
     double _error;
     double _p;
-    double _i;
-    double _d;
+    // double _i;
+    // double _d;
 
-    boolean useP;
-    boolean useI;
-    boolean useD;
+    // boolean useP;
+    // boolean useI;
+    // boolean useD;
 
-    public PID(double p, double i, double d, boolean up, boolean ui, boolean ud){
+    public PID(double p/*, double i, double d, boolean up, boolean ui, boolean ud*/){
         _p = p;
-        _i = i;
-        _d = d;
+        // _i = i;
+        // _d = d;
 
-        useP = up;
-        useI = ui;
-        useD = ud;
+        // useP = up;
+        // useI = ui;
+        // useD = ud;
 
         turTotal = 1;
     }
@@ -34,11 +35,14 @@ public class PID{
 
     public double getTurKp(){
         if(_error > 20){
-            return Constants.TUR_LEFT; //gimme a constant
+            return Constants.TUR_LEFT;
         } else if (_error < -20){
-            return Constants.TUR_RIGHT; //gimme a constant
-        } else {
+            return Constants.TUR_RIGHT; 
+        } else if (Math.abs(_error) <= 35){
             return -_error*_p;
+        }else{
+            System.out.println("Error: Out of bounds turret");
+            return 0;
         }
     }
 

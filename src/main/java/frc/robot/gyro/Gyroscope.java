@@ -75,7 +75,7 @@ public class Gyroscope
 	 * Normalizes a heading value to the range of (-180, 180] degrees.
 	 * @return The normalized heading.
 	 */
-	public double normalizedHeadingVal(double heading)
+	public static double normalizedHeadingVal(double heading)
 	{
 		heading = heading % 360;
 

@@ -30,7 +30,7 @@ public class AutoTurn extends CommandBase
         _gyro.reset();
 
         // Scales the given angle to the interval (-180, 180]
-        _angle = _gyro.normalizedHeadingVal(angle);
+        _angle = Gyroscope.normalizedHeadingVal(angle);
         
         addRequirements(_drive);
     }

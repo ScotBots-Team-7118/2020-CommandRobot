@@ -12,7 +12,8 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PID;
 import frc.robot.Vision.VisionHandler;
 import frc.robot.Constants;
-
+import frc.robot.Robot;
+import frc.robot.gyro.Gyroscope;;
 /**
  * Subsystem representing the turret attached to the shooter mechanism on the robot.
  */
@@ -28,12 +29,15 @@ public class Turret extends SubsystemBase
     NetworkTableEntry distance;
     NetworkTableEntry heading;
 
+    double rAngle;
+    double tAngle;
+    double cAngle;
     /**
      * Constructs the Turret subsystem.
      */
     public Turret()
     {
-        pid = new PID(0,0,0, true, false, false); //gimme some constatnts
+        pid = new PID(0/*,0,0, true, false, false*/); //gimme some constatnts
         vis = new VisionHandler();
         talTUR = new TalonSRX(Constants.p_TAL_TUR);
         NetworkTable table = NetworkTableInstance.getDefault().getTable("GripVisionData");
@@ -74,7 +78,15 @@ public class Turret extends SubsystemBase
      */
     public void update(double velocity)
     {
-        talTUR.set(ControlMode.PercentOutput, velocity);
+        rAngle = Robot.rC.Rgyro.getRawHeading();
+        tAngle = Gyroscope.normalizedHeadingVal(getHeading());
+        cAngle = rAngle - tAngle;
+        if(cAngle <= 180 || cAngle >= -180){
+            talTUR.set(ControlMode.PercentOutput, velocity);
+        }else{
+            System.out.println("Turret boundary hit");
+            talTUR.set(ControlMode.PercentOutput, -velocity);
+        }
     }
 
     @Override

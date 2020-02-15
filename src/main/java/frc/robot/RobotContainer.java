@@ -60,9 +60,9 @@ public class RobotContainer
     // Configure the button bindings
     configureButtonBindings();
 
-    // TODO: Nathaniel, is this necessary or not?
     // //set defaults
-    // s_DriveTrain.setDefaultCommand(cg_TeleopGroup);
+    s_DriveTrain.setDefaultCommand(cg_TeleopGroup);
+    s_Turret.setDefaultCommand(new MacroAim());
   }
 
   /**
