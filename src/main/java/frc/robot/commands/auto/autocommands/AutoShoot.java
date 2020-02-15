@@ -14,7 +14,6 @@ import frc.robot.subsystems.Shooter;
 public class AutoShoot extends CommandBase{
     /* Instance Variable Declaration */
     Shooter _shooter;
-
     /**
      * Constructs a new AutoShooter command with a Shooter requirement.
      */
@@ -27,6 +26,8 @@ public class AutoShoot extends CommandBase{
     @Override
     public void execute()
     {
+        
+   
         /* TODO: Implement me! */
         // TODO: Need to figure out input number, how far we want the robot to turn and shoot
     }

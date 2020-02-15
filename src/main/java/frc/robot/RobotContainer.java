@@ -13,6 +13,7 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.*;
 import frc.robot.commands.macros.*;
 import frc.robot.commands.startgame.*;
+import frc.robot.gyro.Gyroscope;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -30,6 +31,10 @@ public class RobotContainer
   public final AutoGroup cg_AutoGroup = new AutoGroup();
   public final TeleopGroup cg_TeleopGroup = new TeleopGroup();
 
+  public Gyroscope Rgyro;
+  
+  private OI oi;
+
   /**
    * Subsystems
    */
@@ -41,7 +46,7 @@ public class RobotContainer
   public static Vision s_Vision = new Vision();
   public static Turret s_Turret = new Turret();
 
-  private OI oi;
+  
 
   /**
    * Constructs the RobotContainer.
@@ -51,13 +56,13 @@ public class RobotContainer
   {
     /* Class Variable Instantiation */
     oi = Robot.oi;
-
+    Rgyro = new Gyroscope();
     // Configure the button bindings
     configureButtonBindings();
 
-    // TODO: Nathaniel, is this necessary or not?
     // //set defaults
-    // s_DriveTrain.setDefaultCommand(cg_TeleopGroup);
+    s_DriveTrain.setDefaultCommand(cg_TeleopGroup);
+    s_Turret.setDefaultCommand(new MacroAim());
   }
 
   /**
@@ -125,10 +130,14 @@ public class RobotContainer
         /* Intake buttons */
         oi.addButton("R1", "JoyR", 1);
         oi.addButton("L1", "JoyL", 1);
+        oi.addButton("LB", "Xbox", 5);
+        oi.addButton("RB", "Xbox", 6);
 
         // Referencing the added buttons when pressed
         oi.getButton("R1").toggleWhenPressed(/* Intake In */ new MacroIntakeF());
         oi.getButton("L1").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
+        oi.getButton("LB").whileHeld(new MacroRotateTurret(1));
+        oi.getButton("RB").whileHeld(new MacroRotateTurret(-1));
 
         break;
 

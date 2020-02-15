@@ -60,7 +60,7 @@ public class Robot extends TimedRobot
   @Override
   public void disabledInit()
   {
-    // TODO: Why does this not cancel all commands?
+    CommandScheduler.getInstance().cancelAll();
   }
 
   /**

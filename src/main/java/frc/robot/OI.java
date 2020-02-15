@@ -5,7 +5,6 @@ import edu.wpi.first.wpilibj.Joystick;
 import edu.wpi.first.wpilibj2.command.button.JoystickButton;
 
 import frc.robot.Constants;
-import frc.robot.gyro.Gyroscope;
 
 import java.util.HashMap;
 
@@ -19,7 +18,7 @@ public class OI
     /* Class Variable Declaration */
     HashMap<String, Joystick> joyMap;
     HashMap<String, JoystickButton> buttons;
-    public Gyroscope gyro;
+    
 
     /**
      * Constructs the Operator Interface.
@@ -27,7 +26,7 @@ public class OI
     public OI()
     {
         /* Class Variable Instantiation */
-        gyro = new Gyroscope();
+        
 
         joyMap = new HashMap<>();
         buttons = new HashMap<>();
