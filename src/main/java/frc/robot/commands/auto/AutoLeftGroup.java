@@ -21,6 +21,8 @@ public class AutoLeftGroup extends SequentialCommandGroup
      */
     public AutoLeftGroup()
     {
+        //For a robot placed directly in front of the opposing alliances loading bay
+        //Robot will shoot from four feet behind the initiation line, facing the target
         addCommands(new AutoDriveStraight(Constants.AUTO_LEFT_DIST_1));
         addCommands(new AutoTurn(Constants.AUTO_LEFT_ANG_1));
         addCommands(new AutoDriveStraight(Constants.AUTO_LEFT_DIST_2));

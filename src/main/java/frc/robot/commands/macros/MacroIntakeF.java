@@ -30,6 +30,6 @@ public class MacroIntakeF extends CommandBase
     {
         // TODO: Finish implementation
         // Intake should not run if the indexer is full (this should be considered here).
-        _intake.update(Constants.INDEX_VELOCITY_F);
+        _intake.set(Constants.INDEX_VELOCITY_F);
     }
 }

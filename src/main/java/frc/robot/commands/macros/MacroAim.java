@@ -38,6 +38,6 @@ public class MacroAim extends CommandBase
        
 
         _turret.pid.updateVis(_turret.vis.getError());
-        _turret.update(_turret.pid.getTur());
+        _turret.set(_turret.pid.getTur());
     }
 }

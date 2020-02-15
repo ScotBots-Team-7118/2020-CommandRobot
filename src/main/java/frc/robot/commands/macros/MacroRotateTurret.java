@@ -38,6 +38,6 @@ public class MacroRotateTurret extends CommandBase
     {
         // Should stop the turret upon terminating the command
         // Tests needed to confirm the correct direction of the shooter
-        _turret.update(_sign);
+        _turret.set(_sign);
     }
 }

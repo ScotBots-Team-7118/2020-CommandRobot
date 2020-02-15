@@ -37,7 +37,7 @@ public class TeleJoyDrive extends CommandBase
     @Override
     public void execute()
     {
-        _drive.update(calculateSpeeds()[0], calculateSpeeds()[1]);
+        _drive.set(calculateSpeeds()[0], calculateSpeeds()[1]);
     }
 
     /**

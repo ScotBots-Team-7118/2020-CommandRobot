@@ -20,10 +20,14 @@ public class AutoRightGroup extends SequentialCommandGroup
      */
     public AutoRightGroup()
     {
+        //For a robot placed against the side of the playing area closest to the target zone
+        //robot will shoot from four feet behind initiation line, facing it
         addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST_1));
         addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANG_1));
         addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST_2));
         addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANG_2));
+        addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST_3));
+        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANG_3));
         addCommands(new AutoShoot());
     }
 }

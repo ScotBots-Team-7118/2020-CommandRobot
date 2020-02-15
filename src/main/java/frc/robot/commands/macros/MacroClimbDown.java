@@ -30,6 +30,6 @@ public class MacroClimbDown extends CommandBase
     @Override
     public void execute()
     {
-        _climber.update(Constants.CLIMBER_VELOCITY_D);
+        _climber.set(Constants.CLIMBER_VELOCITY_D);
     }
 }

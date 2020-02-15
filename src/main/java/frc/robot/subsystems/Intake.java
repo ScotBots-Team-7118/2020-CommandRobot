@@ -31,7 +31,7 @@ public class Intake extends SubsystemBase
      * running the intake into the robot.
      * @param velocity
      */
-    public void update(double velocity)
+    public void set(double velocity)
     {
         talIN.set(ControlMode.PercentOutput, velocity);
     }

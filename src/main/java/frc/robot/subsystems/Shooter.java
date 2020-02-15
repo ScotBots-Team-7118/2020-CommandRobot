@@ -35,7 +35,7 @@ public class Shooter extends SubsystemBase
      * Shoots power cells out of the robot at a given speed.
      * @param speed
      */
-    public void update(double speed) {
+    public void set(double speed) {
         // TODO: This implementation is currently being used for bugfixing with the ctre mag encoders
         System.out.println("Enc val = " + currentDeg);
         System.out.println(velocity);

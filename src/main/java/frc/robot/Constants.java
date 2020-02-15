@@ -76,18 +76,20 @@ public final class Constants {
         // Distance traveled per rotation of the wheel
         public static int D_PER_ROTATION = 0;
 
-        //Autonomous groups drive distances
-        public static double AUTO_CENTER_DIST = -0.3;
-        public static double AUTO_RIGHT_DIST_1 = 0.0;
-        public static double AUTO_RIGHT_DIST_2 = 0.0;
-        public static double AUTO_LEFT_DIST_1 = 0.0;
-        public static double AUTO_LEFT_DIST_2 = 0.0;
+        //Auto groups drive distances (measurements in feet)
+        public static double AUTO_CENTER_DIST = -4;
+        public static double AUTO_RIGHT_DIST_1 = 1;
+        public static double AUTO_RIGHT_DIST_2 = 4;
+        public static double AUTO_RIGHT_DIST_3 = 6.6 /*-1/2 robot length*/;
+        public static double AUTO_LEFT_DIST_1 = 4;
+        public static double AUTO_LEFT_DIST_2 = 10.5;
 
-        //Autonomous groups turn angles
-        public static double AUTO_RIGHT_ANG_1 = 0.0;
-        public static double AUTO_RIGHT_ANG_2 = 0.0;
-        public static double AUTO_LEFT_ANG_1 = 0.0;
-        public static double AUTO_LEFT_ANG_2 = 0.0;
+        //Auto groups turn angles (in degrees)
+        public static double AUTO_RIGHT_ANG_1 = -90;
+        public static double AUTO_RIGHT_ANG_2 = 90;
+        public static double AUTO_RIGHT_ANG_3 = 90;
+        public static double AUTO_LEFT_ANG_1 = -90;
+        public static double AUTO_LEFT_ANG_2 = -90;
 
         /* Climber */
         // Velocities (% fraction of full speed)
