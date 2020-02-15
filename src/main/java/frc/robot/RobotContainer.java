@@ -30,6 +30,9 @@ public class RobotContainer
   public final AutoGroup cg_AutoGroup = new AutoGroup();
   public final TeleopGroup cg_TeleopGroup = new TeleopGroup();
 
+
+  private OI oi;
+
   /**
    * Subsystems
    */
@@ -41,7 +44,7 @@ public class RobotContainer
   public static Vision s_Vision = new Vision();
   public static Turret s_Turret = new Turret();
 
-  private OI oi;
+  
 
   /**
    * Constructs the RobotContainer.
