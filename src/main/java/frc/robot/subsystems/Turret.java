@@ -4,6 +4,9 @@ package frc.robot.subsystems;
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.PID;
@@ -19,6 +22,11 @@ public class Turret extends SubsystemBase
     TalonSRX talTUR;
     public PID pid;
     public VisionHandler vis;
+    NetworkTableEntry valid;
+    NetworkTableEntry entryX;
+  
+    NetworkTableEntry distance;
+    NetworkTableEntry heading;
 
     /**
      * Constructs the Turret subsystem.
@@ -28,6 +36,36 @@ public class Turret extends SubsystemBase
         pid = new PID(0,0,0, true, false, false); //gimme some constatnts
         vis = new VisionHandler();
         talTUR = new TalonSRX(Constants.p_TAL_TUR);
+        NetworkTable table = NetworkTableInstance.getDefault().getTable("GripVisionData");
+        valid = table.getEntry("Valid"); //boolean
+        entryX = table.getEntry("X"); //double
+        distance = table.getEntry("Distance"); //double
+        heading = table.getEntry("Heading"); //double
+
+    }
+    //is x valid
+    public boolean getValid(){
+        return valid.getBoolean(false);
+    }
+
+    //pixel value from vision
+    public double getX(){
+        if(getValid()){
+            return entryX.getDouble(0);
+        }else{
+            System.out.println("Error: Invalid X val in Network Table");
+            return 0;
+        }
+    }
+    
+    //distance from target
+    public double getDistance(){
+        return distance.getDouble(0);
+    }
+
+    //gyroscope heading
+    public double getHeading(){
+        return heading.getDouble(0);
     }
 
     /**

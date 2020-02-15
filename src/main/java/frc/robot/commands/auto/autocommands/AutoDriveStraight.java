@@ -1,7 +1,6 @@
 package frc.robot.commands.auto.autocommands;
 
 /* Imports */
-import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
@@ -19,6 +18,7 @@ public class AutoDriveStraight extends CommandBase {
     DriveTrain _drive;
     double _dist;
     double _remainder;
+    boolean _done;
     /**
      * Constructs a new AutoForward command for a given distance with a DriveTrain
      * requirement.
@@ -71,9 +71,9 @@ public class AutoDriveStraight extends CommandBase {
         else
         {
             _drive.update(0, 0);
+            cancel();
         }
     }
-    
     
             /* TODO: Implement me! */
             // TODO: Need to figure out input number, how far we want the robot to go     
