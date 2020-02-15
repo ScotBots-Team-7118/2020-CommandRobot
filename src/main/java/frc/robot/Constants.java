@@ -55,12 +55,10 @@ public final class Constants {
         public static int p_TAL_TUR = 0;
 
 
-
-
         // CONSTANTS
 
-        /*Auto*/
-       
+        /* Auto */
+
         /* AutoCommands */
         // AutoTurn Drive Full Speed
         public static double FULL_TURN_SPEED = 0.7;
@@ -72,19 +70,29 @@ public final class Constants {
         public static double BASIC_SPEED = 0.3;
         public static double BRAKE_SPEED = .5;
 
+        // Auto line dist
         public static int AUTO_LINE_DIST = 0;
 
+        // Distance traveled per rotation of the wheel
+        public static int D_PER_ROTATION = 0;
 
-        /*Climber*/
+        //Autonomous groups drive distances
+        public static double AUTO_CENTER_DIST = -0.3;
+        public static double AUTO_RIGHT_DIST_1 = 0.0;
+        public static double AUTO_RIGHT_DIST_2 = 0.0;
+        public static double AUTO_LEFT_DIST_1 = 0.0;
+        public static double AUTO_LEFT_DIST_2 = 0.0;
 
+        //Autonomous groups turn angles
+        public static double AUTO_RIGHT_ANG_1 = 0.0;
+        public static double AUTO_RIGHT_ANG_2 = 0.0;
+        public static double AUTO_LEFT_ANG_1 = 0.0;
+        public static double AUTO_LEFT_ANG_2 = 0.0;
+
+        /* Climber */
         // Velocities (% fraction of full speed)
         public static double CLIMBER_VELOCITY_U = 0.1;
         public static double CLIMBER_VELOCITY_D = -0.1;
-
-
-        /*Shooter*/
-
-
 
         /* Controls/OI */
         // Enum for controls configurations and associated variable
@@ -93,26 +101,8 @@ public final class Constants {
         };
 
         public static ControlsConfig controls = ControlsConfig.XBOX;
-
-        // Turret controller || TODO: Confirm that reformatting is good with Nathaniel
-        // public static int TURC = 1;
-
-        // Joystick deadzone
-        public static double DEADZONE = 0.1;
-
-       
-       
-        // Distance traveled per rotation of the wheel
-        public static int D_PER_ROTATION = 0;
-
         
-
-        
-
-        // Ultrasonic (AnalogOutput) Channel #s
-        public static int p_US1 = 0;
-        public static int p_US2 = 0;
-
+        /* Indexer */
         // Velocities (% fraction of full speed)
         public static double INDEX_VELOCITY_F = 0.1;
         public static double INDEX_VELOCITY_R = -0.1;
@@ -120,23 +110,37 @@ public final class Constants {
         // Power Cell Capacity of the Indexer
         public static int PC_CAPACITY = 4;
 
-        // Voltage Threshold for the Ultrasonic Sensors (AnalogInputs)
-        // TODO: Update this with tested value
-        public static double PC_DETECTION_VOLTAGE = 0;
-
+        /* Intake */
         // Velocities (% fraction of full speed)
         public static double IN_VELOCITY_F = 0.1;
         public static double IN_VELOCITY_R = -0.1;
 
+        /* Shooter */
         // Target Speed (% fraction of full speed)
         public static double SHOOTER_SPEED = 1;
 
+        /* Turret */
         // Turret Rotating Speed
         public static double TURRET_SPEED = 1;
 
         // Variables Representing Ideal Inputs for MacroRotateTurret
         public static int LEFT = -1;
-        public static int RIGHT = 1;
+        public static int RIGHT = 1;        
+
+        // Turret controller || TODO: Confirm that reformatting is good with Nathaniel
+        // public static int TURC = 1;
+
+        // Joystick deadzone
+        public static double DEADZONE = 0.1;
+
+        /*Vision*/
+        // Ultrasonic (AnalogOutput) Channel #s
+        public static int p_US1 = 0;
+        public static int p_US2 = 0;
+
+        // Voltage Threshold for the Ultrasonic Sensors (AnalogInputs)
+        // TODO: Update this with tested value
+        public static double PC_DETECTION_VOLTAGE = 0;
 
         public static double B_ROTATION_SPD = 1;
 }
