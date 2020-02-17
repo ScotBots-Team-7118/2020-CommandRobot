@@ -39,7 +39,7 @@ public class AutoDriveStraight extends CommandBase
     public void execute()
     {
        // Calculate the distance that the robot still has to travel 
-        _remainder = _dist - Constants.D_PER_ROTATION * ((_drive.getRightDist() + _drive.getLeftDist()) / 2);
+        _remainder = _dist - Constants.DIST_PER_ROTATION * ((_drive.getRightDist() + _drive.getLeftDist()) / 2);
         
         
         // If either side of the robot hasn't started moving, move both sides of the robot at the same speed
