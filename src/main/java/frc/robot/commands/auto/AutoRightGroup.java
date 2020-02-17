@@ -3,6 +3,7 @@ package frc.robot.commands.auto;
 /* Imports */
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.auto.autocommands.*;
+import frc.robot.commands.macros.MacroAim;
 import frc.robot.Constants;
 
 /**
@@ -22,13 +23,12 @@ public class AutoRightGroup extends SequentialCommandGroup
      */
     public AutoRightGroup()
     {
+        // Place the robot on wall facing in toward the field 
         // Robot will shoot from four feet behind initiation line, facing it
         addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST[0]));
-        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANGLE[0]));
+        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANGLE));
         addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST[1]));
-        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANGLE[1]));
-        addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST[2]));
-        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANGLE[2]));
+        addCommands(new MacroAim());//Aims shooter
         addCommands(new AutoShoot());
     }
 }

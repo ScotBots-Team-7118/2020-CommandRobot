@@ -19,6 +19,7 @@ public class Indexer extends SubsystemBase
     /* Class Variable Declaration */
     TalonSRX talID;
     AnalogInput us1, us2;
+    
     public int numPowerCells;
     boolean us1Active = false,
     us2Active = false;
