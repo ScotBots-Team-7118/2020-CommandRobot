@@ -49,8 +49,12 @@ public class Shooter extends SubsystemBase
         return currentDeg;
     }
 
-    public double getVelocity(){
+    public double getRotVelocity(){
         return velocity;
+    }
+
+    public double getCMD(){
+        return talSH.getMotorOutputPercent();
     }
 
     @Override

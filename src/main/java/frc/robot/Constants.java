@@ -144,6 +144,8 @@ public final class Constants
         /* Shooter */
         // Target Speed (% fraction of full speed)
         public static double SHOOTER_SPEED = 1;
+        public static double SHOOTER_P = 0;
+        public static double MAX_DIST = 12.453;
 
 
         /* Turret */

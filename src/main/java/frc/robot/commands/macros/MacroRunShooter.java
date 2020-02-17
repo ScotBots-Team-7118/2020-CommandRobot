@@ -15,6 +15,7 @@ public class MacroRunShooter extends CommandBase
 {
     /* Instance Variable Declaration */
     Shooter _shooter;
+    PID pid;
 
     /**
      * Constructs a new MacroRunShooter command with a Shooter requirement.
@@ -22,12 +23,15 @@ public class MacroRunShooter extends CommandBase
     public MacroRunShooter()
     {
         _shooter = RobotContainer.s_Shooter;
+        pid = new PID(Constants.SHOOTER_P);
         addRequirements(_shooter);
     }
 
     @Override
     public void execute()
     {
-        _shooter.set(Constants.SHOOTER_SPEED);
+        double vA =  Trajectory.calcVelocity(Networktable.getDistance())/Constants.DIST_PER_ROTATION;
+        double sV = pid.getShKp(_shooter.getRotVelocity(), vA)/Constants.MAX_DIST;
+        _shooter.set(sV);
     }
 }
