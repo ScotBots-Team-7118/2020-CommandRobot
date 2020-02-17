@@ -35,7 +35,7 @@ public class TeleopGroup extends ParallelCommandGroup
         {
             case XBOX:
                 // addCommands(new TeleXboxDrive());
-                addCommands(new MacroRunShooter());
+                addCommands(new MacroRunShooter(false));
                 break;
             
             case JOYSTICKS:
