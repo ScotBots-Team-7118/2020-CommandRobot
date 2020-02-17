@@ -18,7 +18,6 @@ public class MacroIndexerF extends CommandBase
     /* Instance Variable Declaration */
     Indexer _indexer;
     
-
     /**
      * Constructs a new MacroIndexerF command with Indexer requirement.
      */
@@ -29,7 +28,8 @@ public class MacroIndexerF extends CommandBase
     }
 
     @Override
-    public void execute() {
+    public void execute()
+    {
         _indexer.set(Constants.INDEX_VELOCITY_F);
     }
 }

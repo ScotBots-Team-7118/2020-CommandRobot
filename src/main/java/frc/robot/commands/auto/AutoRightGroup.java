@@ -7,10 +7,12 @@ import frc.robot.Constants;
 
 /**
  * The command group for the right-side autonomous program.
+ * In this scenario, the robot is placed against the side
+ * of the playing area closest to the target zone.
  */
 public class AutoRightGroup extends SequentialCommandGroup
 {
-    /* TODO: Implement me! */
+    /* TODO: Finish implementing me! */
 
     /* Instance Variable Declaration */
     
@@ -20,14 +22,13 @@ public class AutoRightGroup extends SequentialCommandGroup
      */
     public AutoRightGroup()
     {
-        //For a robot placed against the side of the playing area closest to the target zone
-        //robot will shoot from four feet behind initiation line, facing it
-        addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST_1));
-        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANG_1));
-        addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST_2));
-        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANG_2));
-        addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST_3));
-        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANG_3));
+        // Robot will shoot from four feet behind initiation line, facing it
+        addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST[0]));
+        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANGLE[0]));
+        addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST[1]));
+        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANGLE[1]));
+        addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST[2]));
+        addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANGLE[2]));
         addCommands(new AutoShoot());
     }
 }

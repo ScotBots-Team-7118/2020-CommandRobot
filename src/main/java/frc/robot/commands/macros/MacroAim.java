@@ -36,7 +36,6 @@ public class MacroAim extends CommandBase
         // Should stop the turret upon terminating the command
         // Tests needed to confirm the correct direction of the shooter
        
-
         _turret.pid.updateVis(_turret.vis.getError());
         _turret.set(_turret.pid.getTur());
     }

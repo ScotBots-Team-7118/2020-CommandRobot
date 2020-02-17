@@ -13,6 +13,7 @@ import frc.robot.subsystems.DriveTrain;;
 public class TeleJoyDrive extends CommandBase
 {
     /* TODO: Untested Code */
+    /* TODO: Fix implementation for parabolic control */
 
     /* Instance Variable Declaration */
     DriveTrain _drive;

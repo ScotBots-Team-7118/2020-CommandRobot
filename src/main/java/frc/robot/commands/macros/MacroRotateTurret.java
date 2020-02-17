@@ -19,7 +19,6 @@ public class MacroRotateTurret extends CommandBase
     Turret _turret;
     int _sign = 0;
 
-
     /**
      * Constructs a new MacroRotateTurret command with a Turret requirement.
      * @param direction of rotation.
@@ -27,17 +26,17 @@ public class MacroRotateTurret extends CommandBase
      */
     public MacroRotateTurret(int direction)
     {
-        
         _turret = RobotContainer.s_Turret;
         _sign = direction / Math.abs(direction);
+
         addRequirements(_turret);    
     }
 
     @Override
     public void execute()
     {
-        // Should stop the turret upon terminating the command
-        // Tests needed to confirm the correct direction of the shooter
+        // TODO: Should stop the turret upon terminating the command
+        // TODO: Tests needed to confirm the correct direction of the shooter
         _turret.set(_sign);
     }
 }

@@ -7,10 +7,14 @@ import frc.robot.*;
 import frc.robot.subsystems.Intake;
 
 /**
- * Command to run the intake in reverse (away from the robot). Requires the intake subsystem.
+ * Command to run the intake in reverse (away from the robot).
+ * 
+ * Requires the intake subsystem.
  */
 public class MacroIntakeR extends CommandBase
 {
+    /* TODO: Untested Code */
+
     /* Instance Variable Declaration */
     Intake _intake;
 
@@ -27,8 +31,6 @@ public class MacroIntakeR extends CommandBase
     @Override
     public void execute()
     {
-        // TODO: Finish implementation
-        // Intake should not run if the indexer is full (this should be considered here).
         _intake.set(Constants.INDEX_VELOCITY_R);
     }
 }

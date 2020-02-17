@@ -14,9 +14,9 @@ import frc.robot.subsystems.Vision;
 public class MacroFindTarget extends CommandBase
 {
     /* TODO: Implement me! */
-    Vision _vision;
 
     /* Instance Variable Declaration */
+    Vision _vision;
 
     /**
      * Constructs a new MacroFindTarget command with a Vision requirement.

@@ -8,10 +8,12 @@ import frc.robot.commands.auto.autocommands.*;
 
 /**
  * The command group for the left-side autonomous program.
+ * In this scenario, the robot is placed directly in front
+ * of the opponent's loading bay.
  */
 public class AutoLeftGroup extends SequentialCommandGroup
 {
-    /* TODO: Implement me! */
+    /* TODO: Finish implementing me! */
 
     /* Instance Variable Declaration */
     
@@ -21,12 +23,11 @@ public class AutoLeftGroup extends SequentialCommandGroup
      */
     public AutoLeftGroup()
     {
-        //For a robot placed directly in front of the opposing alliances loading bay
-        //Robot will shoot from four feet behind the initiation line, facing the target
-        addCommands(new AutoDriveStraight(Constants.AUTO_LEFT_DIST_1));
-        addCommands(new AutoTurn(Constants.AUTO_LEFT_ANG_1));
-        addCommands(new AutoDriveStraight(Constants.AUTO_LEFT_DIST_2));
-        addCommands(new AutoTurn(Constants.AUTO_LEFT_ANG_2));
+        // Robot will shoot from four feet behind the initiation line, facing the target
+        addCommands(new AutoDriveStraight(Constants.AUTO_LEFT_DIST[0]));
+        addCommands(new AutoTurn(Constants.AUTO_LEFT_ANGLE[0]));
+        addCommands(new AutoDriveStraight(Constants.AUTO_LEFT_DIST[1]));
+        addCommands(new AutoTurn(Constants.AUTO_LEFT_ANGLE[1]));
         addCommands(new AutoShoot());
     }
 }

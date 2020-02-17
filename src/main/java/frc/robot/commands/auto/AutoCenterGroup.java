@@ -7,10 +7,12 @@ import frc.robot.Constants;
 
 /**
  * The command group for the center autonomous program.
+ * In this scenario, the robot is placed directly
+ * in front of the power port.
  */
 public class AutoCenterGroup extends SequentialCommandGroup
 {
-    /* TODO: Implement me! */
+    /* TODO: Finish implementing me! */
 
     /* Instance Variable Declaration */
 
@@ -20,8 +22,7 @@ public class AutoCenterGroup extends SequentialCommandGroup
      */
     public AutoCenterGroup()
     {
-         //For robot placed directly in front of power port
-         //Robot will shoot from the initiation line, and then reverse four feet
+         // Shoot from the initiation line, and then reverse four feet (a given distance)
         addCommands(new AutoShoot());
         addCommands(new AutoDriveStraight(Constants.AUTO_CENTER_DIST));
     }

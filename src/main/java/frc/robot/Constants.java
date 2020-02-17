@@ -17,7 +17,8 @@ package frc.robot;
  * It is advised to statically import this class (or one of its inner classes)
  * wherever the constants are needed, to reduce verbosity.
  */
-public final class Constants {
+public final class Constants
+{
 
         // PORTS
 
@@ -25,11 +26,14 @@ public final class Constants {
         // Talon Port Number
         public static int p_TAL_C = 0;
 
+
+        /* Controls/OI */
         // Controller Ports for various values of ControlsConfig
         public static int p_XBOX = 0;
         public static int p_JOYL = 0;
         public static int p_JOYR = 0;
         public static int[] p_DUALDRIVERS = { 0, 1, 2 };
+
 
         /* DriveTrain */
         // Talon Port Numbers
@@ -38,26 +42,32 @@ public final class Constants {
         public static int p_TAL_LM = 0;
         public static int p_TAL_LF = 0;
 
+
         /* Indexer */
         // Talon Port Number
         public static int p_TAL_ID = 0;
+
 
         /* Intake */
         // Talon Port Number
         public static int p_TAL_IN = 0;
 
+
         /* Shooter */
         // Talon Port Number
         public static int p_TAL_SH = 0;
+
 
         /* Turret */
         // Talon Port Number
         public static int p_TAL_TUR = 0;
 
 
+
         // CONSTANTS
 
         /* Auto */
+
 
         /* AutoCommands */
         // AutoTurn Drive Full Speed
@@ -70,31 +80,27 @@ public final class Constants {
         public static double BASIC_SPEED = 0.3;
         public static double BRAKE_SPEED = .5;
 
+        // The allowed margin of error for AutoDriveStraight in feet.
+        public static double DIST_DEADZONE = 0.08;
+
         // Auto line dist
         public static int AUTO_LINE_DIST = 0;
 
-        // Distance traveled per rotation of the wheel
-        public static int D_PER_ROTATION = 0;
-
-        //Auto groups drive distances (measurements in feet)
+        // Auto groups drive distances (measurements in feet)
         public static double AUTO_CENTER_DIST = -4;
-        public static double AUTO_RIGHT_DIST_1 = 1;
-        public static double AUTO_RIGHT_DIST_2 = 4;
-        public static double AUTO_RIGHT_DIST_3 = 6.6 /*-1/2 robot length*/;
-        public static double AUTO_LEFT_DIST_1 = 4;
-        public static double AUTO_LEFT_DIST_2 = 10.5;
+        public static double[] AUTO_RIGHT_DIST = {1, 4, /* -1/2 robot length */ 6.6};
+        public static double[] AUTO_LEFT_DIST = {4, 10.5};
 
-        //Auto groups turn angles (in degrees)
-        public static double AUTO_RIGHT_ANG_1 = -90;
-        public static double AUTO_RIGHT_ANG_2 = 90;
-        public static double AUTO_RIGHT_ANG_3 = 90;
-        public static double AUTO_LEFT_ANG_1 = -90;
-        public static double AUTO_LEFT_ANG_2 = -90;
+        // Auto groups turn angles (in degrees)
+        public static double[] AUTO_RIGHT_ANGLE = {-90, 90, 90};
+        public static double[] AUTO_LEFT_ANGLE = {-90, -90};
+
 
         /* Climber */
         // Velocities (% fraction of full speed)
         public static double CLIMBER_VELOCITY_U = 0.1;
         public static double CLIMBER_VELOCITY_D = -0.1;
+
 
         /* Controls/OI */
         // Enum for controls configurations and associated variable
@@ -103,7 +109,19 @@ public final class Constants {
         };
 
         public static ControlsConfig controls = ControlsConfig.XBOX;
+
+        // Joystick axis deadzone
+        public static double DEADZONE = 0.1;
+
+
+        /* Drive Train */
+        // Distance traveled per rotation of the wheel
+        public static int DIST_PER_ROTATION = 0;
+
+        // Pulses Per Revolution of the MagEncoders on the drive train
+        public static double ENCODER_PPR = 0; // TODO: check if val = 4096
         
+
         /* Indexer */
         // Velocities (% fraction of full speed)
         public static double INDEX_VELOCITY_F = 0.1;
@@ -112,14 +130,21 @@ public final class Constants {
         // Power Cell Capacity of the Indexer
         public static int PC_CAPACITY = 4;
 
+        // Voltage Threshold for the Ultrasonic Sensors (AnalogInputs)
+        // TODO: Update this with tested value
+        public static double PC_DETECTION_VOLTAGE = 0;
+
+
         /* Intake */
         // Velocities (% fraction of full speed)
         public static double IN_VELOCITY_F = 0.1;
         public static double IN_VELOCITY_R = -0.1;
 
+
         /* Shooter */
         // Target Speed (% fraction of full speed)
         public static double SHOOTER_SPEED = 1;
+
 
         /* Turret */
         // Turret Rotating Speed
@@ -129,20 +154,12 @@ public final class Constants {
         public static int TUR_LEFT = -1;
         public static int TUR_RIGHT = 1;        
 
-        // Turret controller || TODO: Confirm that reformatting is good with Nathaniel
-        // public static int TURC = 1;
 
-        // Joystick deadzone
-        public static double DEADZONE = 0.1;
-
-        /*Vision*/
+        /* Vision */
         // Ultrasonic (AnalogOutput) Channel #s
         public static int p_US1 = 0;
         public static int p_US2 = 0;
 
-        // Voltage Threshold for the Ultrasonic Sensors (AnalogInputs)
-        // TODO: Update this with tested value
-        public static double PC_DETECTION_VOLTAGE = 0;
-
-        public static double B_ROTATION_SPD = 1;
+        // TODO: What is this for, and can we get rid of it?
+        // public static double B_ROTATION_SPD = 1;
 }
