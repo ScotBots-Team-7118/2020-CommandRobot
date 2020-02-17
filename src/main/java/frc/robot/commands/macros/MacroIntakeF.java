@@ -13,6 +13,8 @@ import frc.robot.subsystems.Intake;
  */
 public class MacroIntakeF extends CommandBase
 {
+    /* TODO: Untested Code */
+
     /* Instance Variable Declaration */
     Intake _intake;
     
@@ -28,8 +30,6 @@ public class MacroIntakeF extends CommandBase
     @Override
     public void execute()
     {
-        // TODO: Finish implementation
-        // Intake should not run if the indexer is full (this should be considered here).
         _intake.set(Constants.INDEX_VELOCITY_F);
     }
 }

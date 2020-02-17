@@ -19,9 +19,6 @@ public class DriveTrain extends SubsystemBase
     /* Class Variable Declaration */
     TalonSRX talLM, talLF, talRM, talRF;
 
-    // Pulses Per Revolution of the MagEncoders on the drive train
-    final double encoderPPR = 0; // TODO: check if val = 4096
-
     /**
      * Constructs the DriveTrain subsystem.
      */
@@ -40,8 +37,8 @@ public class DriveTrain extends SubsystemBase
         talRM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
 
         // Invert the right side || TODO: This may need to change once we test on the competition drive train
-        invertController(talRM);
-        invertController(talRF);
+        talRM.setInverted(true);
+        talRF.setInverted(true);
     }
 
     /**
@@ -60,21 +57,12 @@ public class DriveTrain extends SubsystemBase
     }
 
     /**
-     * Invert a given TalonSRX motor controller.
-     * @param tal to be inverted.
-     */
-    private void invertController(TalonSRX tal)
-    {
-        tal.setInverted(!tal.getInverted());
-    }
-
-    /**
      * @return The distance traveled by the left side of the drive train
      * (currently in revolutions).
      */
     public double getLeftDist()
     {
-        return talLM.getSelectedSensorPosition() / encoderPPR;
+        return (talLM.getSelectedSensorPosition() / Constants.ENCODER_PPR) * Constants.DIST_PER_ROTATION;
     }
 
     /**
@@ -83,7 +71,7 @@ public class DriveTrain extends SubsystemBase
      */
     public double getRightDist()
     {
-        return talRM.getSelectedSensorPosition() / encoderPPR;
+        return (talRM.getSelectedSensorPosition() / Constants.ENCODER_PPR) * Constants.DIST_PER_ROTATION;
     }
 
     /**

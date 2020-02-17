@@ -1,23 +1,34 @@
 package frc.robot.commands.macros;
 
+/* Imports */
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Turret;
 
-//imports
+// TODO: Test Code
+/**
+ * Command to test turning the Turret.
+ * 
+ * Requires the turret subsystem.
+ */
+public class MacroTestTurn extends CommandBase
+{
+    /* Instance Variable Declaration */
+    Turret _turret;
 
-public class MacroTestTurn extends CommandBase{
-
-    Turret turret;
-
-    public MacroTestTurn(){
-        turret = RobotContainer.s_Turret;
-        addRequirements(turret);    
+    /**
+     * Constructs a new MacroTestTurn command with a Turret requirement.
+     */
+    public MacroTestTurn()
+    {
+        _turret = RobotContainer.s_Turret;
+        addRequirements(_turret);    
     }
 
     @Override
-    public void execute() {
-        turret.set(-Constants.SHOOTER_SPEED);
+    public void execute()
+    {
+        _turret.set(-Constants.SHOOTER_SPEED);
     }
 }

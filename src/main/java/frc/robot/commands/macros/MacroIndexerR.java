@@ -28,7 +28,8 @@ public class MacroIndexerR extends CommandBase
     }
 
     @Override
-    public void execute() {
+    public void execute()
+    {
         _indexer.set(Constants.INDEX_VELOCITY_R);
     }
 }

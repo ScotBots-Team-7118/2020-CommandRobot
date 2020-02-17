@@ -26,6 +26,8 @@ public class TeleopGroup extends ParallelCommandGroup
 
     /**
      * Configure the teleop commands based on the chosen controls configuration.
+     * 
+     * TODO: Why doesn't this use the controls configuration from Constants?
      */
     public void setControls(Constants.ControlsConfig type)
     {
@@ -39,9 +41,13 @@ public class TeleopGroup extends ParallelCommandGroup
             case JOYSTICKS:
                 addCommands(new TeleJoyDrive());
                 break;
+
+            case DUALDRIVERS:
+                // TODO: Implement me!
+                break;
             
             default:
-                System.out.println("No control set selected.");
+                System.out.println("No controls configuration selected.");
                 break;
         }
     }
