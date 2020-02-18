@@ -42,5 +42,5 @@ public class Networktable{
     //gyroscope heading
     public static double getHeading(){
         return heading.getDouble(0);
-}
+    }
 }

@@ -8,7 +8,7 @@ public class Trajectory{
     static double mtoft = 3.281;
 
     public static double calcVelocity(double d){
-        if(d <= 12.453){    
+        if(d > 3.6 ){    
             double v = 4.9/(-(2.49555-1.056386)*Math.tan(35*toRad));
             v = Math.sqrt(v)*d;
             v = v/Math.cos(35*toRad);
