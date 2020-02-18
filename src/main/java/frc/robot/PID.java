@@ -53,4 +53,9 @@ public class PID{
     public double sumTurChange(){
         return getTurKp();
     }
+
+    public double getShKp(double cv, double ov){
+        double diff = ov-cv;
+        return diff*_p;
+    }
 }

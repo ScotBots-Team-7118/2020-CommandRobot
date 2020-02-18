@@ -62,7 +62,7 @@ public class RobotContainer
 
     // //set defaults
     s_DriveTrain.setDefaultCommand(cg_TeleopGroup);
-    s_Turret.setDefaultCommand(new MacroAim());
+    s_Turret.setDefaultCommand(new MacroAim(false));
   }
 
   /**
@@ -82,15 +82,16 @@ public class RobotContainer
         oi.addButton("btnxY", "Xbox", 4);
         oi.addButton("btnxLB","Xbox", 5);
         oi.addButton("btnxRB","Xbox", 6);
-        oi.addButton("btnxback","Xbox", 7);
+        oi.addButton("BTBACK","Xbox", 7);
 
-        oi.getButton("btnxA").whileHeld(/* Run the shooter */ new MacroRunShooter());
+        oi.getButton("btnxA").whileHeld(/* Run the shooter */ new MacroFire());
         oi.getButton("btnxX").toggleWhenPressed(/* Intake In */new MacroIntakeF());
         oi.getButton("btnxB").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
         oi.getButton("btnxY").whenPressed(/* Indexer F */new MacroIndexerF());
         oi.getButton("btnxback").whenPressed(/* Indexer R */new MacroIndexerR());
         oi.getButton("btnxRB").whileHeld(/* Climbing up*/new MacroClimbDown());
         oi.getButton("btnxLB").whileHeld(/* Climbing down */new MacroClimbUp());
+        oi.getButton("BTBACK").toggleWhenPressed(new MacroRunShooter(false));
       break;
 
       // Left and right joystick controllers, assigning numbers on drive station to buttons on the controller
@@ -104,15 +105,18 @@ public class RobotContainer
         // Left joystick
         oi.addButton("btn3","JoyL", 3);
         oi.addButton("btn2","JoyL", 2);
+        oi.addButton("btn4", "joyL", 4);
 
         // Referencing the added buttons when pressed
-        oi.getButton("btn1").whileHeld(/* Run the shooter */ new MacroRunShooter());
+        oi.getButton("btn1").whileHeld(/* Run the shooter */ new MacroFire());
         oi.getButton("btn3").toggleWhenPressed(/* Intake In */new MacroIntakeF());
         oi.getButton("btn2").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
         oi.getButton("btn3").whenPressed(/* Indexer F */new MacroIndexerF());
         oi.getButton("btn2").whenPressed(/* Indexer R */new MacroIndexerR());
         oi.getButton("btn4").whileHeld(/* Climbing down !!! need an up/down climb!!*/new MacroClimbDown());
         oi.getButton("btn5").whileHeld(/* Climbing up -!!! need an up/down climb!! */new MacroClimbUp());
+        oi.getButton("btn4").toggleWhenPressed(new MacroRunShooter(false));
+        
       break;
 
       case DUALDRIVERS:
@@ -126,17 +130,19 @@ public class RobotContainer
         oi.addButton("BTB","Xbox", 2);
         oi.addButton("BTY", "Xbox", 4);
         oi.addButton("BTA", "Xbox", 1);
+        oi.addButton("BTBACK", "Xbox", 7);
 
         // Referencing the added buttons when pressed
         oi.getButton("BT3").toggleWhenPressed(/* Intake In */ new MacroIntakeF());
         oi.getButton("BT2").whileHeld(/* Intake Out */ new MacroIntakeR());
-        
+
         oi.getButton("LB").whileHeld(new MacroRotateTurret(1));
         oi.getButton("RB").whileHeld(new MacroRotateTurret(-1));
         oi.getButton("BTX").whileHeld(new MacroClimbUp());
         oi.getButton("BTB").whileHeld(new MacroClimbDown());
-        oi.getButton("BTY").toggleWhenPressed(new MacroAim());
-        oi.getButton("BTA").whenPressed(new MacroRunShooter());
+        oi.getButton("BTY").toggleWhenPressed(new MacroAim(false));
+        oi.getButton("BTA").whenPressed(new MacroFire());
+        oi.getButton("BTBACK").toggleWhenPressed(new MacroRunShooter(false));
         break;
 
 

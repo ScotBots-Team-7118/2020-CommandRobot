@@ -1,6 +1,7 @@
 package frc.robot.Vision;
 
-import frc.robot.RobotContainer;
+import frc.robot.Networktable;
+
 
 public class VisionHandler {
 
@@ -12,7 +13,7 @@ public class VisionHandler {
     }
 
     public void update() {
-        _pxOffset = RobotContainer.s_Turret.getHeading();
+        _pxOffset = Networktable.getHeading();
         _degOffset = 0.43 * (_pxOffset - 80 /* center 0 */) - 1.46;
     }
 

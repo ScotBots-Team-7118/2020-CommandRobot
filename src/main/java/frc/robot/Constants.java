@@ -87,13 +87,12 @@ public final class Constants
         public static int AUTO_LINE_DIST = 0;
 
         // Auto groups drive distances (measurements in feet)
-        public static double AUTO_CENTER_DIST = -4;
-        public static double[] AUTO_RIGHT_DIST = {1, 4, /* -1/2 robot length */ 6.6};
-        public static double[] AUTO_LEFT_DIST = {4, 10.5};
+        public static double[] AUTO_CENTER_DIST = {-4, 4};
+        public static double[] AUTO_RIGHT_DIST = {1, 4};
+        public static double AUTO_LEFT_DIST = 4;
 
         // Auto groups turn angles (in degrees)
-        public static double[] AUTO_RIGHT_ANGLE = {-90, 90, 90};
-        public static double[] AUTO_LEFT_ANGLE = {-90, -90};
+        public static double AUTO_RIGHT_ANGLE = -90;
 
 
         /* Climber */
@@ -144,6 +143,8 @@ public final class Constants
         /* Shooter */
         // Target Speed (% fraction of full speed)
         public static double SHOOTER_SPEED = 1;
+        public static double SHOOTER_P = 0;
+        public static double MAX_DIST = 12.453;
 
 
         /* Turret */
