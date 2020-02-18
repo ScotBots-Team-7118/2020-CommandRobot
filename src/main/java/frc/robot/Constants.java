@@ -45,7 +45,8 @@ public final class Constants
 
         /* Indexer */
         // Talon Port Number
-        public static int p_TAL_ID = 5;
+        public static int p_TAL_ID_1 = 0;
+        public static int p_TAL_ID_2 = 0;
 
 
         /* Intake */
@@ -136,6 +137,9 @@ public final class Constants
         // TODO: Update this with tested value
         public static double PC_DETECTION_VOLTAGE = 0;
 
+        // Ultrasonic (AnalogOutput) Channel #s
+        public static int p_US1 = 0;
+        public static int p_US2 = 0;
 
         /* Intake */
         // Velocities (% fraction of full speed)
@@ -148,6 +152,11 @@ public final class Constants
         public static double SHOOTER_SPEED = 1;
         public static double SHOOTER_P = 0.2;
         public static double MAX_DIST = 12.453;
+
+        /* Teleop */
+        //C = 0
+        public static double JOYDRIVE_A = 0.68;
+        public static double JOYDRIVE_B = 0.32;
 
 
         /* Turret */
@@ -164,8 +173,6 @@ public final class Constants
 
         /* Vision */
         // Ultrasonic (AnalogOutput) Channel #s
-        public static int p_US1 = 0;
-        public static int p_US2 = 1;
 
         // TODO: What is this for, and can we get rid of it?
         // public static double B_ROTATION_SPD = 1;
