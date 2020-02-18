@@ -31,6 +31,12 @@ public class MacroIntakeR extends CommandBase
     @Override
     public void execute()
     {
+        //System.out.println("intakeing but r");
         _intake.set(Constants.INDEX_VELOCITY_R);
+    }
+
+    @Override
+    public void end(boolean interrupted) {
+        _intake.set(0);
     }
 }

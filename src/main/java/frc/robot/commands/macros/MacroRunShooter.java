@@ -22,7 +22,7 @@ public class MacroRunShooter extends CommandBase
      */
     public MacroRunShooter(boolean isAuto)
     {
-        System.out.println("Running Shooter");
+        //System.out.println("Running Shooter");
         this.isAuto = isAuto;
         _shooter = RobotContainer.s_Shooter;
         pid = new PID(Constants.SHOOTER_P);
@@ -32,11 +32,11 @@ public class MacroRunShooter extends CommandBase
     @Override
     public void execute()
     {
-        System.out.println("executing Shooter");
+        //System.out.println("executing Shooter");
         double w =  Trajectory.calcVelocity(Networktable.getDistance())/Constants.DIST_PER_ROTATION;
-        System.out.println(w);
+        //System.out.println(w);
         double v = pid.getShooterSpeed(_shooter.getRotVelocity(), w)/Constants.MAX_DIST;
-        System.out.println(v+" to motor");
+        //System.out.println(v+" to motor");
         _shooter.set(v);
         if(isAuto && Math.abs(_shooter.getRotVelocity() - w) < 0.25){
             cancel();
@@ -45,6 +45,7 @@ public class MacroRunShooter extends CommandBase
 
     @Override
     public void end(boolean interrupted) {
-        System.out.println("ending");
+        //System.out.println("ending");
+        _shooter.set(0);
     }
 }

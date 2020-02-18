@@ -45,7 +45,7 @@ public final class Constants
 
         /* Indexer */
         // Talon Port Number
-        public static int p_TAL_ID = 0;
+        public static int p_TAL_ID = 5;
 
 
         /* Intake */
@@ -55,7 +55,7 @@ public final class Constants
 
         /* Shooter */
         // Talon Port Number
-        public static int p_TAL_SH = 5;
+        public static int p_TAL_SH = 0;
 
 
         /* Turret */
@@ -125,6 +125,9 @@ public final class Constants
         // Velocities (% fraction of full speed)
         public static double INDEX_VELOCITY_F = 0.1;
         public static double INDEX_VELOCITY_R = -0.1;
+        public static double SHOOT_TIME = 0.5;
+        public static double WAIT_TIME = 1.5;
+        public static double SHOOT_SPEED = 0.2;
 
         // Power Cell Capacity of the Indexer
         public static int PC_CAPACITY = 4;

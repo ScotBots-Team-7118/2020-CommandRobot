@@ -46,8 +46,8 @@ public class OI
             break;
 
             case DUALDRIVERS:
-            //joyMap.put("Left", new Joystick(Constants.p_DUALDRIVERS[0]));
-            //joyMap.put("Right", new Joystick(Constants.p_DUALDRIVERS[1]));
+            joyMap.put("JoyL", new Joystick(Constants.p_DUALDRIVERS[0]));
+            joyMap.put("JoyR", new Joystick(Constants.p_DUALDRIVERS[1]));
             joyMap.put("Xbox", new Joystick(Constants.p_DUALDRIVERS[2]));
             break;
 

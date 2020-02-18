@@ -37,8 +37,8 @@ public class Shooter extends SubsystemBase
      */
     public void set(double speed) {
         // TODO: This implementation is currently being used for bugfixing with the ctre mag encoders
-        System.out.println("Enc val = " + currentDeg);
-        System.out.println(velocity);
+        //System.out.println("Enc val = " + currentDeg);
+        //System.out.println(velocity);
 
         
         // TODO: If the talon is inverted for the shooter, we should really just be inverting the talon

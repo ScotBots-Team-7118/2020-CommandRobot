@@ -121,8 +121,10 @@ public class RobotContainer
 
       case DUALDRIVERS:
       System.out.println("Chosen: Dual Drivers");
-        // oi.addButton("BT3", "JoyR", 3);
-        // oi.addButton("BT2", "JoyR", 2);
+        oi.addButton("BT3R", "JoyR", 3);
+        oi.addButton("BT2R", "JoyR", 2);
+        // oi.addButton("BT2L", "JoyL", 2);
+        // oi.addButton("BT3L", "JoyL", 3);
 
         oi.addButton("LB", "Xbox", 5);
         oi.addButton("RB", "Xbox", 6);
@@ -133,15 +135,18 @@ public class RobotContainer
         oi.addButton("BTBACK", "Xbox", 7);
 
         // Referencing the added buttons when pressed
-        //oi.getButton("BT3").toggleWhenPressed(/* Intake In */ new MacroIntakeF());
-        //oi.getButton("BT2").whileHeld(/* Intake Out */ new MacroIntakeR());
+
+        oi.getButton("BT3R").toggleWhenPressed(/* Intake In */ new MacroIntakeF());
+        oi.getButton("BT2R").whileHeld(/* Intake Out */ new MacroIntakeR());
+        //oi.getButton("BT3L").whileHeld(new MacroClimbUp());
+        //oi.getButton("BT2L").whileHeld(new MacroClimbDown());
 
         oi.getButton("LB").whileHeld(new MacroRotateTurret(1));
         oi.getButton("RB").whileHeld(new MacroRotateTurret(-1));
-        oi.getButton("BTX").whileHeld(new MacroClimbUp());
-        oi.getButton("BTB").whileHeld(new MacroClimbDown());
+        oi.getButton("BTX").whileHeld(new MacroIndexerF());
+        oi.getButton("BTB").whileHeld(new MacroIndexerR());
         oi.getButton("BTY").toggleWhenPressed(new MacroAim(false));
-        oi.getButton("BTA").whenPressed(new MacroFire());
+        oi.getButton("BTA").whenPressed(new MacroFire(3));
         oi.getButton("BTBACK").toggleWhenPressed(new MacroRunShooter(false));
         break;
 
