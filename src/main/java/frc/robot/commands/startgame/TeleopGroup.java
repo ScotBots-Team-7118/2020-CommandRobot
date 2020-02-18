@@ -4,6 +4,7 @@ package frc.robot.commands.startgame;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 
 import frc.robot.Constants;
+import frc.robot.RobotContainer;
 import frc.robot.commands.macros.MacroRunShooter;
 import frc.robot.commands.teleop.*;
 
@@ -31,11 +32,12 @@ public class TeleopGroup extends ParallelCommandGroup
      */
     public void setControls(Constants.ControlsConfig type)
     {
+        addCommands(new MacroRunShooter(false));
         switch (type)
         {
             case XBOX:
                 // addCommands(new TeleXboxDrive());
-                addCommands(new MacroRunShooter(false));
+                addCommands(new TeleXboxDrive());
                 break;
             
             case JOYSTICKS:
@@ -44,6 +46,7 @@ public class TeleopGroup extends ParallelCommandGroup
 
             case DUALDRIVERS:
                 // TODO: Implement me!
+                //addCommands(new TeleJoyDrive());
                 break;
             
             default:

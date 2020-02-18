@@ -45,7 +45,8 @@ public final class Constants
 
         /* Indexer */
         // Talon Port Number
-        public static int p_TAL_ID = 0;
+        public static int p_TAL_ID_1 = 0;
+        public static int p_TAL_ID_2 = 0;
 
 
         /* Intake */
@@ -107,7 +108,7 @@ public final class Constants
                 JOYSTICKS, XBOX, DUALDRIVERS
         };
 
-        public static ControlsConfig controls = ControlsConfig.XBOX;
+        public static ControlsConfig controls = ControlsConfig.DUALDRIVERS;
 
         // Joystick axis deadzone
         public static double DEADZONE = 0.1;
@@ -115,7 +116,7 @@ public final class Constants
 
         /* Drive Train */
         // Distance traveled per rotation of the wheel
-        public static int DIST_PER_ROTATION = 0;
+        public static int DIST_PER_ROTATION = 12;
 
         // Pulses Per Revolution of the MagEncoders on the drive train
         public static double ENCODER_PPR = 0; // TODO: check if val = 4096
@@ -125,6 +126,9 @@ public final class Constants
         // Velocities (% fraction of full speed)
         public static double INDEX_VELOCITY_F = 0.1;
         public static double INDEX_VELOCITY_R = -0.1;
+        public static double SHOOT_TIME = 0.5;
+        public static double WAIT_TIME = 1.5;
+        public static double SHOOT_SPEED = 0.2;
 
         // Power Cell Capacity of the Indexer
         public static int PC_CAPACITY = 4;
@@ -133,6 +137,9 @@ public final class Constants
         // TODO: Update this with tested value
         public static double PC_DETECTION_VOLTAGE = 0;
 
+        // Ultrasonic (AnalogOutput) Channel #s
+        public static int p_US1 = 0;
+        public static int p_US2 = 0;
 
         /* Intake */
         // Velocities (% fraction of full speed)
@@ -143,8 +150,13 @@ public final class Constants
         /* Shooter */
         // Target Speed (% fraction of full speed)
         public static double SHOOTER_SPEED = 1;
-        public static double SHOOTER_P = 0;
+        public static double SHOOTER_P = 0.2;
         public static double MAX_DIST = 12.453;
+
+        /* Teleop */
+        //C = 0
+        public static double JOYDRIVE_A = 0.68;
+        public static double JOYDRIVE_B = 0.32;
 
 
         /* Turret */
@@ -161,8 +173,6 @@ public final class Constants
 
         /* Vision */
         // Ultrasonic (AnalogOutput) Channel #s
-        public static int p_US1 = 0;
-        public static int p_US2 = 0;
 
         // TODO: What is this for, and can we get rid of it?
         // public static double B_ROTATION_SPD = 1;

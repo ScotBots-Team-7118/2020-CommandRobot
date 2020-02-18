@@ -10,9 +10,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 import frc.robot.PID;
 import frc.robot.vision.VisionHandler;
 import frc.robot.Constants;
-import frc.robot.Robot;
-import frc.robot.gyro.Gyroscope;
-import frc.robot.Networktable;
+
 /**
  * Subsystem representing the turret attached to the shooter mechanism on the robot.
  */
