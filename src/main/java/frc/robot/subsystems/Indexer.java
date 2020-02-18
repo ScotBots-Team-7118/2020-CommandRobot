@@ -18,7 +18,9 @@ public class Indexer extends SubsystemBase
 
     /* Class Variable Declaration */
     TalonSRX talID;
-    AnalogInput us1, us2;
+
+    static AnalogInput us1 = new AnalogInput(Constants.p_US1);
+    static AnalogInput us2 = new AnalogInput(Constants.p_US2);
     
     public int numPowerCells;
     boolean us1Active = false,
@@ -31,8 +33,7 @@ public class Indexer extends SubsystemBase
     public Indexer()
     {
         talID = new TalonSRX(Constants.p_TAL_ID);
-        us1 = new AnalogInput(Constants.p_US1);
-        us2 = new AnalogInput(Constants.p_US2);
+        
     }
 
     /**

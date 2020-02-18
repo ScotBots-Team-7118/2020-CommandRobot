@@ -55,7 +55,7 @@ public final class Constants
 
         /* Shooter */
         // Talon Port Number
-        public static int p_TAL_SH = 0;
+        public static int p_TAL_SH = 5;
 
 
         /* Turret */
@@ -107,7 +107,7 @@ public final class Constants
                 JOYSTICKS, XBOX, DUALDRIVERS
         };
 
-        public static ControlsConfig controls = ControlsConfig.XBOX;
+        public static ControlsConfig controls = ControlsConfig.DUALDRIVERS;
 
         // Joystick axis deadzone
         public static double DEADZONE = 0.1;
@@ -115,7 +115,7 @@ public final class Constants
 
         /* Drive Train */
         // Distance traveled per rotation of the wheel
-        public static int DIST_PER_ROTATION = 0;
+        public static int DIST_PER_ROTATION = 12;
 
         // Pulses Per Revolution of the MagEncoders on the drive train
         public static double ENCODER_PPR = 0; // TODO: check if val = 4096
@@ -143,7 +143,7 @@ public final class Constants
         /* Shooter */
         // Target Speed (% fraction of full speed)
         public static double SHOOTER_SPEED = 1;
-        public static double SHOOTER_P = 0;
+        public static double SHOOTER_P = 0.2;
         public static double MAX_DIST = 12.453;
 
 
@@ -162,7 +162,7 @@ public final class Constants
         /* Vision */
         // Ultrasonic (AnalogOutput) Channel #s
         public static int p_US1 = 0;
-        public static int p_US2 = 0;
+        public static int p_US2 = 1;
 
         // TODO: What is this for, and can we get rid of it?
         // public static double B_ROTATION_SPD = 1;
