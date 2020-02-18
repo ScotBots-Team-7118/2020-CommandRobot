@@ -40,7 +40,7 @@ public class MacroFire extends CommandBase{
         for(int i = 0; i < num; i++){
             if(time.hasPeriodPassed(0.5)){
                 if(!time.hasPeriodPassed(0.5)){
-                    _index.set(0.3);
+                    _index.set(0.3, 0.3);
                 }
             }
         }
@@ -48,7 +48,7 @@ public class MacroFire extends CommandBase{
 
     private void shootFor(){
         if(time.hasPeriodPassed(0.5)){
-            _index.set(0.3);
+            _index.set(0.3, 0.3);
         }
     }
 }

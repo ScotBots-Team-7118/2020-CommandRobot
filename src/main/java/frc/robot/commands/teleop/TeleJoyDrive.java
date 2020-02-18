@@ -49,11 +49,14 @@ public class TeleJoyDrive extends CommandBase
     {
         // TODO: Clean this up a bit if possible
         double[] toReturn = new double[2];
-        double left = _oi.getController("JoyL").getRawAxis(1)/3;
-        double right = _oi.getController("JoyR").getRawAxis(1)/3;
+        double axisL = _oi.getController("JoyL").getRawAxis(1);
+        double axisR = _oi.getController("JoyR").getRawAxis(1);
 
-        toReturn[0] = (Math.abs(left) > Constants.DEADZONE / 3) ? left : 0.0;
-        toReturn[1] = (Math.abs(right) > Constants.DEADZONE / 3) ? right : 0.0;
+        double vL = Constants.JOYDRIVE_A*Math.pow(axisL, 2) + Constants.JOYDRIVE_B*axisL;
+        double vR = Constants.JOYDRIVE_A*Math.pow(axisR, 2) + Constants.JOYDRIVE_B*axisR;
+
+        toReturn[0] = (Math.abs(axisL) > Constants.DEADZONE) ? vL : 0.0;
+        toReturn[1] = (Math.abs(axisR) > Constants.DEADZONE) ? vR : 0.0;
 
         return toReturn;
     }

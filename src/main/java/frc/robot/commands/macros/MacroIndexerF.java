@@ -30,6 +30,6 @@ public class MacroIndexerF extends CommandBase
     @Override
     public void execute()
     {
-        _indexer.set(Constants.INDEX_VELOCITY_F);
+        _indexer.set(Constants.INDEX_VELOCITY_F, Constants.INDEX_VELOCITY_F);
     }
 }
