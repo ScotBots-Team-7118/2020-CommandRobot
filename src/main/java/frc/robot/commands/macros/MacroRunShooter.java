@@ -32,10 +32,10 @@ public class MacroRunShooter extends CommandBase
     public void execute()
     {
         
-        double vA =  Trajectory.calcVelocity(Networktable.getDistance())/Constants.DIST_PER_ROTATION;
-        double sV = pid.getShKp(_shooter.getRotVelocity(), vA)/Constants.MAX_DIST;
-        _shooter.set(sV);
-        if(isAuto && Math.abs(_shooter.getRotVelocity() - vA) < 0.25){
+        double w =  Trajectory.calcVelocity(Networktable.getDistance())/Constants.DIST_PER_ROTATION;
+        double v = pid.getShooterSpeed(_shooter.getRotVelocity(), w)/Constants.MAX_DIST;
+        _shooter.set(v);
+        if(isAuto && Math.abs(_shooter.getRotVelocity() - w) < 0.25){
             cancel();
         }
     }

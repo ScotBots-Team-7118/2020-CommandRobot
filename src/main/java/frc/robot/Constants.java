@@ -151,6 +151,9 @@ public final class Constants
         // Turret Rotating Speed
         public static double TURRET_SPEED = 1;
 
+        public static double TURRET_PZONE = 20;
+        public static double VIS_DEADZONE = 0.25;
+
         // Variables Representing Ideal Inputs for MacroRotateTurret
         public static int TUR_LEFT = -1;
         public static int TUR_RIGHT = 1;        

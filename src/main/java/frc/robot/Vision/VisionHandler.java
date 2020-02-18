@@ -1,4 +1,4 @@
-package frc.robot.Vision;
+package frc.robot.vision;
 
 import frc.robot.Networktable;
 
@@ -14,6 +14,8 @@ public class VisionHandler {
 
     public void update() {
         _pxOffset = Networktable.getHeading();
+
+        //derived from trig (ask kayla)
         _degOffset = 0.43 * (_pxOffset - 80 /* center 0 */) - 1.46;
     }
 

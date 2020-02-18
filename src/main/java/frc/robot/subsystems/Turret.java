@@ -8,7 +8,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.PID;
-import frc.robot.Vision.VisionHandler;
+import frc.robot.vision.VisionHandler;
 import frc.robot.Constants;
 import frc.robot.Robot;
 import frc.robot.gyro.Gyroscope;
@@ -46,15 +46,8 @@ public class Turret extends SubsystemBase
      */
     public void set(double velocity)
     {
-        rAngle = Robot.rC.Rgyro.getRawHeading();
-        tAngle = Gyroscope.normalizedHeadingVal(Networktable.getHeading());
-        cAngle = rAngle - tAngle;
-        if(cAngle <= 180 || cAngle >= -180){
-            talTUR.set(ControlMode.PercentOutput, velocity);
-        }else{
-            System.out.println("Turret boundary hit");
-            talTUR.set(ControlMode.PercentOutput, -velocity);
-        }
+      //TODO use limit switches to stop
+        talTUR.set(ControlMode.PercentOutput, velocity);
     }
 
     @Override
