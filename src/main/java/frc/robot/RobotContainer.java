@@ -13,7 +13,6 @@ import edu.wpi.first.wpilibj2.command.Command;
 import frc.robot.subsystems.*;
 import frc.robot.commands.macros.*;
 import frc.robot.commands.startgame.*;
-import frc.robot.commands.teleop.TeleJoyDrive;
 import frc.robot.gyro.Gyroscope;
 
 /**

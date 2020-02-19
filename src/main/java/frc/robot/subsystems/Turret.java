@@ -6,6 +6,7 @@ import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
+import edu.wpi.first.wpilibj.AnalogInput;
 
 import frc.robot.PID;
 import frc.robot.vision.VisionHandler;
@@ -20,6 +21,7 @@ public class Turret extends SubsystemBase
     TalonSRX talTUR;
     public PID pid;
     public VisionHandler vis;
+    AnalogInput Sleft, Sright;
 
 
     double rAngle;
@@ -33,8 +35,8 @@ public class Turret extends SubsystemBase
         pid = new PID(0/*,0,0, true, false, false*/); //gimme some constatnts
         vis = new VisionHandler();
         talTUR = new TalonSRX(Constants.p_TAL_TUR);
-      
-
+        Sleft = new AnalogInput(Constants.p_SWITCH_LEFT);
+        Sright = new AnalogInput(Constants.p_SWITCH_RIGHT);
     }
   
 
@@ -45,7 +47,13 @@ public class Turret extends SubsystemBase
     public void set(double velocity)
     {
       //TODO use limit switches to stop
-        talTUR.set(ControlMode.PercentOutput, velocity);
+    double _sign = velocity/Math.abs(velocity);
+      
+        if(((Sleft.getVoltage() > Constants.TRIPPED) && _sign == -1) || ((Sright.getVoltage() > Constants.TRIPPED) && _sign == 1)){
+            talTUR.set(ControlMode.PercentOutput, velocity);
+        }else if((Sleft.getVoltage() < Constants.TRIPPED) && (Sright.getVoltage() < Constants.TRIPPED)){
+            talTUR.set(ControlMode.PercentOutput, velocity);
+        }
     }
 
     @Override
