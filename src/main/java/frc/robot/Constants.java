@@ -89,12 +89,15 @@ public final class Constants
 
         // Auto groups drive distances (measurements in feet)
         public static double[] AUTO_CENTER_DIST = {-4, 4};
-        public static double[] AUTO_RIGHT_DIST = {1, 4};
-        public static double AUTO_LEFT_DIST = 4;
+        public static double[] AUTO_RIGHT_DIST = {1, -4};
+        public static double AUTO_LEFT_DIST = -4;
 
         // Auto groups turn angles (in degrees)
-        public static double AUTO_RIGHT_ANGLE = -90;
+        public static double AUTO_RIGHT_ANGLE = 90;
 
+        // Auto groups rotate turret angle (in degrees)
+        public static int AUTO_RIGHT_TURRET_ANGLE = -20;
+        public static int AUTO_LEFT_TURRET_ANGLE = 35;
 
         /* Climber */
         // Velocities (% fraction of full speed)

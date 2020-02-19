@@ -3,7 +3,6 @@ package frc.robot.commands.auto;
 /* Imports */
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.auto.autocommands.*;
-import frc.robot.commands.macros.MacroAim;
 import frc.robot.Constants;
 
 /**
@@ -23,9 +22,10 @@ public class AutoCenterGroup extends SequentialCommandGroup
      */
     public AutoCenterGroup()
     {
-         // Shoot from the initiation line, and then reverse four feet (a given distance)
-        addCommands(new MacroAim(true));
+        // Place robot directly in front of the target zone facing it
+        // Shoot from four feet behind the initiation line 
+        addCommands(new AutoDriveStraight(Constants.AUTO_CENTER_DIST[0]));
         addCommands(new AutoShoot());
-        addCommands(new AutoDriveStraight(Constants.AUTO_CENTER_DIST[1]));
+        
     }
 }

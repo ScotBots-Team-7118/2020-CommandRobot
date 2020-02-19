@@ -3,8 +3,8 @@ package frc.robot.commands.auto;
 /* Imports */
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.commands.auto.autocommands.*;
-import frc.robot.commands.macros.MacroAim;
 import frc.robot.Constants;
+import frc.robot.commands.macros.MacroRotateTurret;
 
 /**
  * The command group for the right-side autonomous program.
@@ -28,7 +28,7 @@ public class AutoRightGroup extends SequentialCommandGroup
         addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST[0]));
         addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANGLE));
         addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST[1]));
-        addCommands(new MacroAim(true));//Aims shooter
+        addCommands(new MacroRotateTurret(Constants.AUTO_RIGHT_TURRET_ANGLE));
         addCommands(new AutoShoot());
     }
 }
