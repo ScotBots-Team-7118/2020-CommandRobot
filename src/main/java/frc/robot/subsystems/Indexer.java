@@ -19,11 +19,8 @@ public class Indexer extends SubsystemBase
     /* Class Variable Declaration */
     TalonSRX talID1;
     TalonSRX talID2;
-    AnalogInput us1, us2;
     
     public int numPowerCells;
-    boolean us1Active = false,
-    us2Active = false;
     
     
     /**
@@ -33,8 +30,6 @@ public class Indexer extends SubsystemBase
     {
         talID1 = new TalonSRX(Constants.p_TAL_ID_1);
         talID2 = new TalonSRX(Constants.p_TAL_ID_2);
-        us1 = new AnalogInput(Constants.p_US1);
-        us2 = new AnalogInput(Constants.p_US2);
     }
 
     /**
@@ -46,29 +41,6 @@ public class Indexer extends SubsystemBase
     {
         talID1.set(ControlMode.PercentOutput, velocity);
         talID2.set(ControlMode.PercentOutput, velocity);
-
-        if (us1Active && us1.getVoltage() < Constants.PC_DETECTION_VOLTAGE /* Voltage Threshold */)
-        {
-            us1Active = false;
-        }
-
-        else if (!us1Active && us1.getVoltage() > Constants.PC_DETECTION_VOLTAGE /* Voltage Threshold */)
-        {
-            us1Active = true;
-            numPowerCells++;
-        }
-
-        if (us2Active && us2.getVoltage() < Constants.PC_DETECTION_VOLTAGE /* Voltage Threshold */)
-        {
-            us2Active = false;
-            numPowerCells--;
-        }
-
-        else if (!us2Active && us2.getVoltage() > Constants.PC_DETECTION_VOLTAGE /* Voltage Threshold */)
-        {
-            us2Active = true;
-            numPowerCells++;
-        }
     }
 
     /**
