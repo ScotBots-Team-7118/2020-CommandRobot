@@ -3,6 +3,8 @@ package frc.robot.subsystems;
 /* Imports */
 import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
+import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 
@@ -22,7 +24,7 @@ public class Turret extends SubsystemBase
     TalonSRX talTUR;
     public PID pid;
     public VisionHandler vis;
-    AnalogInput Sleft, Sright;
+    //AnalogInput Sleft, Sright;
 
 
     double rAngle;
@@ -36,9 +38,13 @@ public class Turret extends SubsystemBase
         pid = new PID(0/*,0,0, true, false, false*/); //gimme some constatnts
         vis = new VisionHandler();
         talTUR = new TalonSRX(Constants.p_TAL_TUR);
-        talTUR.configSelectedFeedbackSensor(FeedbackDevice.Analog);
-        Sleft = new AnalogInput(Constants.p_SWITCH_LEFT);
-        Sright = new AnalogInput(Constants.p_SWITCH_RIGHT);
+
+        //TODO check for forward
+        talTUR.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
+        talTUR.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
+        //talTUR.configSelectedFeedbackSensor(FeedbackDevice.Analog);
+        //Sleft = new AnalogInput(Constants.p_SWITCH_LEFT);
+        //Sright = new AnalogInput(Constants.p_SWITCH_RIGHT);
         
 
     }
@@ -51,13 +57,13 @@ public class Turret extends SubsystemBase
     public void set(double velocity)
     {
       //TODO use limit switches to stop and SET THIUNGS
-    double _sign = velocity/Math.abs(velocity);
-        System.out.println(talTUR.getSelectedSensorPosition());
-        if(((Sleft.getVoltage() > Constants.TRIPPED) && _sign == -1) || ((Sright.getVoltage() > Constants.TRIPPED) && _sign == 1)){
+    //double _sign = velocity/Math.abs(velocity);
+        //System.out.println(talTUR.getSelectedSensorPosition());
+        //if(((Sleft.getVoltage() > Constants.TRIPPED) && _sign == -1) || ((Sright.getVoltage() > Constants.TRIPPED) && _sign == 1)){
+        //    talTUR.set(ControlMode.PercentOutput, velocity);
+        //}else if((Sleft.getVoltage() < Constants.TRIPPED) && (Sright.getVoltage() < Constants.TRIPPED)){
             talTUR.set(ControlMode.PercentOutput, velocity);
-        }else if((Sleft.getVoltage() < Constants.TRIPPED) && (Sright.getVoltage() < Constants.TRIPPED)){
-            talTUR.set(ControlMode.PercentOutput, velocity);
-        }
+        //}
     }
 
     @Override

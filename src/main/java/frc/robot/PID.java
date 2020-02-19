@@ -3,7 +3,7 @@ package frc.robot;
 public class PID{
 
     //Sum turret corrections
-    double turTotal;
+    //double turTotal;
 
     double _error;
     double _p;
@@ -23,7 +23,7 @@ public class PID{
         // useI = ui;
         // useD = ud;
 
-        turTotal = 1;
+        //turTotal = 1;
     }
 
     public void updateVis(double error){
