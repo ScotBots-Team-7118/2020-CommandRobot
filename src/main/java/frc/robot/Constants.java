@@ -88,7 +88,7 @@ public final class Constants
         public static int AUTO_LINE_DIST = 0;
 
         // Auto groups drive distances (measurements in feet)
-        public static double[] AUTO_CENTER_DIST = {-4, 4};
+        public static double AUTO_CENTER_DIST = -4;
         public static double[] AUTO_RIGHT_DIST = {1, -4};
         public static double AUTO_LEFT_DIST = -4;
 
