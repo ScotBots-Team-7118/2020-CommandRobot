@@ -63,7 +63,7 @@ public final class Constants
         // Talon Port Number
         public static int p_TAL_TUR = 0;
         public static int p_SWITCH_LEFT = 0;
-        public static int p_SWITCH_RIGHT = 0;
+        public static int p_SWITCH_RIGHT = 1;
 
 
 
@@ -138,10 +138,6 @@ public final class Constants
         // Voltage Threshold for the Ultrasonic Sensors (AnalogInputs)
         // TODO: Update this with tested value
         public static double PC_DETECTION_VOLTAGE = 0;
-
-        // Ultrasonic (AnalogOutput) Channel #s
-        public static int p_US1 = 0;
-        public static int p_US2 = 0;
 
         /* Intake */
         // Velocities (% fraction of full speed)
