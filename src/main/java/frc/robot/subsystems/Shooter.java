@@ -2,6 +2,7 @@ package frc.robot.subsystems;
 
 /* Imports */
 import com.ctre.phoenix.motorcontrol.ControlMode;
+import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import edu.wpi.first.wpilibj.Encoder;
@@ -27,7 +28,7 @@ public class Shooter extends SubsystemBase
     public Shooter()
     {
         talSH = new TalonSRX(Constants.p_TAL_SH);
-        enc = new Encoder(1,2,3);
+        talSH.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
         talSH.setInverted(true);
     }
 
@@ -59,8 +60,8 @@ public class Shooter extends SubsystemBase
 
     @Override
     public void periodic() {
-        currentDeg = enc.get()*360/2000;
-        velocity = enc.getRate()/2000;
+        currentDeg = talSH.getSelectedSensorPosition()*360/Constants.ENCODER_REVP;
+        velocity = talSH.getSelectedSensorVelocity()/Constants.ENCODER_REVP;
     }
 
 }

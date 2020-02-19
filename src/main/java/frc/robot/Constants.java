@@ -37,26 +37,26 @@ public final class Constants
 
         /* DriveTrain */
         // Talon Port Numbers
-        public static int p_TAL_RM = 0;
-        public static int p_TAL_RF = 0;
-        public static int p_TAL_LM = 0;
-        public static int p_TAL_LF = 0;
+        public static int p_TAL_RM = 8;
+        public static int p_TAL_RF = 5;
+        public static int p_TAL_LM = 7;
+        public static int p_TAL_LF = 4;
 
 
         /* Indexer */
         // Talon Port Number
-        public static int p_TAL_ID_1 = 0;
-        public static int p_TAL_ID_2 = 0;
+        public static int p_TAL_ID_1 = 2;
+        public static int p_TAL_ID_2 = 3;
 
 
         /* Intake */
         // Talon Port Number
-        public static int p_TAL_IN = 0;
+        public static int p_TAL_IN = 1;
 
 
         /* Shooter */
         // Talon Port Number
-        public static int p_TAL_SH = 0;
+        public static int p_TAL_SH = 9;
 
 
         /* Turret */
@@ -153,6 +153,7 @@ public final class Constants
         public static double SHOOTER_SPEED = 1;
         public static double SHOOTER_P = 0.2;
         public static double MAX_DIST = 12.453;
+        public static int ENCODER_REVP = 2000;
 
         /* Teleop */
         //C = 0
