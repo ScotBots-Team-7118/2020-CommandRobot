@@ -4,9 +4,7 @@ package frc.robot.commands.auto;
 import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants;
 import frc.robot.commands.auto.autocommands.*;
-import frc.robot.commands.macros.MacroAim;
-
-
+import frc.robot.commands.macros.MacroRotateTurret;
 
 /**
  * The command group for the left-side autonomous program.
@@ -25,10 +23,9 @@ public class AutoLeftGroup extends SequentialCommandGroup
      */
     public AutoLeftGroup()
     {
-        // Place the robot in line with the opponents loading bay, facing away from the target
-        // Robot will shoot from four feet behind the initiation line, facing the target
+        // Place the robot in line with the opponents loading bay, facing the target
         addCommands(new AutoDriveStraight(Constants.AUTO_LEFT_DIST));
-        addCommands(new MacroAim(true)); //Aims shooter
+        addCommands(new MacroRotateTurret(Constants.AUTO_LEFT_TURRET_ANGLE)); //Rotate turret to general position so that vision can align it 
         addCommands(new AutoShoot());
     }
 }
