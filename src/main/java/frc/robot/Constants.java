@@ -62,6 +62,8 @@ public final class Constants
         /* Turret */
         // Talon Port Number
         public static int p_TAL_TUR = 0;
+        public static int p_SWITCH_LEFT = 0;
+        public static int p_SWITCH_RIGHT = 0;
 
 
 
@@ -157,6 +159,7 @@ public final class Constants
         //C = 0
         public static double JOYDRIVE_A = 0.68;
         public static double JOYDRIVE_B = 0.32;
+        public static double TRIPPED = 0;
 
 
         /* Turret */
