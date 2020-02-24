@@ -50,7 +50,7 @@ public final class Constants
 
 
         /* Intake */
-        // Talon Port Number
+        // Talon Port Number3
         public static int p_TAL_IN = 1;
 
 
