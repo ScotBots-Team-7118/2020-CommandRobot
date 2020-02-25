@@ -25,7 +25,7 @@ public class Robot extends TimedRobot
   private Command cg_TeleopGroup;
   public static OI oi;
   public static RobotContainer rC;
- 
+  public Testing tst;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -38,6 +38,8 @@ public class Robot extends TimedRobot
     // autonomous chooser on the dashboard.
     oi = new OI();
     rC = new RobotContainer();
+    tst = new Testing(false);
+
   }
 
   /**
@@ -50,8 +52,10 @@ public class Robot extends TimedRobot
   @Override
   public void robotPeriodic()
   {
+    tst.PrintMe();
+
     // TODO: Can we maybe not use robotPeriodic? This runs when the robot is disabled too, which could be unsafe.
-    CommandScheduler.getInstance().run();
+    
   }
 
   /**
@@ -106,6 +110,7 @@ public class Robot extends TimedRobot
   public void teleopPeriodic()
   {
     //System.out.println("joy = " + oi.getController("Xbox").getRawAxis(1));
+    CommandScheduler.getInstance().run();
   }
 
   @Override

@@ -6,6 +6,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 import frc.robot.Constants;
+import frc.robot.Testing;
 
 /**
  * Subsystem for the intake mechanism on the robot.
@@ -23,6 +24,7 @@ public class Intake extends SubsystemBase
     public Intake()
     {
         talIN = new TalonSRX(Constants.p_TAL_IN);
+        talIN.setInverted(true);
     }
 
     /**

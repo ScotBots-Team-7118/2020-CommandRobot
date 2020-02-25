@@ -21,7 +21,7 @@ import frc.robot.Constants;
 public class Turret extends SubsystemBase
 {
     /* Class Variable Declaration */
-    TalonSRX talTUR;
+    public TalonSRX talTUR;
     public PID pid;
     public VisionHandler vis;
     //AnalogInput Sleft, Sright;
@@ -56,14 +56,8 @@ public class Turret extends SubsystemBase
      */
     public void set(double velocity)
     {
-      //TODO use limit switches to stop and SET THIUNGS
-    //double _sign = velocity/Math.abs(velocity);
-        //System.out.println(talTUR.getSelectedSensorPosition());
-        //if(((Sleft.getVoltage() > Constants.TRIPPED) && _sign == -1) || ((Sright.getVoltage() > Constants.TRIPPED) && _sign == 1)){
-        //    talTUR.set(ControlMode.PercentOutput, velocity);
-        //}else if((Sleft.getVoltage() < Constants.TRIPPED) && (Sright.getVoltage() < Constants.TRIPPED)){
-            talTUR.set(ControlMode.PercentOutput, velocity);
-        //}
+     
+       talTUR.set(ControlMode.PercentOutput, velocity);
     }
 
     @Override

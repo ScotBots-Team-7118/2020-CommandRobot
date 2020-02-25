@@ -30,6 +30,7 @@ public class MacroIndexerF extends CommandBase
     @Override
     public void execute()
     {
+        Testing.pingMe("RunningF");
         _indexer.set(Constants.INDEX_VELOCITY_F);
     }
 

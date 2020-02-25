@@ -7,6 +7,7 @@ import com.ctre.phoenix.motorcontrol.ControlMode;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Constants;
+import frc.robot.Testing;
 
 /**
  * Subsystem used to manage the power cell indexer on the robot.
@@ -38,6 +39,7 @@ public class Indexer extends SubsystemBase
      */
     public void set(double velocity)
     {
+        Testing.pingMe(velocity+"");
         talID1.set(ControlMode.PercentOutput, velocity);
         talID2.set(ControlMode.PercentOutput, velocity);
     }

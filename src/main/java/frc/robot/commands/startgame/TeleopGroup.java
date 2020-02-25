@@ -31,7 +31,6 @@ public class TeleopGroup extends ParallelCommandGroup
      */
     public void setControls(Constants.ControlsConfig type)
     {
-        addCommands(new MacroRunShooter(false));
         switch (type)
         {
             case XBOX:
@@ -45,7 +44,7 @@ public class TeleopGroup extends ParallelCommandGroup
 
             case DUALDRIVERS:
                 // TODO: Implement me!
-                //addCommands(new TeleJoyDrive());
+                addCommands(new TeleJoyDrive());
                 break;
             
             default:
