@@ -8,6 +8,7 @@ import com.ctre.phoenix.motorcontrol.FeedbackDevice;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Constants;
+import frc.robot.Testing;
 
 /**
  * Subsystem used to managed the drive train of the robot.
@@ -30,6 +31,10 @@ public class DriveTrain extends SubsystemBase
         talRM = new TalonSRX(Constants.p_TAL_RM);
         talRF = new TalonSRX(Constants.p_TAL_RF);
 
+        talLM.configOpenloopRamp(Constants.RAMP_TIME);
+        talLF.configOpenloopRamp(Constants.RAMP_TIME);
+        talRM.configOpenloopRamp(Constants.RAMP_TIME);
+        talRF.configOpenloopRamp(Constants.RAMP_TIME);
         // Configures each of the mag enconders on the master Drive Train talons
         // The "relative" configuration indicates that they will work identically
         // to quadrature encoders (as opposed to PWM Sensors). 
@@ -37,8 +42,8 @@ public class DriveTrain extends SubsystemBase
         talRM.configSelectedFeedbackSensor(FeedbackDevice.CTRE_MagEncoder_Relative);
 
         // Invert the right side || TODO: This may need to change once we test on the competition drive train
-        talRM.setInverted(true);
-        talRF.setInverted(true);
+        talLM.setInverted(true);
+        talLF.setInverted(true);
     }
 
     /**
@@ -49,11 +54,22 @@ public class DriveTrain extends SubsystemBase
      */
     public void set(double velocityL, double velocityR)
     {
-        talLM.set(ControlMode.PercentOutput, velocityL);
-        talLF.set(ControlMode.Follower, Constants.p_TAL_LM);
+        //mf relationship not allowing forward motion
+        if(velocityL < Constants.SUPER_CAP){
+            talLM.set(ControlMode.PercentOutput, velocityL);
+            talLF.set(ControlMode.PercentOutput, velocityL);
+        }else{
+            talLM.set(ControlMode.PercentOutput, Constants.SUPER_CAP);
+            talLF.set(ControlMode.PercentOutput, Constants.SUPER_CAP);
+        }
 
-        talRM.set(ControlMode.PercentOutput, velocityR);
-        talRF.set(ControlMode.Follower, Constants.p_TAL_RM);
+        if(velocityR < Constants.SUPER_CAP){
+            talRM.set(ControlMode.PercentOutput, velocityR);
+            talRF.set(ControlMode.Follower, Constants.p_TAL_RM);
+        }else{
+            talRM.set(ControlMode.PercentOutput, Constants.SUPER_CAP);
+            talRF.set(ControlMode.Follower, Constants.p_TAL_RM);
+        }
     }
 
     /**
@@ -82,4 +98,5 @@ public class DriveTrain extends SubsystemBase
         talLM.setSelectedSensorPosition(0);
         talRM.setSelectedSensorPosition(0);
     }
+
 }

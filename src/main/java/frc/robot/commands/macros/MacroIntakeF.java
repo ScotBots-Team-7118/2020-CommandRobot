@@ -31,7 +31,7 @@ public class MacroIntakeF extends CommandBase
     public void execute()
     {
         //System.out.println("intakeing");
-        _intake.set(Constants.INDEX_VELOCITY_F);
+        _intake.set(Constants.IN_VELOCITY_F);
     }
 
     @Override

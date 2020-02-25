@@ -14,6 +14,7 @@ import frc.robot.subsystems.*;
 import frc.robot.commands.macros.*;
 import frc.robot.commands.startgame.*;
 import frc.robot.gyro.Gyroscope;
+import frc.robot.commands.teleop.TeleJoyDrive;
 
 /**
  * This class is where the bulk of the robot should be declared.  Since Command-based is a
@@ -61,7 +62,7 @@ public class RobotContainer
     configureButtonBindings();
 
     // //set defaults
-    //s_DriveTrain.setDefaultCommand(new TeleJoyDrive());
+    s_DriveTrain.setDefaultCommand(new TeleJoyDrive());
     s_Turret.setDefaultCommand(new MacroAim(false));
   }
 
@@ -121,7 +122,7 @@ public class RobotContainer
       case DUALDRIVERS:
       System.out.println("Chosen: Dual Drivers");
         oi.addButton("BT3R", "JoyR", 3);
-        oi.addButton("BT2R", "JoyR", 2);
+        oi.addButton("BT2R", "JoyR", 4);
         // oi.addButton("BT2L", "JoyL", 2);
         // oi.addButton("BT3L", "JoyL", 3);
 
@@ -137,11 +138,11 @@ public class RobotContainer
 
         oi.getButton("BT3R").toggleWhenPressed(/* Intake In */ new MacroIntakeF());
         oi.getButton("BT2R").whileHeld(/* Intake Out */ new MacroIntakeR());
-        //oi.getButton("BT3L").whileHeld(new MacroClimbUp());
-        //oi.getButton("BT2L").whileHeld(new MacroClimbDown());
+        // //oi.getButton("BT3L").whileHeld(new MacroClimbUp());
+        // //oi.getButton("BT2L").whileHeld(new MacroClimbDown());
 
-        oi.getButton("LB").whileHeld(new MacroRotateTurret(1));
-        oi.getButton("RB").whileHeld(new MacroRotateTurret(-1));
+        oi.getButton("LB").whileHeld(new MacroRotateTurret(-1));
+        oi.getButton("RB").whileHeld(new MacroRotateTurret(1));
         oi.getButton("BTX").whileHeld(new MacroIndexerF());
         oi.getButton("BTB").whileHeld(new MacroIndexerR());
         oi.getButton("BTY").toggleWhenPressed(new MacroAim(false));
