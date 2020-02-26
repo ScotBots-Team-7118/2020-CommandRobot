@@ -122,7 +122,7 @@ public class RobotContainer
       case DUALDRIVERS:
       System.out.println("Chosen: Dual Drivers");
         oi.addButton("BT3R", "JoyR", 3);
-        oi.addButton("BT2R", "JoyR", 4);
+        oi.addButton("BT4R", "JoyR", 4);
         // oi.addButton("BT2L", "JoyL", 2);
         // oi.addButton("BT3L", "JoyL", 3);
 
@@ -137,7 +137,7 @@ public class RobotContainer
         // Referencing the added buttons when pressed
 
         oi.getButton("BT3R").toggleWhenPressed(/* Intake In */ new MacroIntakeF());
-        oi.getButton("BT2R").whileHeld(/* Intake Out */ new MacroIntakeR());
+        oi.getButton("BT4R").whileHeld(/* Intake Out */ new MacroIntakeR());
         // //oi.getButton("BT3L").whileHeld(new MacroClimbUp());
         // //oi.getButton("BT2L").whileHeld(new MacroClimbDown());
 
