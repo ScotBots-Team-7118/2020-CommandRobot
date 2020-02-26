@@ -47,7 +47,7 @@ public class TeleJoyDrive extends CommandBase
      */
     public double[] calculateSpeeds()
     {
-        //Testing.pingMe("CalcSpeeds");
+        //Testing.pingME("CalcSpeeds");
         // TODO: Clean this up a bit if possible
         double[] toReturn = new double[2];
         double axisL = _oi.getController("JoyL").getRawAxis(1);
@@ -55,17 +55,13 @@ public class TeleJoyDrive extends CommandBase
 
         // double vL = Constants.JOYDRIVE_A*Math.pow(axisL, 2) + Constants.JOYDRIVE_B*axisL;
         // double vR = Constants.JOYDRIVE_A*Math.pow(axisR, 2) + Constants.JOYDRIVE_B*axisR;
-        
-        double vL = (_oi.getController("JoyR").getRawButton(2)) ? axisL : axisL/3;
-        double vR = (_oi.getController("JoyR").getRawButton(2)) ? axisR : axisR/3;
 
+        double vL = (_oi.getController("JoyL").getRawButton(2)) ? axisL : axisL / 3;
+        double vR = (_oi.getController("JoyR").getRawButton(2)) ? axisR : axisR / 3;
+    
         toReturn[0] = (Math.abs(axisL) > Constants.DEADZONE) ? vL : 0.0;
         toReturn[1] = (Math.abs(axisR) > Constants.DEADZONE) ? vR : 0.0;
 
         return toReturn;
-    }
-
-    @Override
-    public void end(boolean interrupted) {
     }
 }

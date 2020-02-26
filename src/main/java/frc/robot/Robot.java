@@ -38,7 +38,7 @@ public class Robot extends TimedRobot
     // autonomous chooser on the dashboard.
     oi = new OI();
     rC = new RobotContainer();
-    tst = new Testing(false);
+    //tst = new Testing(false);
 
   }
 
@@ -52,7 +52,7 @@ public class Robot extends TimedRobot
   @Override
   public void robotPeriodic()
   {
-    tst.PrintMe();
+    //tst.PrintMe();
 
     // TODO: Can we maybe not use robotPeriodic? This runs when the robot is disabled too, which could be unsafe.
     
@@ -83,7 +83,7 @@ public class Robot extends TimedRobot
   @Override
   public void autonomousPeriodic()
   {
-
+    CommandScheduler.getInstance().run();
   }
 
   @Override
@@ -126,6 +126,6 @@ public class Robot extends TimedRobot
   @Override
   public void testPeriodic()
   {
-
+    CommandScheduler.getInstance().run();
   }
 }
