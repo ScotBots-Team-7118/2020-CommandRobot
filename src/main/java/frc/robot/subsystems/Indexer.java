@@ -39,7 +39,7 @@ public class Indexer extends SubsystemBase
      */
     public void set(double velocity)
     {
-        Testing.pingMe(velocity+"");
+        Testing.pingMe("index is ", velocity+"");
         talID1.set(ControlMode.PercentOutput, velocity);
         talID2.set(ControlMode.PercentOutput, velocity);
     }

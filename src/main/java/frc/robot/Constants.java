@@ -109,7 +109,7 @@ public final class Constants {
 
         /* Drive Train */
         // Distance traveled per rotation of the wheel
-        public static int DIST_PER_ROTATION = 12;
+        public static double DIST_PER_ROTATION = 0.5;
 
         public static double RAMP_TIME = 0.4;
 
@@ -142,7 +142,7 @@ public final class Constants {
         /* Shooter */
         // Target Speed (% fraction of full speed)
         public static double SHOOTER_SPEED = 1;
-        public static double SHOOTER_P = 0.2;
+        public static double SHOOTER_P = 1;
         public static double MAX_DIST = 12.453;
         public static int ENCODER_REVP = 2000;
 

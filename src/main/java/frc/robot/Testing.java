@@ -2,17 +2,22 @@ package frc.robot;
 
 import frc.robot.RobotContainer;
 import frc.robot.subsystems.Shooter;
+import edu.wpi.first.networktables.NetworkTable;
+import edu.wpi.first.networktables.NetworkTableEntry;
+import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class Testing{
 
     boolean run;
 
     public Testing(boolean run){
+        
         this.run = run;    
     }
 
-    public static void pingMe(String me){
-        System.out.println("hit "+me);
+    public static void pingMe(String me, String val){
+        NetworkTable Test = NetworkTableInstance.getDefault().getTable("TestVal");
+        Test.getEntry(me).setString(val);
     }
 
     public void PrintMe(){

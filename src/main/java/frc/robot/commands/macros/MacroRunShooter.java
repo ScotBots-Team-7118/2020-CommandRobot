@@ -1,5 +1,6 @@
 package frc.robot.commands.macros;
 
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /* Imports */
 import edu.wpi.first.wpilibj2.command.CommandBase;
 
@@ -32,12 +33,22 @@ public class MacroRunShooter extends CommandBase
     @Override
     public void execute()
     {
-        //System.out.println("executing Shooter");
+        
+        //W contains the required velocity of the shooter wheel as calculated by vision data
         double w =  Trajectory.calcVelocity(Networktable.getDistance())/Constants.DIST_PER_ROTATION;
-        //System.out.println(w);
+        
+       // Testing.pingMe("w is ",w+"");
+        
+       
+        //v contains the needed motor input to approach the given W value
         double v = pid.getShooterSpeed(_shooter.getRotVelocity(), w)/Constants.MAX_DIST;
+        //Testing.pingMe("v is ",v+"");
         //System.out.println(v+" to motor");
+       
+        //set shooter to calculated input
         _shooter.set(v);
+        
+        //cancel this command if during auto, you reach the need speed.
         if(isAuto && Math.abs(_shooter.getRotVelocity() - w) < 0.25){
             cancel();
         }

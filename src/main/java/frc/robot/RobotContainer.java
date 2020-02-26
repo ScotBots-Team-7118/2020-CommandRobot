@@ -146,7 +146,7 @@ public class RobotContainer
         oi.getButton("BTX").whileHeld(new MacroIndexerF());
         oi.getButton("BTB").whileHeld(new MacroIndexerR());
         oi.getButton("BTY").toggleWhenPressed(new MacroAim(false));
-        oi.getButton("BTA").whenPressed(new MacroFire(3));
+        oi.getButton("BTA").whenPressed(new MacroFire());
         oi.getButton("BTBACK").toggleWhenPressed(new MacroRunShooter(false));
         break;
 

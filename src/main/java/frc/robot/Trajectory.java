@@ -16,6 +16,7 @@ public class Trajectory{
             //System.out.println(v+"this is v step 3");
             v = v/Math.cos(35*toRad);
             //System.out.println(v+" this is v");
+            //Testing.pingMe("Target m/s ", v+"");
             return v * mtoft;
         }else{
             System.out.println("Out of Range");

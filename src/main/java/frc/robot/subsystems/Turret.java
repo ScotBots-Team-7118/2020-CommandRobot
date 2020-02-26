@@ -42,11 +42,10 @@ public class Turret extends SubsystemBase
         //TODO check for forward
         talTUR.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
         talTUR.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
+
         //talTUR.configSelectedFeedbackSensor(FeedbackDevice.Analog);
         //Sleft = new AnalogInput(Constants.p_SWITCH_LEFT);
         //Sright = new AnalogInput(Constants.p_SWITCH_RIGHT);
-        
-
     }
   
 

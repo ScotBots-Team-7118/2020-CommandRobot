@@ -48,6 +48,7 @@ public class PID{
 
     public double getShooterSpeed(double cv, double ov){
         double diff = ov-cv;
+        diff = Math.abs(diff);
         return diff*_p;
     }
 }

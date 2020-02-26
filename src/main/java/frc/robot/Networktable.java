@@ -36,11 +36,14 @@ public class Networktable{
     
     //distance from target
     public static double getDistance(){
-        return 30/*distance.getDouble(0)*/;
+        //Testing.pingMe("Vis dist", distance.getDouble(0)+"");
+        return distance.getDouble(0);
     }
 
     //gyroscope heading
-    public static double getHeading(){
-        return 1/*heading.getDouble(0)*/;
-    }
+    // public static double getHeading(){
+    //     //Testing.pingMe("Vis dist", heading.getDouble(0)+"");
+    //    return heading.getDouble(0);
+    
+    // }
 }

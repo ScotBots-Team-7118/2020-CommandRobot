@@ -9,6 +9,7 @@ import edu.wpi.first.wpilibj.Encoder;
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 import frc.robot.Constants;
+import frc.robot.Testing;
 
 /**
  * Subsystem representing the shooter mechanism on the robot.
@@ -29,7 +30,6 @@ public class Shooter extends SubsystemBase
     {
         talSH = new TalonSRX(Constants.p_TAL_SH);
         talSH.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
-        talSH.setInverted(true);
     }
 
     /**
@@ -41,7 +41,7 @@ public class Shooter extends SubsystemBase
         //System.out.println("Enc val = " + currentDeg);
         //System.out.println(velocity);
 
-        
+        Testing.pingMe("Shooter v should be ",""+speed);
         // TODO: If the talon is inverted for the shooter, we should really just be inverting the talon
         talSH.set(ControlMode.PercentOutput, speed);
     }
@@ -60,8 +60,8 @@ public class Shooter extends SubsystemBase
 
     @Override
     public void periodic() {
-        currentDeg = talSH.getSelectedSensorPosition()*360/Constants.ENCODER_REVP;
-        velocity = talSH.getSelectedSensorVelocity()/Constants.ENCODER_REVP;
+        // currentDeg = talSH.getSelectedSensorPosition()*360/Constants.ENCODER_REVP;
+        // velocity = talSH.getSelectedSensorVelocity()/Constants.ENCODER_REVP;
     }
 
 }

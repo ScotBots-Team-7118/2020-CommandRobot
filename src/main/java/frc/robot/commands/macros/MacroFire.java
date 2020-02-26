@@ -4,6 +4,7 @@ import edu.wpi.first.wpilibj.Timer;
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.subsystems.Indexer;
 import frc.robot.Constants;
+import frc.robot.Testing;
 
 public class MacroFire extends CommandBase{
 
@@ -73,7 +74,7 @@ public class MacroFire extends CommandBase{
     }
 
     private void shootFor(){
-        System.out.println("time is: "+ time.get());
+        
         if(time.get() < Constants.SHOOT_TIME){
             _index.set(Constants.SHOOT_SPEED);
         }else{
@@ -81,7 +82,6 @@ public class MacroFire extends CommandBase{
         }
         
         if(time.get() > Constants.WAIT_TIME){
-            System.out.println("canceling\n\n\n\n\n\n");
             time.reset();
             cancel();
         }
