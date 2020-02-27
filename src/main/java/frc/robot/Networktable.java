@@ -41,9 +41,9 @@ public class Networktable{
     }
 
     //gyroscope heading
-    // public static double getHeading(){
-    //     //Testing.pingMe("Vis dist", heading.getDouble(0)+"");
-    //    return heading.getDouble(0);
+    public static double getHeading(){
+        //Testing.pingMe("Vis dist", heading.getDouble(0)+"");
+       return heading.getDouble(0);
     
-    // }
+    }
 }
