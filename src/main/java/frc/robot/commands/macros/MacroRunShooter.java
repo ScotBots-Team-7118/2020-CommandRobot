@@ -1,6 +1,5 @@
 package frc.robot.commands.macros;
 
-import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /* Imports */
 import edu.wpi.first.wpilibj2.command.CommandBase;
 

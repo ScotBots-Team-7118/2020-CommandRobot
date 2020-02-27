@@ -39,6 +39,8 @@ public class MacroAim extends CommandBase
        if(auto && Math.abs(_turret.vis.getError()) < Constants.VIS_DEADZONE){
            cancel();
        }
+       double e = _turret.vis.getError();
+       Testing.toTable("Turret error:", e+"");
         _turret.pid.updateVis(_turret.vis.getError());
         _turret.set(_turret.pid.getTurretSpeed());
     }

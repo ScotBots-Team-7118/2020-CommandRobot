@@ -1,9 +1,9 @@
 package frc.robot;
 
 import frc.robot.RobotContainer;
-import frc.robot.subsystems.Shooter;
+
 import edu.wpi.first.networktables.NetworkTable;
-import edu.wpi.first.networktables.NetworkTableEntry;
+
 import edu.wpi.first.networktables.NetworkTableInstance;
 
 public class Testing{
@@ -15,7 +15,7 @@ public class Testing{
         this.run = run;    
     }
 
-    public static void pingMe(String me, String val){
+    public static void toTable(String me, String val){
         NetworkTable Test = NetworkTableInstance.getDefault().getTable("TestVal");
         Test.getEntry(me).setString(val);
     }

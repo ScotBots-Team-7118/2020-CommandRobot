@@ -41,7 +41,7 @@ public class Shooter extends SubsystemBase
         //System.out.println("Enc val = " + currentDeg);
         //System.out.println(velocity);
 
-        Testing.pingMe("Shooter v should be ",""+speed);
+        Testing.toTable("Shooter v should be ",""+speed);
         // TODO: If the talon is inverted for the shooter, we should really just be inverting the talon
         talSH.set(ControlMode.PercentOutput, speed);
     }

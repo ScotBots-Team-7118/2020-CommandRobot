@@ -7,10 +7,14 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
 /* Imports */
 import edu.wpi.first.wpilibj2.command.Command;
 
 import frc.robot.subsystems.*;
+import frc.robot.commands.auto.AutoCenterGroup;
+import frc.robot.commands.auto.AutoLeftGroup;
+import frc.robot.commands.auto.AutoRightGroup;
 import frc.robot.commands.macros.*;
 import frc.robot.commands.startgame.*;
 import frc.robot.gyro.Gyroscope;
@@ -29,12 +33,15 @@ public class RobotContainer
   /**
    * Top level commands
    */
-  public final AutoGroup cg_AutoGroup = new AutoGroup();
   public final TeleopGroup cg_TeleopGroup = new TeleopGroup();
+  public final AutoCenterGroup cg_AutoCenter = new AutoCenterGroup();
+  public final AutoLeftGroup cg_AutoLeftGroup = new AutoLeftGroup();
+  public final AutoRightGroup cg_AutoRightGroup = new AutoRightGroup();
 
   public Gyroscope Rgyro;
   
   private OI oi;
+  public SendableChooser<Command> choice;
 
   /**
    * Subsystems
@@ -55,11 +62,17 @@ public class RobotContainer
    */
   public RobotContainer()
   {
+
     /* Class Variable Instantiation */
+    choice = new SendableChooser<Command>();
     oi = Robot.oi;
     Rgyro = new Gyroscope();
     // Configure the button bindings
     configureButtonBindings();
+
+    choice.addOption("Left", cg_AutoLeftGroup);
+    choice.addOption("Right", cg_AutoRightGroup);
+    choice.addOption("Center", cg_AutoCenter);
 
     // //set defaults
     s_DriveTrain.setDefaultCommand(new TeleJoyDrive());
@@ -181,6 +194,6 @@ public class RobotContainer
    */
   public Command getAutonomousCommand()
   {
-    return cg_AutoGroup;
+    return choice.getSelected();
   }
 }
