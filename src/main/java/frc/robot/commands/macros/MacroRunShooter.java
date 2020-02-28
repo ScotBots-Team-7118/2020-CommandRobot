@@ -52,10 +52,4 @@ public class MacroRunShooter extends CommandBase
             cancel();
         }
     }
-
-    @Override
-    public void end(boolean interrupted) {
-        //System.out.println("ending");
-        _shooter.set(0);
-    }
 }

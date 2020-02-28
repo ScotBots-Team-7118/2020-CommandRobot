@@ -4,7 +4,9 @@ package frc.robot.commands.startgame;
 import edu.wpi.first.wpilibj2.command.ParallelCommandGroup;
 
 import frc.robot.Constants;
+import frc.robot.OI;
 import frc.robot.commands.teleop.*;
+import frc.robot.subsystems.DriveTrain;
 
 /**
  * CommandGroup for scheduling and executing commands in teleop.
@@ -18,9 +20,9 @@ public class TeleopGroup extends ParallelCommandGroup
     /**
      * Constructs a new TeleopGroup.
      */
-    public TeleopGroup()
+    public TeleopGroup(DriveTrain d, OI oi)
     {
-        setControls(Constants.controls);
+        setControls(d, oi,Constants.controls);
     }
 
     /**
@@ -28,22 +30,22 @@ public class TeleopGroup extends ParallelCommandGroup
      * 
      * TODO: Why doesn't this use the controls configuration from Constants?
      */
-    public void setControls(Constants.ControlsConfig type)
+    public void setControls(DriveTrain d, OI oi,Constants.ControlsConfig type)
     {
         switch (type)
         {
             case XBOX:
                 // addCommands(new TeleXboxDrive());
-                addCommands(new TeleXboxDrive());
+                addCommands(new TeleXboxDrive(d,oi));
                 break;
             
             case JOYSTICKS:
-                addCommands(new TeleJoyDrive());
+                addCommands(new TeleJoyDrive(d, oi));
                 break;
 
             case DUALDRIVERS:
                 // TODO: Implement me!
-                addCommands(new TeleJoyDrive());
+                addCommands(new TeleJoyDrive(d, oi));
                 break;
             
             default:

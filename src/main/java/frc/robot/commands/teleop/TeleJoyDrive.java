@@ -22,11 +22,11 @@ public class TeleJoyDrive extends CommandBase
     /**
      * Constructs a new TeleJoyDrive command with a DriveTrain requirement.
      */
-    public TeleJoyDrive()
+    public TeleJoyDrive(DriveTrain d, OI oi)
     {
         // Retrieve drivetrain subsystem.
-        _drive = Robot.rC.s_DriveTrain;
-        _oi = Robot.oi;
+        _drive = d;
+        _oi = oi;
 
         // Allocate to DriveTrain subsystem.
         addRequirements(_drive);

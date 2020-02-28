@@ -9,6 +9,7 @@ package frc.robot;
 
 /* Imports */
 import edu.wpi.first.wpilibj.TimedRobot;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 import edu.wpi.first.wpilibj2.command.Command;
 import edu.wpi.first.wpilibj2.command.CommandScheduler;
 
@@ -54,7 +55,8 @@ public class Robot extends TimedRobot
   public void robotPeriodic()
   {
     //tst.PrintMe();
-
+    SmartDashboard.putNumber("Gyro Angle", rC.Rgyro.getNormalizedHeading());
+    SmartDashboard.putNumber("Shooter Velocity", rC.s_Shooter.getRotVelocity());
     //System.out.println("gyro is "+rC.Rgyro.getNormalizedHeading());
     // TODO: Can we maybe not use robotPeriodic? This runs when the robot is disabled too, which could be unsafe.
     

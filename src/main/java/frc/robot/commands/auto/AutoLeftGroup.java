@@ -5,6 +5,10 @@ import edu.wpi.first.wpilibj2.command.SequentialCommandGroup;
 import frc.robot.Constants;
 import frc.robot.commands.auto.autocommands.*;
 import frc.robot.commands.macros.MacroRotateTurret;
+import frc.robot.subsystems.DriveTrain;
+import frc.robot.subsystems.Indexer;
+import frc.robot.subsystems.Shooter;
+import frc.robot.subsystems.Turret;
 
 /**
  * The command group for the left-side autonomous program.
@@ -21,10 +25,10 @@ public class AutoLeftGroup extends SequentialCommandGroup
     /**
      * Constructs a new AutoLeftGroup command group.
      */
-    public AutoLeftGroup()
+    public AutoLeftGroup(DriveTrain d, Turret t, Indexer id, Shooter s)
     {
-        addCommands(new AutoDriveStraight(Constants.AUTO_LEFT_DIST));
-        addCommands(new MacroRotateTurret(Constants.AUTO_LEFT_TURRET_ANGLE)); //Rotate turret to general position so that vision can align it 
-        addCommands(new AutoShoot());
+        addCommands(new AutoDriveStraight(d, Constants.AUTO_LEFT_DIST));
+        addCommands(new MacroRotateTurret(t, Constants.AUTO_LEFT_TURRET_ANGLE)); //Rotate turret to general position so that vision can align it 
+        addCommands(new AutoShoot(id,s,t));
     }
 }

@@ -8,6 +8,7 @@
 package frc.robot;
 
 import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /* Imports */
 import edu.wpi.first.wpilibj2.command.Command;
 
@@ -59,19 +60,21 @@ public class RobotContainer
   {
 
     /* Class Variable Instantiation */
-    
+    oi = Robot.oi;
     Rgyro = new Gyroscope();
-    cg_TeleopGroup = new TeleopGroup();
+    cg_TeleopGroup = new TeleopGroup(s_DriveTrain, oi);
+    
     choice = new SendableChooser<Command>();
-    choice.addOption("Left", new AutoLeftGroup());
-    choice.addOption("Right", new AutoRightGroup());
-    choice.addOption("Center", new AutoCenterGroup());
+    choice.addOption("Left", new AutoLeftGroup(s_DriveTrain, s_Turret, s_Indexer, s_Shooter));
+    choice.addOption("Right", new AutoRightGroup(s_DriveTrain,s_Turret,s_Indexer,s_Shooter, Rgyro));
+    choice.addOption("Center", new AutoCenterGroup(s_DriveTrain,s_Indexer,s_Shooter,s_Turret));
+    SmartDashboard.putData("Auto", choice);
     // Configure the button bindings
     configureButtonBindings();
     
 
     // //set defaults
-    s_DriveTrain.setDefaultCommand(new TeleJoyDrive());
+    s_DriveTrain.setDefaultCommand(new TeleJoyDrive(s_DriveTrain, Robot.oi));
     s_Turret.setDefaultCommand(new MacroAim(s_Turret,false));
   }
 
@@ -118,7 +121,7 @@ public class RobotContainer
 
         // Referencing the added buttons when pressed
         oi.getButton("btn1").whileHeld(/* Run the shooter */ new MacroFire(s_Indexer));
-        oi.getButton("btn3").toggleWhenPressed(/* Intake In */new MacroIntakeF(s_Intake));
+        oi.getButton("btn3").whileHeld(/* Intake In */new MacroIntakeF(s_Intake));
         oi.getButton("btn2").toggleWhenPressed(/* Intake Out */ new MacroIntakeR(s_Intake));
         oi.getButton("btn3").whenPressed(/* Indexer F */new MacroIndexerF(s_Indexer));
         oi.getButton("btn2").whenPressed(/* Indexer R */new MacroIndexerR(s_Indexer));
@@ -145,7 +148,7 @@ public class RobotContainer
 
         // Referencing the added buttons when pressed
 
-        oi.getButton("BT3R").toggleWhenPressed(/* Intake In */ new MacroIntakeF(s_Intake));
+        oi.getButton("BT3R").whileHeld(/* Intake In */ new MacroIntakeF(s_Intake));
         oi.getButton("BT4R").whileHeld(/* Intake Out */ new MacroIntakeR(s_Intake));
         // //oi.getButton("BT3L").whileHeld(new MacroClimbUp());
         // //oi.getButton("BT2L").whileHeld(new MacroClimbDown());
