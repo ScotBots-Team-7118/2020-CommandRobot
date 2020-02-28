@@ -13,18 +13,16 @@ import frc.robot.subsystems.Intake;
  */
 public class MacroIntakeR extends CommandBase
 {
-    /* TODO: Untested Code */
-
     /* Instance Variable Declaration */
     Intake _intake;
 
     /**
      * Constructs a new MacroIntakeR command with an Intake requirement.
      */
-    public MacroIntakeR()
+    public MacroIntakeR(Intake in)
     {
         // Assigns the intake to RobotContainer.s_Intake
-        _intake = RobotContainer.s_Intake;
+        _intake = in;
         addRequirements(_intake);
     }
 

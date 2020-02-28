@@ -13,24 +13,22 @@ import frc.robot.subsystems.Intake;
  */
 public class MacroIntakeF extends CommandBase
 {
-    /* TODO: Untested Code */
-
     /* Instance Variable Declaration */
     Intake _intake;
     
     /**
      * Constructs a new MacroIntakeF command with an Intake requirement.
      */
-    public MacroIntakeF()
+    public MacroIntakeF(Intake in)
     {
-        _intake = RobotContainer.s_Intake;
+        _intake = in;
         addRequirements(_intake);
     }
 
     @Override
     public void execute()
     {
-        //System.out.println("intakeing");
+        System.out.println("intakeing");
         _intake.set(Constants.IN_VELOCITY_F);
     }
 

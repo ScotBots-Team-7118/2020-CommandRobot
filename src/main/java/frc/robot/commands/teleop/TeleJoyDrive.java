@@ -22,11 +22,11 @@ public class TeleJoyDrive extends CommandBase
     /**
      * Constructs a new TeleJoyDrive command with a DriveTrain requirement.
      */
-    public TeleJoyDrive()
+    public TeleJoyDrive(DriveTrain d, OI oi)
     {
         // Retrieve drivetrain subsystem.
-        _drive = RobotContainer.s_DriveTrain;
-        _oi = Robot.oi;
+        _drive = d;
+        _oi = oi;
 
         // Allocate to DriveTrain subsystem.
         addRequirements(_drive);
@@ -47,8 +47,7 @@ public class TeleJoyDrive extends CommandBase
      */
     public double[] calculateSpeeds()
     {
-        //Testing.pingME("CalcSpeeds");
-        // TODO: Clean this up a bit if possible
+        
         double[] toReturn = new double[2];
         double axisL = _oi.getController("JoyL").getRawAxis(1);
         double axisR = _oi.getController("JoyR").getRawAxis(1);

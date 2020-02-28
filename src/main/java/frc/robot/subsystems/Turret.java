@@ -2,17 +2,16 @@ package frc.robot.subsystems;
 
 /* Imports */
 import com.ctre.phoenix.motorcontrol.ControlMode;
-import com.ctre.phoenix.motorcontrol.FeedbackDevice;
+
 import com.ctre.phoenix.motorcontrol.LimitSwitchNormal;
 import com.ctre.phoenix.motorcontrol.LimitSwitchSource;
 import com.ctre.phoenix.motorcontrol.can.TalonSRX;
 
 
 import edu.wpi.first.wpilibj2.command.SubsystemBase;
-import edu.wpi.first.wpilibj.AnalogInput;
 
-import frc.robot.PID;
-import frc.robot.vision.VisionHandler;
+
+import frc.robot.Proportional;
 import frc.robot.Constants;
 
 /**
@@ -22,8 +21,7 @@ public class Turret extends SubsystemBase
 {
     /* Class Variable Declaration */
     public TalonSRX talTUR;
-    public PID pid;
-    public VisionHandler vis;
+    public Proportional p;
     //AnalogInput Sleft, Sright;
 
 
@@ -35,18 +33,14 @@ public class Turret extends SubsystemBase
      */
     public Turret()
     {
-        pid = new PID(0/*,0,0, true, false, false*/); //gimme some constatnts
-        vis = new VisionHandler();
+        //set up turret speed calc
+        p = new Proportional(Constants.TURRET_P); 
+        //initialize turret talon
         talTUR = new TalonSRX(Constants.p_TAL_TUR);
 
-        //TODO check for forward
+        //configure bounding limit switches
         talTUR.configForwardLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
         talTUR.configReverseLimitSwitchSource(LimitSwitchSource.FeedbackConnector, LimitSwitchNormal.NormallyOpen);
-        //talTUR.configSelectedFeedbackSensor(FeedbackDevice.Analog);
-        //Sleft = new AnalogInput(Constants.p_SWITCH_LEFT);
-        //Sright = new AnalogInput(Constants.p_SWITCH_RIGHT);
-        
-
     }
   
 
@@ -62,6 +56,5 @@ public class Turret extends SubsystemBase
 
     @Override
     public void periodic() {
-        vis.update();
     }
 }

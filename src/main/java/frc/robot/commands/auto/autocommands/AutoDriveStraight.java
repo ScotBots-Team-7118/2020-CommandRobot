@@ -3,7 +3,6 @@ package frc.robot.commands.auto.autocommands;
 /* Imports */
 import edu.wpi.first.wpilibj2.command.CommandBase;
 import frc.robot.Constants;
-import frc.robot.RobotContainer;
 import frc.robot.subsystems.DriveTrain;
 
 
@@ -26,10 +25,12 @@ public class AutoDriveStraight extends CommandBase
     /**
      * Constructs a new AutoForward command for a given distance with a DriveTrain
      * requirement.
+     * @param d
+     * @param distance
      */
-    public AutoDriveStraight(double distance)
+    public AutoDriveStraight(DriveTrain d,double distance)
     {
-        _drive = RobotContainer.s_DriveTrain;
+        _drive = d;
         _dist = distance;
         _sign = (_dist == 0) ? 0 : (int) (_dist / Math.abs(_dist));
 

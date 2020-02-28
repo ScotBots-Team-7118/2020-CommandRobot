@@ -7,10 +7,14 @@
 
 package frc.robot;
 
+import edu.wpi.first.wpilibj.smartdashboard.SendableChooser;
+import edu.wpi.first.wpilibj.smartdashboard.SmartDashboard;
 /* Imports */
 import edu.wpi.first.wpilibj2.command.Command;
-
 import frc.robot.subsystems.*;
+import frc.robot.commands.auto.AutoCenterGroup;
+import frc.robot.commands.auto.AutoLeftGroup;
+import frc.robot.commands.auto.AutoRightGroup;
 import frc.robot.commands.macros.*;
 import frc.robot.commands.startgame.*;
 import frc.robot.gyro.Gyroscope;
@@ -25,27 +29,30 @@ import frc.robot.commands.teleop.TeleJoyDrive;
 public class RobotContainer
 {
   /* Class Variable Declaration */
-
+  
   /**
    * Top level commands
    */
-  public final AutoGroup cg_AutoGroup = new AutoGroup();
-  public final TeleopGroup cg_TeleopGroup = new TeleopGroup();
+  //command to choose control combo
+  public TeleopGroup cg_TeleopGroup;
 
-  public Gyroscope Rgyro;
-  
+  //joystick and button container
   private OI oi;
+
+  //send to smart dash to choose auto
+  public SendableChooser<Command> choice;
+  //Gyroscope
+  public Gyroscope Rgyro;
 
   /**
    * Subsystems
    */
-  public static Climber s_Climber = new Climber();
-  public static DriveTrain s_DriveTrain = new DriveTrain();
-  public static Indexer s_Indexer = new Indexer();
-  public static Intake s_Intake = new Intake();
-  public static Shooter s_Shooter = new Shooter();
-  public static Vision s_Vision = new Vision();
-  public static Turret s_Turret = new Turret();
+  public Climber s_Climber = new Climber();
+  public DriveTrain s_DriveTrain = new DriveTrain();
+  public Indexer s_Indexer = new Indexer();
+  public Intake s_Intake = new Intake();
+  public Shooter s_Shooter = new Shooter();
+  public Turret s_Turret = new Turret();
 
   
 
@@ -55,15 +62,28 @@ public class RobotContainer
    */
   public RobotContainer()
   {
+
     /* Class Variable Instantiation */
     oi = Robot.oi;
+    //robot's gyroscope
     Rgyro = new Gyroscope();
+
+    //controls
+    cg_TeleopGroup = new TeleopGroup(s_DriveTrain, oi);
+    
+    //set up auto chooser
+    choice = new SendableChooser<Command>();
+    choice.addOption("Left", new AutoLeftGroup(s_DriveTrain, s_Turret, s_Indexer, s_Shooter));
+    choice.addOption("Right", new AutoRightGroup(s_DriveTrain,s_Turret,s_Indexer,s_Shooter, Rgyro));
+    choice.addOption("Center", new AutoCenterGroup(s_DriveTrain,s_Indexer,s_Shooter,s_Turret));
+    SmartDashboard.putData("Auto", choice);
+    
     // Configure the button bindings
     configureButtonBindings();
-
-    // //set defaults
-    s_DriveTrain.setDefaultCommand(new TeleJoyDrive());
-    s_Turret.setDefaultCommand(new MacroAim(false));
+  
+    // //set default commands for subsystems
+    s_DriveTrain.setDefaultCommand(new TeleJoyDrive(s_DriveTrain, Robot.oi));
+    s_Turret.setDefaultCommand(new MacroAim(s_Turret,false));
   }
 
   /**
@@ -85,13 +105,13 @@ public class RobotContainer
         oi.addButton("btnxRB","Xbox", 6);
         oi.addButton("BTBACK","Xbox", 7);
 
-        oi.getButton("btnxA").whileHeld(/* Run the shooter */ new MacroFire());
-        oi.getButton("btnxX").toggleWhenPressed(/* Intake In */new MacroIntakeF());
-        oi.getButton("btnxY").whenPressed(/* Indexer F */new MacroIndexerF());
-        oi.getButton("btnxB").whenPressed(/* Indexer R */new MacroIndexerR());
-        oi.getButton("btnxRB").whileHeld(/* Climbing up*/new MacroClimbDown());
-        oi.getButton("btnxLB").whileHeld(/* Climbing down */new MacroClimbUp());
-        oi.getButton("BTBACK").toggleWhenPressed(new MacroRunShooter(false));
+        oi.getButton("btnxA").whileHeld(/* Run the shooter */ new MacroFire(s_Indexer));
+        oi.getButton("btnxX").toggleWhenPressed(/* Intake In */new MacroIntakeF(s_Intake));
+        oi.getButton("btnxY").whenPressed(/* Indexer F */new MacroIndexerF(s_Indexer,0));
+        oi.getButton("btnxB").whenPressed(/* Indexer R */new MacroIndexerF(s_Indexer,1));
+        oi.getButton("btnxRB").whileHeld(/* Climbing up*/new MacroClimbDown(s_Climber));
+        oi.getButton("btnxLB").whileHeld(/* Climbing down */new MacroClimbUp(s_Climber));
+        oi.getButton("BTBACK").toggleWhenPressed(new MacroRunShooter(s_Shooter,false));
       break;
 
       // Left and right joystick controllers, assigning numbers on drive station to buttons on the controller
@@ -108,14 +128,14 @@ public class RobotContainer
         oi.addButton("btn4", "joyL", 4);
 
         // Referencing the added buttons when pressed
-        oi.getButton("btn1").whileHeld(/* Run the shooter */ new MacroFire());
-        oi.getButton("btn3").toggleWhenPressed(/* Intake In */new MacroIntakeF());
-        oi.getButton("btn2").toggleWhenPressed(/* Intake Out */ new MacroIntakeR());
-        oi.getButton("btn3").whenPressed(/* Indexer F */new MacroIndexerF());
-        oi.getButton("btn2").whenPressed(/* Indexer R */new MacroIndexerR());
-        oi.getButton("btn4").whileHeld(/* Climbing down !!! need an up/down climb!!*/new MacroClimbDown());
-        oi.getButton("btn5").whileHeld(/* Climbing up -!!! need an up/down climb!! */new MacroClimbUp());
-        oi.getButton("btn4").toggleWhenPressed(new MacroRunShooter(false));
+        oi.getButton("btn1").whileHeld(/* Run the shooter */ new MacroFire(s_Indexer));
+        oi.getButton("btn3").whileHeld(/* Intake In */new MacroIntakeF(s_Intake));
+        oi.getButton("btn2").toggleWhenPressed(/* Intake Out */ new MacroIntakeR(s_Intake));
+        oi.getButton("btn3").whenPressed(/* Indexer F */new MacroIndexerF(s_Indexer, 0));
+        oi.getButton("btn2").whenPressed(/* Indexer R */new MacroIndexerF(s_Indexer,1));
+        oi.getButton("btn4").whileHeld(/* Climbing down !!! need an up/down climb!!*/new MacroClimbDown(s_Climber));
+        oi.getButton("btn5").whileHeld(/* Climbing up -!!! need an up/down climb!! */new MacroClimbUp(s_Climber));
+        oi.getButton("btn4").toggleWhenPressed(new MacroRunShooter(s_Shooter,false));
         
       break;
 
@@ -136,18 +156,18 @@ public class RobotContainer
 
         // Referencing the added buttons when pressed
 
-        oi.getButton("BT3R").toggleWhenPressed(/* Intake In */ new MacroIntakeF());
-        oi.getButton("BT4R").whileHeld(/* Intake Out */ new MacroIntakeR());
+        oi.getButton("BT3R").whileHeld(/* Intake In */ new MacroIntakeF(s_Intake));
+        oi.getButton("BT4R").whileHeld(/* Intake Out */ new MacroIntakeR(s_Intake));
         // //oi.getButton("BT3L").whileHeld(new MacroClimbUp());
         // //oi.getButton("BT2L").whileHeld(new MacroClimbDown());
 
-        oi.getButton("LB").whileHeld(new MacroRotateTurret(-1));
-        oi.getButton("RB").whileHeld(new MacroRotateTurret(1));
-        oi.getButton("BTX").whileHeld(new MacroIndexerF());
-        oi.getButton("BTB").whileHeld(new MacroIndexerR());
-        oi.getButton("BTY").toggleWhenPressed(new MacroAim(false));
-        oi.getButton("BTA").whenPressed(new MacroFire(3));
-        oi.getButton("BTBACK").toggleWhenPressed(new MacroRunShooter(false));
+        oi.getButton("LB").whileHeld(new MacroRotateTurret(s_Turret,-1));
+        oi.getButton("RB").whileHeld(new MacroRotateTurret(s_Turret, 1));
+        oi.getButton("BTX").whileHeld(new MacroIndexerF(s_Indexer,0));
+        oi.getButton("BTB").whileHeld(new MacroIndexerR(s_Indexer,0));
+        oi.getButton("BTY").whileHeld(new MacroIndexerR(s_Indexer,1));
+        oi.getButton("BTA").whileHeld(new MacroFire(s_Indexer));//MacroIndexerF(s_Indexer, 1));
+        oi.getButton("BTBACK").toggleWhenPressed(new MacroRunShooter(s_Shooter,false));
         break;
 
 
@@ -181,6 +201,6 @@ public class RobotContainer
    */
   public Command getAutonomousCommand()
   {
-    return cg_AutoGroup;
+    return choice.getSelected();
   }
 }

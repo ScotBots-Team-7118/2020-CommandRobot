@@ -21,25 +21,28 @@ public class MacroAim extends CommandBase
 
     /**
      * Constructs a new MacroRotateTurret command with a Turret requirement.
-     * @param direction of rotation.
      * direction = 1 for rightward rotation, direction = -1 for leftward rotation.
+     * @param t
+     * @param isAuto
      */
-    public MacroAim(boolean isAuto)
+    public MacroAim(Turret t, boolean isAuto)
     {
         auto = isAuto;   
-        _turret = RobotContainer.s_Turret;
+        _turret = t;
         addRequirements(_turret);    
     }
 
     @Override
     public void execute()
     {
+        double error = Robot.rC.s_Shooter.getError();
         // Should stop the turret upon terminating the command
         // Tests needed to confirm the correct direction of the shooter
-       if(auto && Math.abs(_turret.vis.getError()) < Constants.VIS_DEADZONE){
+       if(auto && Math.abs(error) < Constants.VIS_DEADZONE){
            cancel();
        }
-        _turret.pid.updateVis(_turret.vis.getError());
-        _turret.set(_turret.pid.getTurretSpeed());
+       
+        _turret.p.updateVis(error);
+        _turret.set(_turret.p.getTurretSpeed());
     }
 }

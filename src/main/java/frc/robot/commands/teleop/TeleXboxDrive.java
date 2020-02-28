@@ -21,13 +21,15 @@ public class TeleXboxDrive extends CommandBase
     OI _oi;
 
     /**
-     * Constructs a new TeleXboxDrive command with a DriveTrain requirement.
+     * Constructs a new TeleXboxDrive command with a DriveTrain  and OI requirement.
+     * @param d
+     * @param oi
      */
-    public TeleXboxDrive()
+    public TeleXboxDrive(DriveTrain d, OI oi)
     {
         // Retrieve drive subsytem.
-        _drive = RobotContainer.s_DriveTrain;
-        _oi = Robot.oi;
+        _drive = d;
+        _oi = oi;
 
         // Allocate to DriveTrain subsystem.
         addRequirements(_drive);

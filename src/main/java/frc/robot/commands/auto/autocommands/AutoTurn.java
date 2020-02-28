@@ -22,11 +22,16 @@ public class AutoTurn extends CommandBase
     /**
      * Constructs a new AutoTurn command for a given angle of interval (-180, 180] with a DriveTrain requirement.
      * If the given angle is not of this interval, the program will convert it to that interval.
+     * @param d
+     * @param angle
+     * @param g
      */
-    public AutoTurn(double angle)
+    public AutoTurn(DriveTrain d,double angle, Gyroscope g)
     {
-        _drive = RobotContainer.s_DriveTrain;
-        _gyro = Robot.rC.Rgyro;
+        
+        _drive = d;
+    
+        _gyro = g;
         _gyro.reset();
 
         // Scales the given angle to the interval (-180, 180]
@@ -48,14 +53,14 @@ public class AutoTurn extends CommandBase
         // If the robot is too far left, turn to the right at a decreasing speed
         if (_gyro.getNormalizedHeading() < _angle - Constants.TURN_DEADZONE)
         {
-            _drive.set(-(_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
-                            (_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED);
+            _drive.set((_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
+                            -(_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED);
         }
 
         // If the robot is too far right, turn to the left at a decreasing speed
         else if (_gyro.getNormalizedHeading() > _angle + Constants.TURN_DEADZONE)
         {
-            _drive.set((_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
+            _drive.set(-(_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
                             (_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED);
         }
 

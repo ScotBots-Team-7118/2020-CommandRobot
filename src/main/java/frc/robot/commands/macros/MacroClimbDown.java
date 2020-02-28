@@ -21,9 +21,9 @@ public class MacroClimbDown extends CommandBase
     /**
      * Constructs a new MacroClimbDown command with a Climber requirement.
      */
-    public MacroClimbDown()
+    public MacroClimbDown(Climber c)
     {
-        _climber = RobotContainer.s_Climber;
+        _climber = c;
         addRequirements(_climber);
     }
 

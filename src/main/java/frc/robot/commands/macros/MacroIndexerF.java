@@ -13,29 +13,31 @@ import frc.robot.subsystems.Indexer;
  */
 public class MacroIndexerF extends CommandBase
 {
-    /* TODO: Untested Code */
 
     /* Instance Variable Declaration */
     Indexer _indexer;
+    int runUpper;
     
     /**
      * Constructs a new MacroIndexerF command with Indexer requirement.
+     * @param id
+     * @param second
      */
-    public MacroIndexerF()
+    public MacroIndexerF(Indexer id, int second)
     {
-       _indexer =  RobotContainer.s_Indexer;
+       _indexer = id;
        addRequirements(_indexer);
+       runUpper = second;
     }
 
     @Override
     public void execute()
     {
-        Testing.pingMe("RunningF");
-        _indexer.set(Constants.INDEX_VELOCITY_F);
+        _indexer.set(Constants.INDEX_VELOCITY_F, runUpper);
     }
 
     @Override
     public void end(boolean interrupted) {
-        _indexer.set(0);
+        _indexer.set(0, 3);
     }
 }
