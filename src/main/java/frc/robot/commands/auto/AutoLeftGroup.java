@@ -23,7 +23,6 @@ public class AutoLeftGroup extends SequentialCommandGroup
      */
     public AutoLeftGroup()
     {
-        // Place the robot in line with the opponents loading bay, facing the target
         addCommands(new AutoDriveStraight(Constants.AUTO_LEFT_DIST));
         addCommands(new MacroRotateTurret(Constants.AUTO_LEFT_TURRET_ANGLE)); //Rotate turret to general position so that vision can align it 
         addCommands(new AutoShoot());

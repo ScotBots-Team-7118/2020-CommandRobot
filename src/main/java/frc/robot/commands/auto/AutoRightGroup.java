@@ -23,7 +23,6 @@ public class AutoRightGroup extends SequentialCommandGroup
      */
     public AutoRightGroup()
     {
-        // Place the robot on wall facing in toward the field 
         // Robot will shoot from four feet behind initiation line, facing it
         addCommands(new AutoDriveStraight(Constants.AUTO_RIGHT_DIST[0]));
         addCommands(new AutoTurn(Constants.AUTO_RIGHT_ANGLE));
