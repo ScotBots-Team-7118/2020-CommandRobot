@@ -125,7 +125,7 @@ public final class Constants {
         public static double INDEX_VELOCITY_R = -1;
         public static double SHOOT_TIME = 0.5;
         public static double WAIT_TIME = 1.5;
-        public static double SHOOT_SPEED = 0.2;
+        public static double SHOOT_SPEED = 1;
 
         // Power Cell Capacity of the Indexer
         public static int PC_CAPACITY = 4;
@@ -155,17 +155,11 @@ public final class Constants {
         /* Turret */
         // Turret Rotating Speed
         public static double TURRET_SPEED = 1;
-
+        public static double TURRET_P = 0.2;
         public static double TURRET_PZONE = 20;
         public static double VIS_DEADZONE = 0.25;
 
         // Variables Representing Ideal Inputs for MacroRotateTurret
         public static int TUR_LEFT = -1;
         public static int TUR_RIGHT = 1;
-
-        /* Vision */
-        // Ultrasonic (AnalogOutput) Channel #s
-
-        // TODO: What is this for, and can we get rid of it?
-        // public static double B_ROTATION_SPD = 1;
 }

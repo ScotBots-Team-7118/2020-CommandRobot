@@ -17,6 +17,9 @@ public class AutoShoot extends SequentialCommandGroup
 
     /**
      * Constructs a new AutoShooter command with a Shooter requirement.
+     * @param id
+     * @param s
+     * @param t
      */
     public AutoShoot(Indexer id, Shooter s, Turret t)
     {

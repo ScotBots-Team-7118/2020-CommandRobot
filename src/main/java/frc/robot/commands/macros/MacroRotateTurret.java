@@ -20,19 +20,30 @@ public class MacroRotateTurret extends CommandBase
     int _sign = 0;
     Timer time;
     double Howlong;
+    
     /**
      * Constructs a new MacroRotateTurret command with a Turret requirement.
-     * @param direction of rotation.
      * direction = 1 for rightward rotation, direction = -1 for leftward rotation.
+     * @param t
+     * @param direction
      */
     public MacroRotateTurret(Turret t,int direction)
     {
+        //assign pointer and direction of rotation
         _turret = t;
         _sign = direction / Math.abs(direction);
 
         addRequirements(_turret);    
     }
 
+    /**
+     * Constructs a new MacroRotateTurret command with a Turret requirement.
+     * direction = 1 for rightward rotation, direction = -1 for leftward rotation.
+     * time in seconds for the turret to move
+     * @param t
+     * @param direction
+     * @param ti
+     */
     public MacroRotateTurret(Turret t, int direction, double ti){
         _turret = t;
         _sign = direction / Math.abs(direction);
@@ -46,8 +57,6 @@ public class MacroRotateTurret extends CommandBase
     @Override
     public void execute()
     {
-        // TODO: Should stop the turret upon terminating the command
-        // TODO: Tests needed to confirm the correct direction of the shooter
         _turret.set(_sign);
 
         if(time.get() >= Howlong){

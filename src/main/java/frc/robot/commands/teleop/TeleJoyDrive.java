@@ -47,8 +47,7 @@ public class TeleJoyDrive extends CommandBase
      */
     public double[] calculateSpeeds()
     {
-        //Testing.pingME("CalcSpeeds");
-        // TODO: Clean this up a bit if possible
+        
         double[] toReturn = new double[2];
         double axisL = _oi.getController("JoyL").getRawAxis(1);
         double axisR = _oi.getController("JoyR").getRawAxis(1);

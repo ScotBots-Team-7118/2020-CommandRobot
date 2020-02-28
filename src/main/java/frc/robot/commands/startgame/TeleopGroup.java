@@ -13,12 +13,13 @@ import frc.robot.subsystems.DriveTrain;
  */
 public class TeleopGroup extends ParallelCommandGroup
 {
-    /* TODO: Finish implementing me! */
     // Add functionality for this year's controls configuration
     // List & schedule the commands to be run in teleop
 
     /**
      * Constructs a new TeleopGroup.
+     * @param d
+     * @param oi
      */
     public TeleopGroup(DriveTrain d, OI oi)
     {
@@ -27,8 +28,9 @@ public class TeleopGroup extends ParallelCommandGroup
 
     /**
      * Configure the teleop commands based on the chosen controls configuration.
-     * 
-     * TODO: Why doesn't this use the controls configuration from Constants?
+     * @param d
+     * @param oi
+     * @param type
      */
     public void setControls(DriveTrain d, OI oi,Constants.ControlsConfig type)
     {
@@ -44,7 +46,6 @@ public class TeleopGroup extends ParallelCommandGroup
                 break;
 
             case DUALDRIVERS:
-                // TODO: Implement me!
                 addCommands(new TeleJoyDrive(d, oi));
                 break;
             

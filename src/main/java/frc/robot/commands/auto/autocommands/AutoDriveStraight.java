@@ -25,6 +25,8 @@ public class AutoDriveStraight extends CommandBase
     /**
      * Constructs a new AutoForward command for a given distance with a DriveTrain
      * requirement.
+     * @param d
+     * @param distance
      */
     public AutoDriveStraight(DriveTrain d,double distance)
     {

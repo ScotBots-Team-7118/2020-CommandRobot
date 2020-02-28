@@ -18,13 +18,14 @@ import frc.robot.subsystems.Turret;
  */
 public class AutoRightGroup extends SequentialCommandGroup
 {
-    /* TODO: Finish implementing me! */
-
-    /* Instance Variable Declaration */
-    
 
     /**
      * Constructs a new AutoRightGroup command group.
+     * @param d
+     * @param t
+     * @param id
+     * @param s
+     * @param g
      */
     public AutoRightGroup(DriveTrain d, Turret t, Indexer id , Shooter s, Gyroscope g)
     {

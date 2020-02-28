@@ -13,8 +13,6 @@ import frc.robot.subsystems.Intake;
  */
 public class MacroIntakeF extends CommandBase
 {
-    /* TODO: Untested Code */
-
     /* Instance Variable Declaration */
     Intake _intake;
     

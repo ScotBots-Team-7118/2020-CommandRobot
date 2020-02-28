@@ -54,11 +54,9 @@ public class Robot extends TimedRobot
   @Override
   public void robotPeriodic()
   {
-    //tst.PrintMe();
+    //put gyro and velocity values to the dashboard
     SmartDashboard.putNumber("Gyro Angle", rC.Rgyro.getNormalizedHeading());
     SmartDashboard.putNumber("Shooter Velocity", rC.s_Shooter.getRotVelocity());
-    //System.out.println("gyro is "+rC.Rgyro.getNormalizedHeading());
-    // TODO: Can we maybe not use robotPeriodic? This runs when the robot is disabled too, which could be unsafe.
     
   }
 
@@ -77,6 +75,7 @@ public class Robot extends TimedRobot
   @Override
   public void autonomousInit()
   {
+      //schedule auto command
       cg_AutoCommand = rC.getAutonomousCommand();
       cg_AutoCommand.schedule();
   }
@@ -93,7 +92,6 @@ public class Robot extends TimedRobot
   @Override
   public void teleopInit()
   {
-    // TODO: Pretty sure this is unnecessary but we should double-check
     try
     {
       cg_AutoCommand.cancel();
@@ -103,6 +101,7 @@ public class Robot extends TimedRobot
       System.out.println("Cannot cancel AutoGroup commands: none are scheduled.");
     }
 
+    //during teleop phase, schedule this command to use controls
     cg_TeleopGroup = rC.getTeleopCommand();
     cg_TeleopGroup.schedule();
   }

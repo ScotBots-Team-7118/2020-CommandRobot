@@ -21,7 +21,9 @@ public class TeleXboxDrive extends CommandBase
     OI _oi;
 
     /**
-     * Constructs a new TeleXboxDrive command with a DriveTrain requirement.
+     * Constructs a new TeleXboxDrive command with a DriveTrain  and OI requirement.
+     * @param d
+     * @param oi
      */
     public TeleXboxDrive(DriveTrain d, OI oi)
     {

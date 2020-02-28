@@ -15,8 +15,9 @@ public class MacroRunShooter extends CommandBase
 {
     /* Instance Variable Declaration */
     Shooter _shooter;
-    PID pid;
+    Proportional p;
     boolean isAuto;
+    boolean done;
     /**
      * Constructs a new MacroRunShooter command with a Shooter requirement.
      */
@@ -25,8 +26,9 @@ public class MacroRunShooter extends CommandBase
         //System.out.println("Running Shooter");
         this.isAuto = isAuto;
         _shooter = s;
-        pid = new PID(Constants.SHOOTER_P);
+        p = new Proportional(Constants.SHOOTER_P);
         addRequirements(_shooter);
+        done = false;
     }
 
     @Override
@@ -35,21 +37,31 @@ public class MacroRunShooter extends CommandBase
 
         //W contains the required velocity of the shooter wheel as calculated by vision data
         double w =  Trajectory.calcVelocity(_shooter.getDistance())/Constants.DIST_PER_ROTATION;
-        
-       // Testing.pingMe("w is ",w+"");
-        
        
         //v contains the needed motor input to approach the given W value
-        double v = pid.getShooterSpeed(_shooter.getRotVelocity(), w)/Constants.MAX_DIST;
-        //Testing.pingMe("v is ",v+"");
-        //System.out.println(v+" to motor");
+        double v = p.getShooterSpeed(_shooter.getRotVelocity(), w)/Constants.MAX_DIST;
        
         //set shooter to calculated input
         _shooter.set(v);
         
-        //cancel this command if during auto, you reach the need speed.
+        //cancel this command if during auto, you reach the needed speed.
         if(isAuto && Math.abs(_shooter.getRotVelocity() - w) < 0.25){
-            cancel();
+            done = true;
+        }
+    }
+
+    //end command without interrupt
+    @Override
+    public boolean isFinished() {
+     
+        return done;
+    }
+
+    //test for interupt to stop motor
+    @Override
+    public void end(boolean interrupted) {
+        if(interrupted){
+            _shooter.set(0);
         }
     }
 }

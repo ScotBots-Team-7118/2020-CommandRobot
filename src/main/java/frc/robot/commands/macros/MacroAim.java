@@ -21,8 +21,9 @@ public class MacroAim extends CommandBase
 
     /**
      * Constructs a new MacroRotateTurret command with a Turret requirement.
-     * @param direction of rotation.
      * direction = 1 for rightward rotation, direction = -1 for leftward rotation.
+     * @param t
+     * @param isAuto
      */
     public MacroAim(Turret t, boolean isAuto)
     {
@@ -41,7 +42,7 @@ public class MacroAim extends CommandBase
            cancel();
        }
        
-        _turret.pid.updateVis(error);
-        _turret.set(_turret.pid.getTurretSpeed());
+        _turret.p.updateVis(error);
+        _turret.set(_turret.p.getTurretSpeed());
     }
 }

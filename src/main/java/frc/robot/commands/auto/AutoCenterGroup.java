@@ -16,13 +16,13 @@ import frc.robot.Constants;
  */
 public class AutoCenterGroup extends SequentialCommandGroup
 {
-    /* TODO: Finish implementing me! */
-
-    /* Instance Variable Declaration */
-
 
     /**
      * Constructs a new AutoCenterGroup command group.
+     * @param d
+     * @param id
+     * @param s
+     * @param t
      */
     public AutoCenterGroup(DriveTrain d, Indexer id, Shooter s, Turret t)
     {

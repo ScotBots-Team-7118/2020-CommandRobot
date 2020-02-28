@@ -23,27 +23,30 @@ public class Shooter extends SubsystemBase
     TalonSRX talSH;
     Encoder enc;
 
+    //For network table to pi
     NetworkTableEntry valid;
     NetworkTableEntry entryX;
-  
     NetworkTableEntry distance;
-    NetworkTableEntry heading;
     /**
      * Constructs the Shooter subsystem.
      */
 
+     //status variables to give current degree of the shooter and its velocity in rotations/sec
     double currentDeg;
     double velocity;
+
     public Shooter()
     {
+        //configure talon with encoder
         talSH = new TalonSRX(Constants.p_TAL_SH);
         talSH.configSelectedFeedbackSensor(FeedbackDevice.QuadEncoder);
+        
+        //declare network table and fields
         NetworkTable table = NetworkTableInstance.getDefault().getTable("GripVisionData");
         NetworkTable rectangleTable = table.getSubTable("Grip is valid");
         valid = rectangleTable.getEntry("Valid"); //boolean
         entryX = table.getEntry("X"); //double
         distance = table.getEntry("Distance"); //double
-        //heading = table.getEntry("Heading"); //double
     }
 
     /**
@@ -51,37 +54,51 @@ public class Shooter extends SubsystemBase
      * @param speed
      */
     public void set(double speed) {
-        // TODO: This implementation is currently being used for bugfixing with the ctre mag encoders
-        //System.out.println("Enc val = " + currentDeg);
-        //System.out.println(velocity);
-        // TODO: If the talon is inverted for the shooter, we should really just be inverting the talon
         talSH.set(ControlMode.PercentOutput, speed);
     }
 
+    /**
+     * Return current angle of the motor
+     * @return
+     */
     public double getDeg(){
         return currentDeg;
     }
 
+    /**
+     * return current angular velocity of the wheel
+     * @return
+     */
     public double getRotVelocity(){
         return velocity;
     }
 
+    /**
+     * return current command to talon
+     * @return
+     */
     public double getCMD(){
         return talSH.getMotorOutputPercent();
     }
 
-    @Override
-    public void periodic() {
-        // currentDeg = talSH.getSelectedSensorPosition()*360/Constants.ENCODER_REVP;
-        // velocity = talSH.getSelectedSensorVelocity()/Constants.ENCODER_REVP;
-    }
+    // @Override
+    // public void periodic() {
+    //     // currentDeg = talSH.getSelectedSensorPosition()*360/Constants.ENCODER_REVP;
+    //     // velocity = talSH.getSelectedSensorVelocity()/Constants.ENCODER_REVP;
+    // }
 
-      //is x valid
+      /**
+       * test if entry x is a valid value
+       * @return
+       */
       public boolean getValid(){
         return valid.getBoolean(false);
     }
 
-    //pixel value from vision
+    /**
+     * return pixel value from vision
+     * @return
+     */
     public double getX(){
         if(getValid()){
             return entryX.getDouble(0);
@@ -91,22 +108,19 @@ public class Shooter extends SubsystemBase
         }
     }
     
-    //distance from target
+    /**
+     * distance from target
+     * @return
+     */
     public double getDistance(){
         //Testing.toTable("Vis dist", distance.getDouble(0)+"");
         return 30;//distance.getDouble(0);
     }
 
-    //gyroscope heading
-    public double getHeading(){
-        //Testing.toTable("Vis dist", heading.getDouble(0)+"");
-       return 0;//heading.getDouble(0);
-    
-    }
-
-        
-        
-
+    /**
+     * Return error to target
+     * @return
+     */
     public double getError(){
         //derived from trig (ask kayla)
         return 0.43 * (getX() - 80 /* center 0 */) - 1.46;
