@@ -34,12 +34,7 @@ public class RobotContainer
    * Top level commands
    */
   public TeleopGroup cg_TeleopGroup = new TeleopGroup();
-  public AutoCenterGroup cg_AutoCenter;
-  public AutoLeftGroup cg_AutoLeftGroup;
-  public AutoRightGroup cg_AutoRightGroup;
 
-  
-  
   private OI oi;
   public SendableChooser<Command> choice;
 
@@ -68,17 +63,13 @@ public class RobotContainer
     Rgyro = new Gyroscope();
   
     oi = Robot.oi;
-
-    cg_AutoCenter = new AutoCenterGroup();
-    cg_AutoLeftGroup = new AutoLeftGroup();
-    cg_AutoRightGroup = new AutoRightGroup();
     
     // Configure the button bindings
     configureButtonBindings();
     choice = new SendableChooser<Command>();
-    choice.addOption("Left", cg_AutoLeftGroup);
-    choice.addOption("Right", cg_AutoRightGroup);
-    choice.addOption("Center", cg_AutoCenter);
+    choice.addOption("Left", new AutoLeftGroup());
+    choice.addOption("Right", new AutoRightGroup());
+    choice.addOption("Center", new AutoCenterGroup());
 
     // //set defaults
     s_DriveTrain.setDefaultCommand(new TeleJoyDrive());
