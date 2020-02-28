@@ -25,7 +25,7 @@ public class TeleJoyDrive extends CommandBase
     public TeleJoyDrive()
     {
         // Retrieve drivetrain subsystem.
-        _drive = RobotContainer.s_DriveTrain;
+        _drive = Robot.rC.s_DriveTrain;
         _oi = Robot.oi;
 
         // Allocate to DriveTrain subsystem.

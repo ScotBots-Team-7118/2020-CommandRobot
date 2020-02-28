@@ -21,10 +21,10 @@ public class MacroIntakeR extends CommandBase
     /**
      * Constructs a new MacroIntakeR command with an Intake requirement.
      */
-    public MacroIntakeR()
+    public MacroIntakeR(Intake in)
     {
         // Assigns the intake to RobotContainer.s_Intake
-        _intake = RobotContainer.s_Intake;
+        _intake = in;
         addRequirements(_intake);
     }
 

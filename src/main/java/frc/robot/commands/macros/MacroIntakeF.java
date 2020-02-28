@@ -21,9 +21,9 @@ public class MacroIntakeF extends CommandBase
     /**
      * Constructs a new MacroIntakeF command with an Intake requirement.
      */
-    public MacroIntakeF()
+    public MacroIntakeF(Intake in)
     {
-        _intake = RobotContainer.s_Intake;
+        _intake = in;
         addRequirements(_intake);
     }
 

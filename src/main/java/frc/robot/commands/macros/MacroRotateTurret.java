@@ -24,9 +24,9 @@ public class MacroRotateTurret extends CommandBase
      * @param direction of rotation.
      * direction = 1 for rightward rotation, direction = -1 for leftward rotation.
      */
-    public MacroRotateTurret(int direction)
+    public MacroRotateTurret(Turret t,int direction)
     {
-        _turret = RobotContainer.s_Turret;
+        _turret = t;
         _sign = direction / Math.abs(direction);
 
         addRequirements(_turret);    

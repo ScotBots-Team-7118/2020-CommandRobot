@@ -21,9 +21,9 @@ public class MacroIndexerF extends CommandBase
     /**
      * Constructs a new MacroIndexerF command with Indexer requirement.
      */
-    public MacroIndexerF()
+    public MacroIndexerF(Indexer id)
     {
-       _indexer =  RobotContainer.s_Indexer;
+       _indexer = id;
        addRequirements(_indexer);
     }
 

@@ -12,7 +12,7 @@ import edu.wpi.first.wpilibj2.command.SubsystemBase;
 
 
 import frc.robot.PID;
-import frc.robot.vision.VisionHandler;
+import frc.robot.Robot;
 import frc.robot.Constants;
 
 /**
@@ -23,7 +23,6 @@ public class Turret extends SubsystemBase
     /* Class Variable Declaration */
     public TalonSRX talTUR;
     public PID pid;
-    public VisionHandler vis;
     //AnalogInput Sleft, Sright;
 
 
@@ -36,7 +35,6 @@ public class Turret extends SubsystemBase
     public Turret()
     {
         pid = new PID(0/*,0,0, true, false, false*/); //gimme some constatnts
-        vis = new VisionHandler();
         talTUR = new TalonSRX(Constants.p_TAL_TUR);
 
         //TODO check for forward
@@ -61,6 +59,5 @@ public class Turret extends SubsystemBase
 
     @Override
     public void periodic() {
-        vis.update();
     }
 }

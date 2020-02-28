@@ -20,11 +20,11 @@ public class MacroRunShooter extends CommandBase
     /**
      * Constructs a new MacroRunShooter command with a Shooter requirement.
      */
-    public MacroRunShooter(boolean isAuto)
+    public MacroRunShooter(Shooter s,boolean isAuto)
     {
         //System.out.println("Running Shooter");
         this.isAuto = isAuto;
-        _shooter = RobotContainer.s_Shooter;
+        _shooter = s;
         pid = new PID(Constants.SHOOTER_P);
         addRequirements(_shooter);
     }
@@ -32,9 +32,9 @@ public class MacroRunShooter extends CommandBase
     @Override
     public void execute()
     {
-        
+
         //W contains the required velocity of the shooter wheel as calculated by vision data
-        double w =  Trajectory.calcVelocity(Networktable.getDistance())/Constants.DIST_PER_ROTATION;
+        double w =  Trajectory.calcVelocity(_shooter.getDistance())/Constants.DIST_PER_ROTATION;
         
        // Testing.pingMe("w is ",w+"");
         

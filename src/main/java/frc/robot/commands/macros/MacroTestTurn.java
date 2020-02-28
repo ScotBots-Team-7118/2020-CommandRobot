@@ -20,9 +20,9 @@ public class MacroTestTurn extends CommandBase
     /**
      * Constructs a new MacroTestTurn command with a Turret requirement.
      */
-    public MacroTestTurn()
+    public MacroTestTurn(Turret t)
     {
-        _turret = RobotContainer.s_Turret;
+        _turret = t;
         addRequirements(_turret);    
     }
 

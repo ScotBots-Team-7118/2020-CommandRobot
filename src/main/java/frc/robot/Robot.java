@@ -23,6 +23,7 @@ public class Robot extends TimedRobot
   /* Class Variable Declaration */
   private Command cg_AutoCommand;
   private Command cg_TeleopGroup;
+  
   public static OI oi;
   public static RobotContainer rC;
 
@@ -37,6 +38,7 @@ public class Robot extends TimedRobot
     // autonomous chooser on the dashboard.
     oi = new OI();
     rC = new RobotContainer();
+
     //tst = new Testing(false);
 
   }
@@ -52,8 +54,8 @@ public class Robot extends TimedRobot
   public void robotPeriodic()
   {
     //tst.PrintMe();
-    Testing.toTable("Gyro",  rC.Rgyro.getNormalizedHeading()+"");
-    System.out.println("gyro is "+rC.Rgyro.getNormalizedHeading());
+
+    //System.out.println("gyro is "+rC.Rgyro.getNormalizedHeading());
     // TODO: Can we maybe not use robotPeriodic? This runs when the robot is disabled too, which could be unsafe.
     
   }

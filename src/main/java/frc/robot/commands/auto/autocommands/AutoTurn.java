@@ -23,10 +23,11 @@ public class AutoTurn extends CommandBase
      * Constructs a new AutoTurn command for a given angle of interval (-180, 180] with a DriveTrain requirement.
      * If the given angle is not of this interval, the program will convert it to that interval.
      */
-    public AutoTurn(double angle)
+    public AutoTurn(DriveTrain d,double angle)
     {
         
-        _drive = RobotContainer.s_DriveTrain;
+        _drive = d;
+    
         _gyro = Robot.rC.Rgyro;
         _gyro.reset();
 

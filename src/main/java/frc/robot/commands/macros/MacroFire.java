@@ -17,15 +17,15 @@ public class MacroFire extends CommandBase{
     int numCount;
     int intnumber;
 
-    public MacroFire(int number){
-        _index = new Indexer();
+    public MacroFire(Indexer id, int number){
+        _index = id;
         addRequirements(_index);
         isNum = true;
         intnumber = number;
     }
 
-    public MacroFire(){
-        _index = new Indexer();
+    public MacroFire(Indexer id){
+        _index = id;
         addRequirements(_index);
         isNum = false;
     }
