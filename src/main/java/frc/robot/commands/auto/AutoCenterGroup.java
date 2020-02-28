@@ -22,7 +22,7 @@ public class AutoCenterGroup extends SequentialCommandGroup
      */
     public AutoCenterGroup()
     {
-        // Place robot directly in front of the target zone facing it
+        // Place robot directly in front of the target zone facing target
         // Shoot from four feet behind the initiation line 
         addCommands(new AutoDriveStraight(Constants.AUTO_CENTER_DIST));
         addCommands(new AutoShoot());

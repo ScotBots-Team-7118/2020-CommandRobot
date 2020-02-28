@@ -109,7 +109,7 @@ public final class Constants {
 
         /* Drive Train */
         // Distance traveled per rotation of the wheel
-        public static double DIST_PER_ROTATION = 0.5;
+        public static double DIST_PER_ROTATION = 1.577341667;
 
         public static double RAMP_TIME = 0.4;
 
