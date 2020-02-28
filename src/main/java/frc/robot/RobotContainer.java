@@ -29,16 +29,16 @@ import frc.robot.commands.teleop.TeleJoyDrive;
 public class RobotContainer
 {
   /* Class Variable Declaration */
-
+  public Gyroscope Rgyro;
   /**
    * Top level commands
    */
-  public final TeleopGroup cg_TeleopGroup = new TeleopGroup();
-  public final AutoCenterGroup cg_AutoCenter = new AutoCenterGroup();
-  public final AutoLeftGroup cg_AutoLeftGroup = new AutoLeftGroup();
-  public final AutoRightGroup cg_AutoRightGroup = new AutoRightGroup();
+  public TeleopGroup cg_TeleopGroup = new TeleopGroup();
+  public AutoCenterGroup cg_AutoCenter;
+  public AutoLeftGroup cg_AutoLeftGroup;
+  public AutoRightGroup cg_AutoRightGroup;
 
-  public Gyroscope Rgyro;
+  
   
   private OI oi;
   public SendableChooser<Command> choice;
@@ -64,12 +64,18 @@ public class RobotContainer
   {
 
     /* Class Variable Instantiation */
-    choice = new SendableChooser<Command>();
-    oi = Robot.oi;
+    
     Rgyro = new Gyroscope();
+  
+    oi = Robot.oi;
+
+    cg_AutoCenter = new AutoCenterGroup();
+    cg_AutoLeftGroup = new AutoLeftGroup();
+    cg_AutoRightGroup = new AutoRightGroup();
+    
     // Configure the button bindings
     configureButtonBindings();
-
+    choice = new SendableChooser<Command>();
     choice.addOption("Left", cg_AutoLeftGroup);
     choice.addOption("Right", cg_AutoRightGroup);
     choice.addOption("Center", cg_AutoCenter);

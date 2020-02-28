@@ -21,11 +21,10 @@ import edu.wpi.first.wpilibj2.command.CommandScheduler;
 public class Robot extends TimedRobot
 {
   /* Class Variable Declaration */
-  private Command cg_AutoGroup;
+  private Command cg_AutoCommand;
   private Command cg_TeleopGroup;
   public static OI oi;
   public static RobotContainer rC;
-  public Testing tst;
 
   /**
    * This function is run when the robot is first started up and should be used for any
@@ -53,7 +52,8 @@ public class Robot extends TimedRobot
   public void robotPeriodic()
   {
     //tst.PrintMe();
-
+    Testing.toTable("Gyro",  rC.Rgyro.getNormalizedHeading()+"");
+    System.out.println("gyro is "+rC.Rgyro.getNormalizedHeading());
     // TODO: Can we maybe not use robotPeriodic? This runs when the robot is disabled too, which could be unsafe.
     
   }
@@ -73,8 +73,8 @@ public class Robot extends TimedRobot
   @Override
   public void autonomousInit()
   {
-      cg_AutoGroup = rC.getAutonomousCommand();
-      cg_AutoGroup.schedule();
+      cg_AutoCommand = rC.getAutonomousCommand();
+      cg_AutoCommand.schedule();
   }
 
   /**
@@ -92,7 +92,7 @@ public class Robot extends TimedRobot
     // TODO: Pretty sure this is unnecessary but we should double-check
     try
     {
-      cg_AutoGroup.cancel();
+      cg_AutoCommand.cancel();
     }
     catch (NullPointerException npe)
     {

@@ -25,6 +25,7 @@ public class AutoTurn extends CommandBase
      */
     public AutoTurn(double angle)
     {
+        
         _drive = RobotContainer.s_DriveTrain;
         _gyro = Robot.rC.Rgyro;
         _gyro.reset();
@@ -48,14 +49,14 @@ public class AutoTurn extends CommandBase
         // If the robot is too far left, turn to the right at a decreasing speed
         if (_gyro.getNormalizedHeading() < _angle - Constants.TURN_DEADZONE)
         {
-            _drive.set(-(_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
-                            (_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED);
+            _drive.set((_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
+                            -(_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED);
         }
 
         // If the robot is too far right, turn to the left at a decreasing speed
         else if (_gyro.getNormalizedHeading() > _angle + Constants.TURN_DEADZONE)
         {
-            _drive.set((_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
+            _drive.set(-(_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED,
                             (_gyro.getNormalizedHeading() / _angle) * Constants.FULL_TURN_SPEED);
         }
 
