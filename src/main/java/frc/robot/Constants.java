@@ -162,4 +162,7 @@ public final class Constants {
         // Variables Representing Ideal Inputs for MacroRotateTurret
         public static int TUR_LEFT = -1;
         public static int TUR_RIGHT = 1;
+        
+        //Variable Representing the Meaning of Life
+        public final int meaningOfLife = 42;
 }
